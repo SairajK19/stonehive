@@ -13,16 +13,12 @@ function App() {
       icon: "fluent:timeline-20-filled",
     },
     {
-      name: "activities",
-      link: "/activities",
-      icon: "fluent:timeline-20-filled",
-    },
-    {
-      name: "activities",
-      link: "/activities",
-      icon: "fluent:timeline-20-filled",
+      name: "budget",
+      link: "/budget",
+      icon: "ic:baseline-analytics",
     },
   ];
+
   return (
     <div className="App">
       <Sidebar items={items} />

@@ -15,7 +15,10 @@ export default function Sidebar({ items }) {
       <div className={styles.items}>
         {items.map((item, index) => {
           return (
-            <NavLink to={item.link} key={index}>
+            <NavLink
+              to={item.link}
+              key={index}
+            >
               <div className={styles.items_each}>
                 <Icon icon={item.icon} width="30px" />
                 <p>{item.name}</p>
@@ -28,7 +31,10 @@ export default function Sidebar({ items }) {
         <img src={hiveImg} alt="" />
       </div>
       <div className={styles.item_setting}>
-        <NavLink to="/settings">
+        <NavLink
+          to="/settings"
+          className={(isActive) => (isActive ? "active_item" : null)}
+        >
           <div className={styles.items_each}>
             <Icon icon="eva:settings-fill" width="30px" />
             <p>settings</p>
