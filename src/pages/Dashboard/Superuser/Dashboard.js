@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function dashboard() {
-    return (
-        <div>
-            
-        </div>
-    )
+export function SuperUser() {
+  return (
+    <div>
+      <h1>SuperUser</h1>
+    </div>
+  );
+}
+
+export default function Dashboard() {
+  return <SuperUser />;
 }
