@@ -5,13 +5,14 @@
   align-items: center;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  align-items: center;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-gap: 20px;
   background-color: $primary-color;
   width: $sidebar-width;
   padding: 20px 0;
-  height: auto;
+  height: 100vh;
   overflow-y: auto;
   .logo {
     @include FlexCenter();
@@ -24,6 +25,11 @@
       font-size: 1.2em;
       font-weight: 400;
     }
+  }
+
+  .items {
+    display: grid;
+    grid-gap: 10px;
   }
 
   .items,
