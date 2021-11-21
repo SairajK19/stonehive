@@ -1,8 +1,31 @@
 import "./styles/app.scss";
+import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
+  let items = [
+    {
+      name: "dashboard",
+      link: "/dashboard",
+      icon: "bx:bxs-dashboard",
+    },
+    {
+      name: "activities",
+      link: "/activities",
+      icon: "fluent:timeline-20-filled",
+    },
+    {
+      name: "activities",
+      link: "/activities",
+      icon: "fluent:timeline-20-filled",
+    },
+    {
+      name: "activities",
+      link: "/activities",
+      icon: "fluent:timeline-20-filled",
+    },
+  ];
   return (
     <div className="App">
-      <h1>Stonehive</h1>
+      <Sidebar items={items} />
     </div>
   );
 }

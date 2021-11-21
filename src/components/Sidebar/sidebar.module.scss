@@ -1,0 +1,59 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+@mixin FlexCenter {
+  display: flex;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $primary-color;
+  width: $sidebar-width;
+  padding: 20px 0;
+  height: auto;
+  overflow-y: auto;
+  .logo {
+    @include FlexCenter();
+    flex-direction: column;
+    img {
+      max-width: 100px;
+    }
+    h1 {
+      color: #ffff;
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+  }
+
+  .items,
+  .item_setting {
+    margin: 10px 0 0 20px;
+    height: fit-content;
+
+    .items_each {
+      @include FlexCenter();
+      padding: 10px;
+      color: $secondary-color;
+      font-size: 1.2em;
+      border-radius: 15px 0 0 15px;
+      svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+      p::first-letter {
+        text-transform: capitalize;
+      }
+      &:hover {
+        background-color: $secondary-color;
+        color:  $primary-color;
+      }
+    }
+  }
+
+  .hive_svg img {
+    margin: 10px 0;
+    width: 200px;
+  }
+}
