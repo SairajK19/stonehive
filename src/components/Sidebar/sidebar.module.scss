@@ -1,7 +1,8 @@
 @import "../../styles/colors";
 @import "../../styles/variables";
-@mixin FlexCenter {
+@mixin FlexCenter($direction: row) {
   display: flex;
+  flex-direction: $direction;
   align-items: center;
 }
 .container {
@@ -16,8 +17,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   .logo {
-    @include FlexCenter();
-    flex-direction: column;
+    @include FlexCenter(column);
     img {
       max-width: 100px;
     }
@@ -27,12 +27,6 @@
       font-weight: 500;
     }
   }
-
-  .items {
-    display: grid;
-    grid-gap: 10px;
-  }
-
   .items,
   .item_setting {
     margin: 10px 0 0 20px;
@@ -43,6 +37,7 @@
       background-color: $secondary-color;
     }
     .items_each {
+      margin: 0 0 10px 0;
       @include FlexCenter();
       padding: 10px;
       color: $secondary-color;
@@ -73,5 +68,42 @@
   .hive_svg img {
     margin: 10px 0;
     width: 250px;
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+  .container {
+    @include FlexCenter(column);
+    width: 90px;
+    .logo {
+      padding: 15px;
+      img {
+        width: 100%;
+      }
+      h1 {
+        font-size: 1em;
+      }
+    }
+    .items,
+    .item_setting {
+      margin: 0;
+      .items_each {
+        width: fit-content;
+        border-radius: 15px;
+        margin-bottom: 5px;
+        svg {
+          margin-right: 0;
+        }
+        p {
+          display: none;
+        }
+      }
+    }
+    .hive_svg {
+      display: none;
+    }
+    *:last-child {
+      align-self: flex-end;
+    }
   }
 }

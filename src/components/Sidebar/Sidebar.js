@@ -33,7 +33,6 @@ export default function Sidebar({ items }) {
       <div className={styles.item_setting}>
         <NavLink
           to="/settings"
-          className={(isActive) => (isActive ? "active_item" : null)}
         >
           <div className={styles.items_each}>
             <Icon icon="eva:settings-fill" width="30px" />
