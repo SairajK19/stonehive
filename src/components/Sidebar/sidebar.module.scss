@@ -56,12 +56,12 @@
       p::first-letter {
         text-transform: capitalize;
       }
-      &:hover {
-        background-color: $secondary-color;
-        box-shadow: 0px 0px 1px 1px white;
+      // &:hover {
+      //   background-color: $secondary-color;
+      //   box-shadow: 0px 0px 1px 1px white;
 
-        color: $primary-color;
-      }
+      //   color: $primary-color;
+      // }
     }
   }
 
@@ -74,14 +74,15 @@
 @media screen and (max-width: $tablet-width) {
   .container {
     @include FlexCenter(column);
+    justify-content: space-between;
     width: 90px;
     .logo {
-      padding: 15px;
+      padding: 20px;
       img {
         width: 100%;
       }
       h1 {
-        font-size: 1em;
+        font-size: 0.9em;
       }
     }
     .items,
@@ -102,8 +103,43 @@
     .hive_svg {
       display: none;
     }
-    *:last-child {
-      align-self: flex-end;
+  }
+}
+@media screen and (max-width: $mobile-large) {
+  .container {
+    position: fixed;
+    bottom: 0;
+    height: fit-content;
+    width: 100%;
+    padding: 10px 20px;
+    @include FlexCenter(row);
+    justify-content: space-evenly;
+
+    .logo {
+      display: none;
+    }
+    .items {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .items,
+    .item_setting {
+      @include FlexCenter(row);
+
+      a[aria-current="page"] .items_each {
+        transform: scale(1.2);
+      }
+      .items_each {
+        height: fit-content;
+        width: fit-content;
+        margin: 0 5px;
+        @include FlexCenter(column);
+        svg {
+          width: 25px;
+          height: 25px;
+          margin-right: 0px;
+        }
+      }
     }
   }
 }

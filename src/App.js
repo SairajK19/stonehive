@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -27,7 +27,11 @@ function App() {
       name: "budget",
       link: "/budget",
       icon: "ic:baseline-analytics",
-    },
+    },{
+      name: "budget",
+      link: "/budget1",
+      icon: "ic:baseline-analytics",
+    }
   ];
 
   return (
