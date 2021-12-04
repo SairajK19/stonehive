@@ -41,4 +41,62 @@
       outline: none;
     }
   }
+
+  .filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+
+    .navigation {
+      display: grid;
+      grid-template-columns: auto auto auto auto 1fr;
+      grid-gap: 20px;
+    }
+
+    .create_project {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      grid-gap: 10px;
+    }
+
+    .filter_item {
+      padding: 0px 5px;
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .filter_item_input {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    .filter_item_text {
+      color: #7c8397;
+      font-size: 1rem;
+    }
+
+    .filter_item_input#ongoing:checked ~ .controlme,
+    .filter_item_input#past:checked ~ .controlme,
+    .filter_item_input#archived:checked ~ .controlme,
+    .filter_item_input#all:checked ~ .controlme {
+      background-color: $filter-nav-color;
+      height: 2px;
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .filter_item_input#ongoing:checked ~ .filter_item_text,
+    .filter_item_input#past:checked ~ .filter_item_text,
+    .filter_item_input#archived:checked ~ .filter_item_text,
+    .filter_item_input#all:checked ~ .filter_item_text {
+      color: #000022;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  }
 }

@@ -32,31 +32,64 @@ export default function Projects() {
         </div>
 
         {/* Project list filter panel */}
-        <div>
+        <div className={styles.filter}>
           {/* Navigation */}
-          {/* <div>
-            <div>
-              <p>Ongoing</p>
-              <span></span>
+          <div className={styles.navigation}>
+            <div className={styles.filter_item}>
+              <label>
+                <input
+                  type="radio"
+                  name="filter-item"
+                  id={styles.ongoing}
+                  className={styles.filter_item_input}
+                  defaultChecked={true}
+                />
+                <span className={styles.filter_item_text}>Ongoing</span>
+                <span className={styles.controlme}></span>
+              </label>
             </div>
-            <div>
-              <p>Past</p>
-              <span></span>
+            <div className={styles.filter_item}>
+              <label>
+                <input
+                  type="radio"
+                  name="filter-item"
+                  id={styles.past}
+                  className={styles.filter_item_input}
+                />
+                <span className={styles.filter_item_text}>Past</span>
+                <span className={styles.controlme}></span>
+              </label>
             </div>
-            <div>
-              <p>Archived</p>
-              <span></span>
+            <div className={styles.filter_item}>
+              <label>
+                <input
+                  type="radio"
+                  name="filter-item"
+                  id={styles.archived}
+                  className={styles.filter_item_input}
+                />
+                <span className={styles.filter_item_text}>Archived</span>
+                <span className={styles.controlme}></span>
+              </label>
             </div>
-            <div>
-              <p>All</p>
-              <span></span>
+            <div className={styles.filter_item}>
+              <label>
+                <input
+                  type="radio"
+                  name="filter-item"
+                  id={styles.all}
+                  className={styles.filter_item_input}
+                />
+                <span className={styles.filter_item_text}>All</span>
+                <span className={styles.controlme}></span>
+              </label>
             </div>
-          </div> */}
+          </div>
 
           {/* Create project button */}
-          <div>
-            {/* <Icon icon="gridicons:create" />
-            <p>Create Project</p> */}
+          <div className={styles.create_project}>
+            <Icon icon="gridicons:create" />
+            <p>Create Project</p>
           </div>
         </div>
       </div>
