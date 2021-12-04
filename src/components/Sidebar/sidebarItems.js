@@ -5,8 +5,8 @@ export const clientSidebarItems = [
     icon: "bx:bxs-dashboard",
   },
   {
-    name: "activities",
-    link: "/activities",
+    name: "task",
+    link: "/client/task",
     icon: "fluent:timeline-20-filled",
   },
   {

@@ -1,4 +1,51 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
 .container {
   display: flex;
   justify-content: space-between;
+  .headings {
+    @include FlexCenter();
+    .arrow_cont {
+      @include FlexCenter();
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background-color: #f9f9f9;
+      border-radius: 25px;
+      box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.15);
+    }
+    .headings_col {
+      margin-left: 10px;
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      }
+      h5 {
+        font-size: 1rem;
+        font-weight: 400;
+        @include FlexCenter();
+      }
+    }
+  }
+  .user_profile_notifi {
+    @include FlexCenter();
+    .seperator {
+      margin: 0 5px 0 10px;
+      width: 1px;
+      height: 25px;
+      background-color: $primary-color;
+    }
+    .profile {
+      margin: 0 10px;
+      img {
+        width: 40px;
+        border-radius: 50px;
+        padding: 3px;
+        border: solid 1px #fda3af;
+      }
+    }
+  }
 }

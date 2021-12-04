@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
-  sidebarItems: [],
+  sidebarItems: {
+    active: undefined,
+    items: [],
+  },
 };
 
 const shSlice = createSlice({
@@ -9,7 +12,8 @@ const shSlice = createSlice({
   initialState,
   reducers: {
     setSidebarItems: (state, { payload }) => {
-      state.sidebarItems = payload;
+      state.sidebarItems.active = payload.active;
+      state.sidebarItems.items = payload.items;
     },
   },
   extraReducers: {},
