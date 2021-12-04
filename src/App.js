@@ -20,8 +20,8 @@ function App() {
     <div className="App">
       <Sidebar />
       <div className="main_panel">
-        {topBarVisible ? <Topbar /> : ""}
-        <Suspense fallback={<div>loading</div>}>
+        <Suspense fallback={""}>
+          {topBarVisible ? <Topbar /> : ""}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="super-user" element={<SuperUser />} />
