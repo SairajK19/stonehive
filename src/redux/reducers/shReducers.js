@@ -5,6 +5,7 @@ let initialState = {
     active: undefined,
     items: [],
   },
+  topBarVisible: true,
 };
 
 const shSlice = createSlice({
@@ -15,10 +16,14 @@ const shSlice = createSlice({
       state.sidebarItems.active = payload.active;
       state.sidebarItems.items = payload.items;
     },
+
+    setTopBarVisibility: (state, { payload }) => {
+      state.topBarVisible = payload.visibility;
+    },
   },
   extraReducers: {},
 });
 
-export const { setSidebarItems } = shSlice.actions;
+export const { setSidebarItems, setTopBarVisibility } = shSlice.actions;
 
 export default shSlice.reducer;

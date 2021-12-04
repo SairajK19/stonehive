@@ -3,6 +3,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
   .headings {
     @include FlexCenter();
     .arrow_cont {

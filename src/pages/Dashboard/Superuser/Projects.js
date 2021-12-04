@@ -1,16 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { superuserHomeSidebarItems } from "../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../redux/reducers/shReducers";
+import {
+  setSidebarItems,
+  setTopBarVisibility,
+} from "../../../redux/reducers/shReducers";
 import styles from "./styles/projects.module.scss";
 import { Icon } from "@iconify/react";
 
 export default function Projects() {
   const dispatch = useDispatch();
+  dispatch(setTopBarVisibility(false));
 
   useEffect(() => {
-    dispatch(setSidebarItems(superuserHomeSidebarItems));
-  });
+    dispatch(
+      setSidebarItems({ active: "Projects", items: superuserHomeSidebarItems })
+    );
+  },[]);
 
   return (
     <div className={styles.container}>
@@ -28,7 +34,7 @@ export default function Projects() {
         {/* Project list filter panel */}
         <div>
           {/* Navigation */}
-          <div>
+          {/* <div>
             <div>
               <p>Ongoing</p>
               <span></span>
@@ -45,12 +51,12 @@ export default function Projects() {
               <p>All</p>
               <span></span>
             </div>
-          </div>
+          </div> */}
 
           {/* Create project button */}
           <div>
-            <Icon icon="gridicons:create" />
-            <p>Create Project</p>
+            {/* <Icon icon="gridicons:create" />
+            <p>Create Project</p> */}
           </div>
         </div>
       </div>
