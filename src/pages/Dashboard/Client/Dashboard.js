@@ -6,7 +6,9 @@ import styles from "./client.module.scss";
 export default function ClientDashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setSidebarItems(clientSidebarItems));
+    dispatch(
+      setSidebarItems({ active: "dashboard", items: clientSidebarItems })
+    );
   });
   return <div> dashboard</div>;
 }
