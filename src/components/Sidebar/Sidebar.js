@@ -4,8 +4,9 @@ import logo from "../../assets/images/logo.png";
 import hiveImg from "../../assets/svg/hive.svg";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
-
-export default function Sidebar({ items }) {
+import { useSelector } from "react-redux";
+export default function Sidebar() {
+  const items = useSelector((state) => state.stonehive.sidebarItems.items);
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
