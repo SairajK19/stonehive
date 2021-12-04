@@ -1,7 +1,7 @@
 export const clientSidebarItems = [
   {
     name: "dashboard",
-    link: "/dashboard",
+    link: "/client",
     icon: "bx:bxs-dashboard",
   },
   {

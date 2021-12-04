@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Topbar from "./components/Topbar/Topbar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
@@ -17,14 +18,17 @@ function App() {
   return (
     <div className="App">
       <Sidebar items={sidebar_items} />
-      <Suspense fallback={<div>loading</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="super-user" element={<SuperUser />} />
-          <Route path="super-user/projects" element={<Projects />} />
-          <Route path="/client" element={<ClientDashboard />} />
-        </Routes>
-      </Suspense>
+      <div className="main_panel">
+        <Topbar />
+        <Suspense fallback={<div>loading</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="super-user" element={<SuperUser />} />
+            <Route path="super-user/projects" element={<Projects />} />
+            <Route path="/client" element={<ClientDashboard />} />
+          </Routes>
+        </Suspense>
+      </div>
     </div>
   );
 }
