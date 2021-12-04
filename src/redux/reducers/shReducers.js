@@ -9,7 +9,7 @@ const shSlice = createSlice({
   initialState,
   reducers: {
     setSidebarItems: (state, { payload }) => {
-      state.sidebarItems = payload.items;
+      state.sidebarItems = payload;
     },
   },
   extraReducers: {},

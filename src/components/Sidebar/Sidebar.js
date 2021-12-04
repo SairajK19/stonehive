@@ -13,27 +13,24 @@ export default function Sidebar({ items }) {
         <h1>StoneHive</h1>
       </div>
       <div className={styles.items}>
-        {items.map((item, index) => {
-          return (
-            <NavLink
-              to={item.link}
-              key={index}
-            >
-              <div className={styles.items_each}>
-                <Icon icon={item.icon} width="30px" />
-                <p>{item.name}</p>
-              </div>
-            </NavLink>
-          );
-        })}
+        {items
+          ? items.map((item, index) => {
+              return (
+                <NavLink to={item.link} key={index}>
+                  <div className={styles.items_each}>
+                    <Icon icon={item.icon} width="30px" />
+                    <p>{item.name}</p>
+                  </div>
+                </NavLink>
+              );
+            })
+          : "loading"}
       </div>
       <div className={styles.hive_svg}>
         <img src={hiveImg} alt="" />
       </div>
       <div className={styles.item_setting}>
-        <NavLink
-          to="/settings"
-        >
+        <NavLink to="/settings">
           <div className={styles.items_each}>
             <Icon icon="eva:settings-fill" width="30px" />
             <p>settings</p>

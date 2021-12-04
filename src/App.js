@@ -3,6 +3,7 @@ import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
+import { useSelector } from "react-redux";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
@@ -12,31 +13,10 @@ const ClientDashboard = lazy(() =>
 );
 
 function App() {
-  let items = [
-    {
-      name: "dashboard",
-      link: "/dashboard",
-      icon: "bx:bxs-dashboard",
-    },
-    {
-      name: "activities",
-      link: "/activities",
-      icon: "fluent:timeline-20-filled",
-    },
-    {
-      name: "budget",
-      link: "/budget",
-      icon: "ic:baseline-analytics",
-    },{
-      name: "budget",
-      link: "/budget1",
-      icon: "ic:baseline-analytics",
-    }
-  ];
-
+  const sidebar_items = useSelector((state) => state.stonehive.sidebarItems);
   return (
     <div className="App">
-      <Sidebar items={items} />
+      <Sidebar items={sidebar_items} />
       <Suspense fallback={<div>loading</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
