@@ -11,7 +11,7 @@
   grid-template-rows: auto auto 1fr auto auto;
   grid-gap: 20px;
   background-color: $primary-color;
-  width: $sidebar-width;
+  min-width: $sidebar-width;
   padding: 20px 0;
   height: 100vh;
   overflow-y: auto;
@@ -75,7 +75,7 @@
   .container {
     @include FlexCenter(column);
     justify-content: space-between;
-    width: 90px;
+    min-width: $sidebar-width-sm;
     .logo {
       padding: 20px;
       img {
