@@ -10,13 +10,13 @@ import { Icon } from "@iconify/react";
 
 export default function Projects() {
   const dispatch = useDispatch();
-  dispatch(setTopBarVisibility(false));
+  dispatch(setTopBarVisibility({ visibility: false }));
 
   useEffect(() => {
     dispatch(
       setSidebarItems({ active: "Projects", items: superuserHomeSidebarItems })
     );
-  },[]);
+  }, []);
 
   return (
     <div className={styles.container}>
