@@ -1,10 +1,11 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect } from "react";
 import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
+import { useSelector } from "react-redux";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
@@ -13,11 +14,13 @@ const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );
 function App() {
+  const topBarVisible = useSelector((state) => state.stonehive.topBarVisible);
+
   return (
     <div className="App">
       <Sidebar />
       <div className="main_panel">
-        <Topbar />
+        {topBarVisible ? <Topbar /> : ""}
         <Suspense fallback={<div>loading</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
