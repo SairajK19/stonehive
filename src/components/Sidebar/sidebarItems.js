@@ -23,34 +23,34 @@ export const clientSidebarItems = [
 export const superuserSidebarItems = [
   {
     name: "Dashboard",
-    link: "/dashboard",
+    link: "/super-user/dashboard",
     icon: "bx:bxs-dashboard",
   },
   {
     name: "Complaints",
-    link: "/complaints",
+    link: "/super-user/complaints",
     icon: "fluent:timeline-20-filled",
   },
   {
     name: "Bills",
-    link: "/bills",
+    link: "/super-user/bills",
     icon: "fa-solid:money-check-alt",
   },
   {
     name: "Architect",
-    link: "/architect",
+    link: "/super-user/architect",
     icon: "clarity:design-line",
   },
 ];
 export const superuserHomeSidebarItems = [
   {
     name: "Projects",
-    link: "/projects",
+    link: "/super-user/projects",
     icon: "whh:projectsend",
   },
   {
     name: "Inquiries",
-    link: "/inquiries",
+    link: "/super-user/inquiries",
     icon: "fluent:mail-24-filled",
   },
 ];
