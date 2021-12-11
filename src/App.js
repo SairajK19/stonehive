@@ -26,7 +26,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="super-user" element={<SuperUser />} />
             <Route path="super-user/projects" element={<Projects />} />
-            <Route path="/client" element={<ClientDashboard />} />
+            <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
           </Routes>
         </Suspense>

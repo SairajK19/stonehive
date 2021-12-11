@@ -1,9 +1,14 @@
 @import "../../styles/colors";
 @import "../../styles/mixins";
+@import "../../styles/variables";
 .container {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  height: $topbar-height;
+  background-color: $primary-bg-color;
   .headings {
     @include FlexCenter();
     .arrow_cont {
@@ -16,7 +21,7 @@
       box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.15);
     }
     .headings_col {
-      margin-left: 10px;
+      margin-left: 15px;
       h2 {
         font-size: 1.5rem;
         font-weight: 500;
