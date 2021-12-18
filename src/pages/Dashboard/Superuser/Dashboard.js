@@ -11,6 +11,7 @@ export default function SuperUser() {
   return (
     <div>
       <h1>SuperUser</h1>
+      <Link to="/super-user/projects">Projects</Link>
     </div>
   );
 }
