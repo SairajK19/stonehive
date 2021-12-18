@@ -5,9 +5,7 @@ import { useDispatch } from "react-redux";
 export default function Tasks() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(
-      setSidebarItems({ active: "task", items: clientSidebarItems })
-    );
+    dispatch(setSidebarItems({ active: "task", items: clientSidebarItems }));
   });
   return <div></div>;
 }

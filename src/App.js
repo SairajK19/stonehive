@@ -29,6 +29,7 @@ function App() {
             <Route path="super-user/projects" element={<Projects />} />
             <Route path="super-user/deadlines" element={<Deadlines />} />
             <Route path="/client" element={<ClientDashboard />} />
+            <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
           </Routes>
         </Suspense>

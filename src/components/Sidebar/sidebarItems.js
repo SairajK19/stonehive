@@ -1,7 +1,7 @@
 export const clientSidebarItems = [
   {
     name: "dashboard",
-    link: "/client",
+    link: "/client/dashboard",
     icon: "bx:bxs-dashboard",
   },
   {
@@ -11,13 +11,23 @@ export const clientSidebarItems = [
   },
   {
     name: "budget",
-    link: "/budget",
+    link: "/client/budget",
     icon: "ic:baseline-analytics",
   },
   {
-    name: "budget",
-    link: "/budget1",
-    icon: "ic:baseline-analytics",
+    name: "plan & elevation",
+    link: "/client/plan-elavation",
+    icon: "ion:images",
+  },
+  {
+    name: "site images",
+    link: "/client/site-images",
+    icon: "ion:images",
+  },
+  {
+    name: "complaint",
+    link: "/client/complaint",
+    icon: "fluent:person-support-20-filled",
   },
 ];
 export const superuserSidebarItems = [
