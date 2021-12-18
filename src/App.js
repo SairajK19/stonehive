@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
 import { useSelector } from "react-redux";
+import Deadlines from "./pages/Dashboard/Superuser/Deadlines";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="super-user" element={<SuperUser />} />
             <Route path="super-user/projects" element={<Projects />} />
+            <Route path="super-user/deadlines" element={<Deadlines />} />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
           </Routes>
