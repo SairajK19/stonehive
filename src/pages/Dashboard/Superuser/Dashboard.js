@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Projects from "./Projects";
+import Projects from "./projects/Projects";
 import { superuserSidebarItems } from "../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../redux/reducers/shReducers";
 

@@ -6,11 +6,11 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
 import { useSelector } from "react-redux";
-import Deadlines from "./pages/Dashboard/Superuser/Deadlines";
+import Deadlines from "./pages/Dashboard/Superuser/projects/Deadlines";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
-const Projects = lazy(() => import("./pages/Dashboard/Superuser/Projects"));
+const Projects = lazy(() => import("./pages/Dashboard/Superuser/projects/Projects"));
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );

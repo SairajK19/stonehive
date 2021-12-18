@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   superuserHomeSidebarItems,
   superuserHomeSidebarItemsMobile,
-} from "../../../components/Sidebar/sidebarItems";
+} from "../../../../components/Sidebar/sidebarItems";
 import {
   setSidebarItems,
   setTopBarVisibility,
-} from "../../../redux/reducers/shReducers";
+} from "../../../../redux/reducers/shReducers";
 import styles from "./styles/projects.module.scss";
 import { Icon } from "@iconify/react";
-import card_design from "../../../assets/svg/card_design.svg";
+import card_design from "../../../../assets/svg/card_design.svg";
 
 export default function Projects() {
   // Top Bar Visibility (We don't need top bar for this page).
