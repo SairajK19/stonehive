@@ -54,6 +54,25 @@ export const superuserHomeSidebarItems = [
     icon: "fluent:mail-24-filled",
   },
 ];
+
+export const superuserHomeSidebarItemsMobile = [
+  {
+    name: "Projects",
+    link: "/super-user/projects",
+    icon: "whh:projectsend",
+  },
+  {
+    name: "Inquiries",
+    link: "/super-user/inquiries",
+    icon: "fluent:mail-24-filled",
+  },
+  {
+    name: "Deadlines",
+    link: "/super-user/deadlines",
+    icon: "uil:calender",
+  },
+];
+
 export const contractorSidebarItems = [
   {
     name: "dashboard",
