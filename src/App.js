@@ -10,7 +10,12 @@ import Deadlines from "./pages/Dashboard/Superuser/projects/Deadlines";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
-const Projects = lazy(() => import("./pages/Dashboard/Superuser/projects/Projects"));
+const Projects = lazy(() =>
+  import("./pages/Dashboard/Superuser/projects/Projects")
+);
+const Inquiries = lazy(() =>
+  import("./pages/Dashboard/Superuser/inquiries/Inquiries")
+);
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );
@@ -28,6 +33,7 @@ function App() {
             <Route path="super-user" element={<SuperUser />} />
             <Route path="super-user/projects" element={<Projects />} />
             <Route path="super-user/deadlines" element={<Deadlines />} />
+            <Route path="super-user/inquiries" element={<Inquiries />} />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
