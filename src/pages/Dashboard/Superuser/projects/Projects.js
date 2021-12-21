@@ -12,6 +12,7 @@ import {
 import styles from "./styles/projects.module.scss";
 import { Icon } from "@iconify/react";
 import card_design from "../../../../assets/svg/card_design.svg";
+import SearchBar from "../../../../components/SearchBar/SearchBar";
 
 export default function Projects() {
   // Top Bar Visibility (We don't need top bar for this page).
@@ -127,10 +128,7 @@ export default function Projects() {
           <h1>Projects</h1>
 
           {/* Search Bar */}
-          <div className={styles.search_bar}>
-            <Icon icon="fe:search" style={{ fontSize: "20px" }} />
-            <input type="text" placeholder="Search" />
-          </div>
+          <SearchBar />
 
           <input
             type="checkbox"

@@ -1,0 +1,19 @@
+.search_bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 5px;
+  align-items: center;
+  width: 100%;
+  background-color: #f5f6fa;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.search_bar input {
+  border: none;
+  background-color: #f5f6fa;
+}
+
+.search_bar input:focus {
+  outline: none;
+}

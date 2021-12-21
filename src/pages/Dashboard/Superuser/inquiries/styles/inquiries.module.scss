@@ -1,2 +1,28 @@
 @import "../../../../../styles/variables";
 @import "../../../../../styles/colors";
+
+.container {
+  height: calc(100vh - 40px);
+  // height: calc(100vh - #{$topbar-height});
+  display: flex;
+
+  .inquiries_list {
+    padding: 15px 25px;
+    width: 40%;
+    background-color: white;
+    border-radius: $dashboard-container-border-radius;
+
+    h1 {
+        margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1490px) {
+}
+
+@media screen and (max-width: $tablet-width) {
+}
+
+@media screen and (max-width: $mobile-large) {
+}
