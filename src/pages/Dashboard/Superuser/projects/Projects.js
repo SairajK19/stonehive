@@ -16,7 +16,6 @@ import card_design from "../../../../assets/svg/card_design.svg";
 export default function Projects() {
   // Top Bar Visibility (We don't need top bar for this page).
   const dispatch = useDispatch();
-  dispatch(setTopBarVisibility({ visibility: false }));
 
   // State variables
   const [navigation, setNavigation] = useState([
@@ -35,8 +34,11 @@ export default function Projects() {
     right: "0px",
   });
 
-  // Sets sidebar navigations
   useEffect(() => {
+    // Hide top bar
+    dispatch(setTopBarVisibility({ visibility: false }));
+
+    // set sidebar navs.
     dispatch(
       setSidebarItems({ active: "Projects", items: superuserHomeSidebarItems })
     );
@@ -54,6 +56,15 @@ export default function Projects() {
         })
       );
     });
+
+    if (window.innerWidth <= 810) {
+      dispatch(
+        setSidebarItems({
+          active: "Projects",
+          items: superuserHomeSidebarItemsMobile,
+        })
+      );
+    }
 
     window.matchMedia("(max-width: 810px)").addEventListener("change", () => {
       dispatch(
@@ -98,10 +109,6 @@ export default function Projects() {
       setSidebar({ visibility: true, right: "0px" });
     }
   };
-
-  useEffect(() => {
-    console.log(filter);
-  }, [filter]);
 
   return (
     <div className={styles.container}>
