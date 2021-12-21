@@ -5,24 +5,363 @@
   height: calc(100vh - 40px);
   // height: calc(100vh - #{$topbar-height});
   display: flex;
-
   .inquiries_list {
     padding: 15px 25px;
     width: 40%;
     background-color: white;
-    border-radius: $dashboard-container-border-radius;
+    border-radius: 18px 0px 0px 18px;
+    position: relative;
 
     h1 {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .no_inquiries {
+      width: 100%;
+      height: calc(100vh - 40px - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    .list {
+      width: 100%;
+      height: calc(100vh - 40px - 140px);
+      margin-top: 10px;
+      overflow: auto;
+      overflow-x: hidden;
+      position: absolute;
+      padding-right: 7%;
+
+      .inquiry_button {
+        display: grid;
+        margin-top: 10px;
+        align-items: center;
+        justify-items: end;
+        grid-template-columns: 1fr auto;
+        padding: 20px;
+        border-radius: $input-tag-border-radius;
+        grid-gap: 10px;
+        border: 1px solid $primary-color;
+        cursor: pointer;
+
+        #name,
+        #title {
+          grid-column: 1/2;
+          justify-self: start;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        #title,
+        #date {
+          color: #595959;
+        }
+
+        #new_message_indicator {
+          width: 10px;
+          height: 10px;
+          background-color: #7dc2ad;
+          border-radius: 50%;
+        }
+      }
+
+      .inquiry_button:hover {
+        background-color: #dcf0ea;
+      }
+    }
+  }
+
+  .inquiry {
+    padding: 15px 25px;
+    width: 60%;
+    background-color: white;
+    border-radius: 0px 18px 18px 0px;
+    z-index: 20;
+    border-left: 1px solid $primary-color;
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    .title {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      .delete_button {
+        padding: 10px;
+        background-color: rgba(225, 41, 41, 0.18);
+        border-radius: $input-tag-border-radius;
+        cursor: pointer;
+
+        * {
+          font-size: 18px;
+          margin: auto;
+          color: red;
+        }
+      }
+
+      .back_button {
+        display: none;
+      }
+    }
+
+    .inquiry_scroll_container {
+      overflow: auto;
+      width: 120%;
+      padding-right: 20%;
+      .inquiry_details {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        padding-top: 20px;
+
+        strong {
+          font-family: inherit;
+        }
+
+        p {
+          color: #7a7a7a;
+        }
+
+        .sender_details {
+          display: grid;
+          grid-gap: 3px;
+        }
+      }
+
+      .inquiry_content {
+        display: grid;
+        grid-gap: 10px;
+        p {
+          margin-top: 10px;
+          font-size: 1.4rem;
+          line-height: 1.4;
+        }
+        .questionaries_response {
+          p {
+            font-weight: bold;
+            font-family: inherit;
+            margin-bottom: 7px;
+          }
+          .questionaries_response_imgs {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(auto-fill, 200px);
+            img {
+              width: 200px;
+              border-radius: 5px;
+            }
+          }
+          #no_photos {
+            font-weight: normal;
+          }
+        }
+
+        .package_name {
+          margin-top: 10px;
+          #title {
+            font-weight: bold;
+            font-family: inherit;
+          }
+          p {
+            margin-top: 0px;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: start;
+          button {
+            padding: 15px 60px;
+            font-family: inherit;
+            color: white;
+            border-radius: $input-tag-border-radius;
+            font-size: 1.2rem;
+          }
+
+          #setup_meeting {
+            background-color: $hover-button-color;
+          }
+
+          #create_project {
+            background-color: $primary-color;
+            margin-left: 10px;
+          }
+        }
+      }
     }
   }
 }
 
 @media screen and (max-width: 1490px) {
+  .container {
+    height: calc(100vh);
+    .inquiries_list {
+      h1 {
+      }
+
+      .no_inquiries {
+        p {
+          font-size: 1.6rem;
+        }
+      }
+
+      .list {
+        padding-right: 50px;
+        .inquiry_button {
+          padding: 10px 10px;
+          #name,
+          #title,
+          #date {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .inquiry {
+      .title {
+        .delete_button {
+          * {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .inquiry_scroll_container {
+        .inquiry_details {
+          strong {
+          }
+
+          p {
+          }
+
+          .sender_details {
+          }
+        }
+
+        .inquiry_content {
+          p {
+            font-size: 1rem;
+            line-height: 1.4;
+          }
+          .questionaries_response {
+            p {
+              font-weight: bold;
+            }
+            .questionaries_response_imgs {
+              grid-template-columns: repeat(auto-fill, 150px);
+              img {
+                width: 150px;
+              }
+            }
+          }
+
+          .package_name {
+            #title {
+            }
+            p {
+            }
+          }
+
+          .buttons {
+            button {
+              padding: 10px 30px;
+              font-size: 1.1rem;
+            }
+
+            #setup_meeting {
+            }
+
+            #create_project {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $tablet-width) {
+  .container {
+    .inquiries_list {
+      width: 100%;
+    }
+    .inquiry {
+      width: 100%;
+
+      .title {
+        grid-template-columns: auto 1fr auto;
+        grid-gap: 10px;
+        margin-bottom: 0px;
+        .back_button {
+          border: 1px solid $primary-color;
+          display: block;
+          cursor: pointer;
+          font-size: 25px;
+          padding: 0px;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $mobile-large) {
+  .container {
+    .inquiries_list {
+      width: 100%;
+      .list {
+        padding-bottom: 80px;
+      }
+    }
+    .inquiry {
+      width: 100%;
+      padding-bottom: 80px;
+
+      .title {
+        grid-template-columns: auto 1fr auto;
+        grid-gap: 10px;
+        margin-bottom: 10px;
+
+        h2 {
+          font-size: 1.2rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .back_button {
+          padding: 5px;
+          padding-bottom: 4px;
+          padding-top: 3px; 
+          border: 2px solid $primary-color;
+          border-radius: $input-tag-border-radius;
+          cursor: pointer;
+          display: block;
+          * {
+            font-size: 25px;
+          }
+        }
+      }
+
+      .inquiry_scroll_container {
+        .inquiry_details {
+          padding-top: 0px;
+        }
+      }
+    }
+  }
 }
