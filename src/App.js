@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy } from "react";
 import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
@@ -15,6 +15,9 @@ const Projects = lazy(() =>
 );
 const Inquiries = lazy(() =>
   import("./pages/Dashboard/Superuser/inquiries/Inquiries")
+);
+const CreateProject = lazy(() =>
+  import("./pages/Dashboard/Superuser/create_project/CreateProject")
 );
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
@@ -34,6 +37,10 @@ function App() {
             <Route path="super-user/projects" element={<Projects />} />
             <Route path="super-user/deadlines" element={<Deadlines />} />
             <Route path="super-user/inquiries" element={<Inquiries />} />
+            <Route
+              path="super-user/create-project"
+              element={<CreateProject />}
+            />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
