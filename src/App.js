@@ -19,6 +19,15 @@ const Inquiries = lazy(() =>
 const CreateProject = lazy(() =>
   import("./pages/Dashboard/Superuser/create_project/CreateProject")
 );
+const SuperUserDashboard = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Dashboard/SuperUserDashboard")
+);
+const SuperUserComplaints = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Complaints/SuperUserComplaints")
+);
+const SuperUserBills = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Bills/SuperUserBills")
+);
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );
@@ -40,6 +49,18 @@ function App() {
             <Route
               path="super-user/create-project"
               element={<CreateProject />}
+            />
+            <Route
+              path="super-user/dashboard/project"
+              element={<SuperUserDashboard />}
+            />
+            <Route
+              path="super-user/dashboard/complaints"
+              element={<SuperUserComplaints />}
+            />
+            <Route
+              path="super-user/dashboard/bills"
+              element={<SuperUserBills />}
             />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
