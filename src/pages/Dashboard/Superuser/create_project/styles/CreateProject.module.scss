@@ -1,0 +1,297 @@
+@import "../../../../../styles/variables";
+@import "../../../../../styles/colors";
+
+* {
+  scroll-behavior: smooth;
+}
+
+.container {
+  height: calc(100vh - 40px);
+  position: relative;
+  scroll-behavior: smooth;
+
+  .create_project_form {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+    transition: 1s;
+
+    .form_part1,
+    .form_part2 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      border-radius: $dashboard-container-border-radius;
+      padding: 20px;
+      transition: 500ms;
+      left: 0%;
+      overflow: auto;
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(auto-fill, 1fr);
+        grid-gap: 20px;
+        margin-top: 20px;
+
+        #project_name,
+        #client_address,
+        #total_budget {
+          grid-column: 1/4;
+          width: 32.5%;
+        }
+
+        .form_input_block {
+          display: grid;
+          grid-template-columns: 1fr;
+          align-items: center;
+          height: fit-content;
+
+          label {
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+            font-weight: 500;
+          }
+
+          .input_field {
+            padding: 7px;
+            border: 1px solid $primary-color;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+
+            .basic_multi_select {
+              width: 100%;
+              border: 0.05px solid $primary-color;
+              border-radius: 5px;
+            }
+
+            input {
+              border: none;
+              width: 100%;
+              height: 35px;
+            }
+
+            input:focus {
+              outline: none;
+            }
+
+            .input_label {
+              margin-right: 10px;
+            }
+          }
+        }
+        #dropdown .input_field {
+          border: none;
+          align-self: center;
+          padding: 0px;
+        }
+      }
+
+      button {
+        padding: 15px 60px;
+        font-family: inherit;
+        color: white;
+        border-radius: $input-tag-border-radius;
+        font-size: 1.2rem;
+        background-color: $primary-color;
+        margin-top: 20px;
+      }
+    }
+
+    .form_part2 {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      border-radius: $dashboard-container-border-radius;
+      transition: 500ms;
+      left: 100%;
+
+      .title {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 15px;
+        align-items: center;
+
+        #back_button {
+          width: 40px;
+          height: 40px;
+          border: 2px solid $primary-color;
+          border-radius: 50%;
+          padding: 5px;
+          cursor: pointer;
+        }
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr;
+        .phase_block {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto 1fr;
+          grid-gap: 10px;
+
+          #phase_number {
+            grid-column: 1/4;
+          }
+        }
+      }
+
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@keyframes sliderOff {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes sliderOn {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@media screen and (max-width: 1490px) {
+  .container {
+    height: 100vh;
+    .create_project_form {
+      .form_part2 {
+        form {
+          grid-gap: 20px;
+          .form_input_block {
+            label {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+
+      .form_part1 {
+        form {
+          grid-gap: 20px;
+          .form_input_block {
+            label {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+  .container {
+    .create_project_form {
+      .form_part2 {
+        form {
+          grid-gap: 20px;
+          .form_input_block {
+            label {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+
+      .form_part1 {
+        form {
+          grid-gap: 20px;
+          .form_input_block {
+            label {
+              font-size: 0.9rem;
+            }
+          }
+
+          #project_name {
+            grid-column: 1/4;
+            width: 100%;
+          }
+
+          #client_name {
+            grid-column: 1/4;
+          }
+
+          #client_email {
+            grid-column: 1/3;
+          }
+
+          #client_number {
+            grid-column: 3/4;
+          }
+
+          #client_address {
+            grid-column: 1/3;
+            width: 100%;
+          }
+
+          #project_eDate {
+            grid-column: 1/4;
+          }
+
+          #total_budget {
+            grid-column: 1/4;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-large) {
+  .container {
+    padding-bottom: 65px;
+
+    .create_project_form {
+      .form_part1,
+      .form_part2 {
+        form {
+          display: flex;
+          flex-direction: column;
+
+          .form_input_block {
+            width: 100%;
+          }
+
+          #project_name,
+          #client_address,
+          #total_budget {
+            width: 100%;
+          }
+        }
+      }
+
+      .form_part2 {
+        form {
+          .form_input_block {
+            label {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+
+      button {
+        font-size: 1.1rem !important;
+        padding: 10px 20px !important;
+      }
+    }
+  }
+}

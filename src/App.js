@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy } from "react";
 import "./styles/app.scss";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
@@ -8,10 +8,28 @@ import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
 import ClientComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
 import ClientSettings from "./pages/Dashboard/Client/Settings/Settings";
 import { useSelector } from "react-redux";
+import Deadlines from "./pages/Dashboard/Superuser/projects/Deadlines";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
-const Projects = lazy(() => import("./pages/Dashboard/Superuser/Projects"));
+const Projects = lazy(() =>
+  import("./pages/Dashboard/Superuser/projects/Projects")
+);
+const Inquiries = lazy(() =>
+  import("./pages/Dashboard/Superuser/inquiries/Inquiries")
+);
+const CreateProject = lazy(() =>
+  import("./pages/Dashboard/Superuser/create_project/CreateProject")
+);
+const SuperUserDashboard = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Dashboard/SuperUserDashboard")
+);
+const SuperUserComplaints = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Complaints/SuperUserComplaints")
+);
+const SuperUserBills = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Bills/SuperUserBills")
+);
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );
@@ -28,6 +46,25 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="super-user" element={<SuperUser />} />
             <Route path="super-user/projects" element={<Projects />} />
+            <Route path="super-user/deadlines" element={<Deadlines />} />
+            <Route path="super-user/inquiries" element={<Inquiries />} />
+            <Route
+              path="super-user/create-project"
+              element={<CreateProject />}
+            />
+            <Route
+              path="super-user/dashboard/project"
+              element={<SuperUserDashboard />}
+            />
+            <Route
+              path="super-user/dashboard/complaints"
+              element={<SuperUserComplaints />}
+            />
+            <Route
+              path="super-user/dashboard/bills"
+              element={<SuperUserBills />}
+            />
+            <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
             <Route path="/client/complaint" element={<ClientComplaint />} />
