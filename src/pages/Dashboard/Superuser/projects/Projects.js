@@ -207,10 +207,12 @@ export default function Projects() {
           </div>
 
           {/* Create project button */}
-          <div className={styles.create_project} title="Create New Project">
-            <Icon icon="gridicons:create" style={{ fontSize: "25px" }} />
-            <p>Create Project</p>
-          </div>
+          <Link to="/super-user/create-project">
+            <div className={styles.create_project} title="Create New Project">
+              <Icon icon="gridicons:create" style={{ fontSize: "25px" }} />
+              <p>Create Project</p>
+            </div>
+          </Link>
         </div>
 
         <div className={styles.project_list}>
