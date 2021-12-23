@@ -38,7 +38,7 @@ export default function Inquiries() {
     }
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
+      if (window.innerWidth > 810) {
         dispatch(
           setSidebarItems({
             active: "Projects",
