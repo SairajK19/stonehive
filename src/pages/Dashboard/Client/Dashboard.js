@@ -3,6 +3,9 @@ import { clientSidebarItems } from "../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+import { Doughnut } from "react-chartjs-2";
 
 import styles from "./client.module.scss";
 
@@ -12,7 +15,21 @@ import PlanElevationImg from "../../../assets/images/plan_elevations.png";
 import SiteMainImg from "../../../assets/images/siteImg_1.png";
 import SiteSmallImg1 from "../../../assets/images/siteImg_2.png";
 import SiteSmallImg2 from "../../../assets/images/siteImg_3.png";
+ChartJS.register(ArcElement, Tooltip, Legend);
+export const data = {
+  datasets: [
+    {
+      data: [12, 19, 3],
 
+      backgroundColor: [
+        "rgba(93, 177, 152, 1)",
+        "rgba(250, 114, 84, 1)",
+        "rgba(255, 193, 34, 1)",
+      ],
+      borderRadius: "100px",
+    },
+  ],
+};
 export default function ClientDashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,16 +64,42 @@ export default function ClientDashboard() {
       </div>
       <div className={styles.updates}>
         <h2>Updates</h2>
-        <p>
-          September 2021
+        <div className={styles.update_filter}>
+          <p>September 2021</p>
           <Icon icon="akar-icons:arrow-up-down" height="15" />
-        </p>
+        </div>
         <div className={styles.update_list}>
-          <div className={styles.update_list_item}></div>
+          {[1, 2, 3, 4, 5].map(() => {
+            return (
+              <div className={styles.update_list_item}>
+                <div
+                  className={styles.update_svg}
+                  style={{ backgroundColor: "rgba(255, 136, 54,0.2)" }}
+                >
+                  <Icon
+                    icon="clarity:design-line"
+                    style={{ color: "rgba(255, 136, 54,1)" }}
+                    width="100%"
+                    height="100%"
+                  />
+                </div>
+                <div className={styles.update_list_item_info}>
+                  <p id={styles.update_list_info_head}>Design Completed</p>
+                  <p id={styles.update_list_info_date}>20 jun 2021</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className={styles.update_view_all}>
+          <button>View All</button>
         </div>
       </div>
       <div className={styles.budget_overview}>
         <h2>Total Budget Overview</h2>
+        <div className={styles.budget_chart}>
+          <Doughnut data={data} height="50px"  />
+        </div>
       </div>
       <div className={styles.plan_elevation}>
         <h2>Plans and Elevation</h2>
