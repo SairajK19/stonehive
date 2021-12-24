@@ -90,6 +90,12 @@
         background-color: $input-tag-color;
         margin-top: 10px;
 
+        .bill_info {
+          p {
+            color: #686868;
+          }
+        }
+
         .bill_button {
           display: grid;
           grid-template-columns: 130px 130px 130px;

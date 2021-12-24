@@ -12,7 +12,7 @@ export default function SuperUserBills() {
   const [filter, setFilter] = useState("All Bills");
   useEffect(() => {
     dispatch(
-      setSidebarItems({ active: "Dashboard", items: superuserSidebarItems })
+      setSidebarItems({ active: "Bills", items: superuserSidebarItems })
     );
   }, []);
 
