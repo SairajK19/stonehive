@@ -121,12 +121,100 @@
             border-radius: $input-tag-border-radius;
             font-family: inherit;
             font-size: 1rem;
-            color: #1FB185;
+            color: #1fb185;
             background: rgba(31, 177, 133, 0.15);
           }
 
           #reject {
             background-color: #e12929;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1490px) {
+  .container {
+    .title {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .filter_wrapper {
+        .current_filter {
+          font-size: 0.9rem;
+        }
+
+        .filter_options {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .bills {
+      .list {
+        .bill {
+          .bill_info {
+            h2 {
+              font-size: 1.3rem;
+            }
+          }
+          .bill_button {
+            grid-template-columns: 80px 80px 80px;
+            #view,
+            #approve,
+            #reject {
+              padding: 10px 10px;
+              font-size: 0.9rem;
+            }
+
+            #approved {
+              padding: 10px 10px;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+}
+
+@media screen and (max-width: $mobile-large) {
+  .container {
+    .bills {
+      .list {
+        padding-bottom: $sidebar-width-sm;
+        .bill {
+          flex-direction: column;
+          .bill_info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            h2 {
+              font-size: 1.3rem;
+            }
+            margin-bottom: 15px;
+          }
+          .bill_button {
+            display: grid;
+            justify-content: start;
+            width: 100%;
+            #view,
+            #approve,
+            #reject {
+              padding: 10px 10px;
+              font-size: 0.9rem;
+            }
+
+            #approved {
+              padding: 10px 10px;
+              font-size: 0.9rem;
+            }
           }
         }
       }
