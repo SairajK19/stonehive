@@ -1,0 +1,159 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins";
+.container {
+  width: 100%;
+  height: calc(100vh - 110px);
+  position: relative;
+
+  .bg_image {
+    position: absolute;
+    height: 35%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .main_container {
+    position: absolute;
+    background-color: white;
+    height: 85%;
+    width: 90%;
+    bottom: 0;
+    padding: 20px 10px;
+    border-radius: 10px;
+    transform: translate(50px, 0px);
+    display: flex;
+    .settings_sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      height: 100%;
+      padding: 15px;
+      border-right: 1px solid #cecece;
+      button {
+        @include FlexCenter();
+        width: 100%;
+        padding: 10px;
+        color: #484848;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        svg {
+          margin-right: 5px;
+        }
+      }
+      .active {
+        background-color: #ececec;
+      }
+    }
+    .settings_main {
+      overflow: auto;
+      padding: 20px;
+      height: 100%;
+      width: 100%;
+
+      .head_sideline {
+        position: relative;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #484848;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+        &::after {
+          content: "";
+          flex-grow: 1;
+          margin-left: 10px;
+          height: 1px;
+          background-color: #cecece;
+        }
+      }
+      label {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      input {
+        border: 1px solid rgb(0, 0, 0);
+        height: 40px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      button {
+        padding: 10px;
+        margin-top: 20px;
+        background-color: $primary-color;
+        border-radius: 5px;
+        color: $secondary-color;
+        font-size: 1em;
+      }
+      .form_row {
+        display: flex;
+        width: 100%;
+      }
+      #lname {
+        margin-left: 10px;
+      }
+      .form_input {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+      }
+      .profile_head {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .profile_pic {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 50px;
+          }
+          button {
+            position: absolute;
+            bottom: 5px;
+            right: -10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: $primary-color;
+            border-radius: 5px;
+            color: #ffff;
+            padding: 5px;
+            font-size: 0.8rem;
+            svg {
+              margin-right: 5px;
+            }
+          }
+        }
+        .profile_info {
+          margin-left: 30px;
+          #username {
+            font-size: 1.5rem;
+            font-weight: 500;
+          }
+          #settings_info {
+            font-size: 1rem;
+            font-weight: 400;
+            color: $secondary-font-color;
+          }
+        }
+      }
+      .update_section {
+        margin-top: 15px;
+      }
+    }
+  }
+}

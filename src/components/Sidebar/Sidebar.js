@@ -31,7 +31,7 @@ export default function Sidebar() {
         <img src={hiveImg} alt="" />
       </div>
       <div className={styles.item_setting}>
-        <NavLink to="/settings">
+        <NavLink to="client/settings">
           <div className={styles.items_each}>
             <Icon icon="eva:settings-fill" width="30px" />
             <p>settings</p>

@@ -5,6 +5,8 @@ import Topbar from "./components/Topbar/Topbar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
+import ClientComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
+import ClientSettings from "./pages/Dashboard/Client/Settings/Settings";
 import { useSelector } from "react-redux";
 import Deadlines from "./pages/Dashboard/Superuser/projects/Deadlines";
 
@@ -72,6 +74,8 @@ function App() {
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
             <Route path="/client/task" element={<Tasks />} />
+            <Route path="/client/complaint" element={<ClientComplaint />} />
+            <Route path="/client/settings" element={<ClientSettings />} />
           </Routes>
         </Suspense>
       </div>
