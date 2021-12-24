@@ -28,6 +28,9 @@ const SuperUserComplaints = lazy(() =>
 const SuperUserBills = lazy(() =>
   import("./pages/Dashboard/Superuser/dashboard/Bills/SuperUserBills")
 );
+const SuperUserArchitect = lazy(() =>
+  import("./pages/Dashboard/Superuser/dashboard/Architect/SuperUserArchitect")
+);
 const ClientDashboard = lazy(() =>
   import("./pages/Dashboard/Client/Dashboard")
 );
@@ -61,6 +64,10 @@ function App() {
             <Route
               path="super-user/dashboard/bills"
               element={<SuperUserBills />}
+            />
+            <Route
+              path="super-user/dashboard/architect"
+              element={<SuperUserArchitect />}
             />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
