@@ -14,6 +14,7 @@ export default function SuperUserArchitect() {
     { item_name: "Archived", style: "archived", checked: false },
   ]);
   const [overlay, setOverlay] = useState(false);
+  const [currentThreeDotMenu, setCurrentThreeDotMenu] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,12 +23,37 @@ export default function SuperUserArchitect() {
     );
   }, []);
 
+  const handleThreeDotMenu = (id) => {
+    const menu = document.getElementById(id);
+    const oldMenu = document.getElementById(currentThreeDotMenu);
+
+    if (menu !== oldMenu) {
+      if (oldMenu) {
+        oldMenu.style.display = "none";
+      }
+    }
+
+    if (menu) {
+      setCurrentThreeDotMenu(id);
+      if (menu.style.display === "") {
+        menu.style.display = "grid";
+        setOverlay(true);
+      } else if (menu.style.display === "grid") {
+        menu.style.display = "none";
+        setOverlay(false);
+      } else if (menu.style.display === "none") {
+        menu.style.display = "grid";
+        setOverlay(true);
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       {overlay ? (
         <span
           className={styles.overlay}
-          // onClick={() => handleThreeDotMenu(currentMenu3Dot)}
+          onClick={() => handleThreeDotMenu(currentThreeDotMenu)}
         ></span>
       ) : (
         ""
@@ -65,8 +91,8 @@ export default function SuperUserArchitect() {
 
       <div className={styles.plans}>
         <div className={styles.list}>
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <Plan />
+          {[1, 2, 3, 4, 5, 6].map((item, index) => (
+            <Plan planNumber={index} handleThreeDotMenu={handleThreeDotMenu} />
           ))}
         </div>
       </div>
@@ -74,7 +100,7 @@ export default function SuperUserArchitect() {
   );
 }
 
-const Plan = () => {
+const Plan = ({ planNumber, handleThreeDotMenu }) => {
   return (
     <div className={styles.plan}>
       <div className={styles.plan_img}>
@@ -82,11 +108,18 @@ const Plan = () => {
       </div>
       <div className={styles.plan_options}>
         <h3>Ground floor plan</h3>
-        <div className={styles.more}>
+        <div
+          className={styles.more}
+          onClick={() => handleThreeDotMenu(`${planNumber}dropdown`)}
+        >
           <Icon
             icon="akar-icons:more-horizontal"
             style={{ fontSize: "25px" }}
           />
+          <div className={styles.dropdown} id={`${planNumber}dropdown`}>
+            <p onClick={() => alert("deleted")}>Delete</p>
+            <p onClick={() => alert("Archived")}>Archive</p>
+          </div>
         </div>
         <p>20 august 2021</p>
       </div>
