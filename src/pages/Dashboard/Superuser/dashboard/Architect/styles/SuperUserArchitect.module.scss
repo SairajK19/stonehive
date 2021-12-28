@@ -22,6 +22,106 @@
     font-family: inherit;
   }
 
+  .popup_container {
+    left: $sidebar-width;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    position: fixed;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: $dashboard-container-border-radius;
+
+    .title {
+      position: relative;
+      display: flex;
+      .close {
+        position: absolute;
+        right: -32px;
+        font-size: 30px;
+        top: -35px;
+        background: white;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+
+    .form {
+      display: grid;
+      padding: 15px;
+      width: 600px;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+
+      .img_upload {
+        padding: 80px 30px;
+        border: 2px solid $primary-color;
+        margin-right: 10px;
+        border-radius: $input-tag-border-radius;
+        border-style: dashed;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        text-align: center;
+
+        #upload_img {
+          font-size: 1.5rem;
+        }
+
+        #tip {
+          font-size: 1.2rem;
+        }
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-gap: 10px;
+        width: 100%;
+
+        .input_block {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+
+          .input_field {
+            padding: 10px;
+            background-color: white;
+            border: 1px solid $primary-color;
+            border-radius: $input-tag-border-radius;
+          }
+
+          input {
+            border: none;
+          }
+
+          textarea {
+            resize: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        button {
+          padding: 10px;
+          background-color: $filter-nav-color;
+          border-radius: $input-tag-border-radius;
+          color: white;
+          width: fit-content;
+          height: fit-content;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
   .upload_btn {
     position: absolute;
     right: 40px;

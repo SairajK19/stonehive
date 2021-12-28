@@ -39,13 +39,6 @@ export default function SuperUserDashboard() {
 
   return (
     <div className={styles.container}>
-      {/* <span className={styles.popup} id="popup">
-        {currentForm === "Add" ? (
-          <AddActivityForm handlePopupToggle={handlePopupToggle} />
-        ) : (
-          <EditActivityForm handlePopupToggle={handlePopupToggle} />
-        )}
-      </span> */}
       {currentForm === "Add" ? (
         <Popup
           Component={AddActivityForm}
