@@ -59,6 +59,16 @@ export default function SuperUserArchitect() {
         ""
       )}
 
+      <span className={styles.popup} id="popup">
+        {/* {currentForm === "Add" ? (
+          <AddActivityForm handlePopupToggle={handlePopupToggle} />
+        ) : (
+          <EditActivityForm handlePopupToggle={handlePopupToggle} />
+        )} */}
+      </span>
+
+      <button className={styles.upload_btn}>Upload</button>
+
       <div className={styles.search}>
         <h1>All Uploads</h1>
 

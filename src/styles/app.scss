@@ -24,6 +24,7 @@ body {
   width: 100%;
   padding: 15px;
   background-color: $primary-bg-color;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 840px) {
@@ -35,5 +36,6 @@ body {
 @media screen and (max-width: 1490px) {
   .main_panel {
     padding: 0px;
+    overflow-x: scroll;
   }
 }

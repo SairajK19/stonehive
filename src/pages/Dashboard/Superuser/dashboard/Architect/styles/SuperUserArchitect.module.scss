@@ -11,6 +11,7 @@
   position: relative;
   display: grid;
   grid-template-rows: auto auto 1fr;
+  overflow-x: hidden;
 
   .overlay {
     position: absolute;
@@ -18,6 +19,20 @@
     height: calc(100% - 20px);
     cursor: pointer;
     z-index: 40;
+    font-family: inherit;
+  }
+
+  .upload_btn {
+    position: absolute;
+    right: 40px;
+    bottom: 50px;
+    font-size: 1.3rem;
+    padding: 20px 40px;
+    border-radius: $input-tag-border-radius;
+    color: white;
+    z-index: 70;
+    background-color: $primary-color;
+    box-shadow: 6px 8px 6px rgba(0, 0, 0, 0.25);
   }
 
   .search {
@@ -168,12 +183,25 @@
 }
 
 @media screen and (max-width: $tablet-width) {
+  .container {
+    .overlay {
+      display: none;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile-large) {
   .container {
     padding-right: 20px;
     padding-left: 20px;
+
+    .upload_btn {
+      bottom: calc(#{$sidebar-width-sm} + 20px);
+      font-size: 1.5rem;
+      font-family: inherit;
+      padding: 10px 20px;
+    }
+
     .search {
       padding: 0px;
       h1 {

@@ -1,0 +1,192 @@
+@import "../../../../../../styles/variables";
+@import "../../../../../../styles/colors";
+
+.container {
+  height: calc(100vh - #{$topbar-height} - 35px);
+  background-color: white;
+  border-radius: $dashboard-container-border-radius;
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+
+  .navigation {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    padding-right: 20px;
+    border-right: 0.5px solid $light-text-color;
+    grid-gap: 10px;
+    padding-top: 30px;
+
+    .item {
+      padding: 10px 30px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      grid-gap: 10px;
+      border-radius: $input-tag-border-radius;
+      cursor: pointer;
+      transition: 200ms;
+      color: $primary-color;
+
+      #icon {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+
+    .item:hover {
+      background-color: $input-tag-color !important;
+    }
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 10px;
+    overflow: auto;
+
+    .form_container {
+      padding: 20px;
+
+      form {
+        display: grid;
+        grid-template-rows: auto auto auto auto auto;
+        grid-gap: 10px;
+        .input_block {
+          display: grid;
+          grid-template-rows: 1.2rem auto;
+          grid-gap: 10px;
+          position: relative;
+          label {
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+
+          input[type="text"] {
+            padding: 10px;
+          }
+
+          span {
+            bottom: -23px;
+            color: #838383;
+            margin-top: 5px;
+          }
+
+          textarea {
+            height: 300px;
+            resize: none;
+          }
+
+          .input_tooltip {
+            display: grid;
+            grid-template-rows: 1fr auto;
+          }
+
+          .basic_multi_select {
+            width: 300px;
+          }
+        }
+      }
+
+      #submit {
+        padding: 10px 50px;
+        margin-top: 10px;
+        background-color: $primary-color;
+        color: white;
+        border-radius: $input-tag-border-radius;
+        font-size: 1.2rem;
+      }
+    }
+
+    .inbox_messages {
+      height: calc(100% - 2rem);
+
+      .list {
+        height: 100%;
+        overflow: auto;
+        padding-top: 10px;
+
+        .message_block {
+          display: grid;
+          margin-top: 10px;
+          grid-template-columns: auto 1fr;
+          grid-gap: 10px;
+          align-items: center;
+          border: 1px solid $primary-color;
+          padding: 10px 20px;
+          border-radius: $input-tag-border-radius;
+          max-width: 700px;
+          .sender_img {
+            width: 70px;
+            img {
+              width: 100%;
+              border-radius: 50%;
+              padding: 3px;
+              border: 1px solid rgba(255, 145, 159, 0.57);
+            }
+          }
+
+          .message_details {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 10px;
+            align-items: center;
+
+            #description,strong {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            #unopened {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #7dc2ad;
+              justify-self: end;
+            }
+
+            strong {
+              font-size: 1.2rem;
+            }
+          }
+          cursor: pointer;
+        }
+
+        .message_block:hover {
+          background-color: #dcf0ea;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-large) {
+  .container {
+    padding: 12px;
+    padding-right: 15px;
+    .navigation {
+      display: none;
+    }
+
+    .content {
+      padding: 0px;
+      padding-bottom: $sidebar-width-sm;
+      width: 100%;
+
+      .form_container {
+        padding: 0px;
+        form {
+          padding: 0px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
