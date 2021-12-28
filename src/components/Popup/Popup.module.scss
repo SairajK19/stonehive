@@ -8,10 +8,16 @@
   height: 100%;
   top: 0;
   left: $sidebar-width;
-  z-index: 60;
+  z-index: 1000;
   transition: 500ms !important;
   visibility: hidden;
   opacity: 0;
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: $tablet-width) {
