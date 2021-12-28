@@ -177,13 +177,32 @@ const PlanView = ({ handlePopupToggle }) => {
   return (
     <div className={styles.popup_container}>
       <div className={styles.title}>
-        <h2>Upload Plan</h2>
+        <h2>Ground Floor Plan</h2>
         <span
           className={styles.close}
           onClick={() => handlePopupToggle("PlanView")}
         >
           <Icon icon="ci:off-close" />
         </span>
+      </div>
+      <div className={styles.plan}>
+        <div className={styles.plan_details}>
+          <p>20 august 2021</p>
+          <div className={styles.plan_buttons}>
+            <div className={styles.edit_btn}>
+              <Icon icon="akar-icons:edit" style={{ fontSize: "25px" }} />
+            </div>
+            <div className={styles.delete_btn}>
+              <Icon
+                icon="ant-design:delete-outlined"
+                style={{ fontSize: "25px" }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={styles.plan_img}>
+          <img src={plan} />
+        </div>
       </div>
     </div>
   );
@@ -203,10 +222,13 @@ const Upload = ({ handlePopupToggle }) => {
       </div>
 
       <div className={styles.form}>
-        <div className={styles.img_upload} >
+        <div className={styles.img_upload}>
           <p id={styles.upload_img}>Upload Image</p>
           <p id={styles.tip}>supports .png .jpg .jpeg</p>
-          <input type="file" />
+          <input type="file" name="upload" id="upload-img" hidden required />
+          <label for="upload-img" id={styles.choose_file}>
+            Choose File
+          </label>
         </div>
         <div className={styles.details}>
           <div className={styles.input_block}>

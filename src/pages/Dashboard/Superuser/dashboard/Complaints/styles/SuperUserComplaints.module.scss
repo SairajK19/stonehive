@@ -9,6 +9,7 @@
   padding-top: 20px;
   padding-bottom: 10px;
   display: flex;
+  min-width: 800px;
 
   .navigation {
     width: fit-content;
@@ -171,13 +172,10 @@
   .container {
     padding: 12px;
     padding-right: 15px;
-    .navigation {
-      display: none;
-    }
 
     .content {
       padding: 0px;
-      padding-bottom: $sidebar-width-sm;
+      padding-bottom: calc(#{$sidebar-width-sm} - 40px);
       width: 100%;
 
       .form_container {
