@@ -1,6 +1,7 @@
 @import "../../../../styles/colors";
 @import "../../../../styles/variables";
 @import "../../../../styles/mixins";
+@import "../../../../styles/utils";
 
 .container {
   width: 100%;
@@ -18,65 +19,72 @@
   }
   .form_container {
     margin: 40px;
-    padding: 20px;
+    padding: 25px;
     width: 50%;
     box-shadow: 0px 7px 31px rgba(0, 0, 0, 0.15);
     border-radius: $dashboard-container-border-radius;
-
+    display: flex;
+    flex-direction: column;
     .form_recipient,
     .description,
     .title,
     .submit_button {
       width: 100%;
     }
+
+    .description{
+      flex:1;
+    }
+
     span {
       color: red;
     }
     p {
-      margin-top: 2px;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
+      margin-top: 0;
+      font-size: 0.45em;
       color: $secondary-font-color;
     }
+    form{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
     label {
-      font-size: 1.2rem;
+      margin-top: 10px;
+      font-size: .64em;
       font-weight: 500;
     }
     label,
     input {
       display: block;
     }
-    select {
-      margin-top: 5px;
-      margin-bottom: 20px;
-    }
     textarea,
     input {
-      margin-top: 5px;
       width: 100%;
       padding: 10px;
       border-radius: 5px;
       outline: none;
       border: 1px solid black;
-      font-size: 1.1em;
+      font-size: .6em;
       font-weight: 400;
+      margin-bottom: 0;
+    }
+    textarea{
+      height: 70%;
     }
     #recipient {
-      padding: 5px;
-      border-radius: 10px;
-      background-color: transparent;
-      outline: none;
+      width: fit-content;
+      font-size: .6em;
     }
     .submit_button {
       @include FlexCenter();
       justify-content: center;
       button {
-        padding: 10px 15px;
+        padding: 8px 15px;
         background-color: $primary-color;
         border-radius: 5px;
         color: $secondary-color;
-        font-size: 1.1em;
-
+        font-size: .65em;
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSidebarItems } from "../../../../redux/reducers/shReducers";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
@@ -6,6 +6,7 @@ import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems"
 import styles from "./complaint.module.scss";
 
 import complaint_svg from "../../../../assets/svg/complaint_svg.svg";
+import Select from "react-select";
 
 export default function Complaint() {
   const dispatch = useDispatch();
@@ -14,8 +15,13 @@ export default function Complaint() {
       setSidebarItems({ active: "complaint", items: clientSidebarItems })
     );
   });
+  const [recipientOptions, setrecipientOptions] = useState([
+    { value: "Stonehive", label: "Stonehive" },
+    { value: "Contractor", label: "Contractor" },
+    { value: "Architect", label: "Architect" },
+  ]);
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.responsive_font}`}>
       <div className={styles.complaint_svg}>
         <img src={complaint_svg} alt="" />
       </div>
@@ -25,11 +31,14 @@ export default function Complaint() {
             <label>
               To<span>*</span>
             </label>
-            <select name="recipient" id={styles.recipient}>
-              <option value="stoneheive">Stone Hive</option>
-              <option value="contractor">Contractor</option>
-              <option value="architect">Architect</option>
-            </select>
+            <Select
+              defaultValue={recipientOptions[0]}
+              name="Categories"
+              options={recipientOptions}
+              id={styles.recipient}
+              //   onChange={publishHandleInputChange}
+              // styles={customStyles}
+            />
           </div>
           <div className={styles.title}>
             <label>
