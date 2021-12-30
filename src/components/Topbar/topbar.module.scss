@@ -1,6 +1,7 @@
 @import "../../styles/colors";
 @import "../../styles/mixins";
 @import "../../styles/variables";
+@import "../../styles/utils";
 .container {
   position: sticky;
   top: 0;
@@ -23,14 +24,14 @@
     .headings_col {
       margin-left: 15px;
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.02em;
         font-weight: 500;
         &::first-letter {
           text-transform: capitalize;
         }
       }
       h5 {
-        font-size: 1rem;
+        font-size: 0.612em;
         font-weight: 400;
         @include FlexCenter();
       }

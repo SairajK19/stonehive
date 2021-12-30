@@ -27,6 +27,9 @@ export const data = {
         "rgba(255, 193, 34, 1)",
       ],
       borderRadius: "100px",
+      borderWidth: 5,
+      height: 0,
+      width: 0,
     },
   ],
 };
@@ -38,7 +41,7 @@ export default function ClientDashboard() {
     );
   });
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.responsive_font}`}>
       <div className={styles.overview}>
         <div className={styles.current_phase}>
           <img src={CurrentPhaseImg} alt="" />
@@ -79,8 +82,6 @@ export default function ClientDashboard() {
                   <Icon
                     icon="clarity:design-line"
                     style={{ color: "rgba(255, 136, 54,1)" }}
-                    width="100%"
-                    height="100%"
                   />
                 </div>
                 <div className={styles.update_list_item_info}>
@@ -98,7 +99,11 @@ export default function ClientDashboard() {
       <div className={styles.budget_overview}>
         <h2>Total Budget Overview</h2>
         <div className={styles.budget_chart}>
-          <Doughnut data={data} height="50px"  />
+          <Doughnut
+            data={data}
+            style={{ height: "50%", width: "50%", "max-height": "100%" }}
+          />{" "}
+          <div className="budget_summary"></div>
         </div>
       </div>
       <div className={styles.plan_elevation}>

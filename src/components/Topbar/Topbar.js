@@ -9,7 +9,7 @@ export default function Topbar() {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.responsive_font}`}>
       <div className={styles.headings}>
         <div className={styles.arrow_cont}>
           <Icon icon="eva:arrow-ios-back-fill" height="20" />

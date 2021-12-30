@@ -1,13 +1,15 @@
 @import "../../styles/colors";
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import "../../styles/utils";
 .container {
+  position: fixed;
   display: grid;
   align-items: center;
   grid-template-rows: auto auto 1fr auto auto;
   grid-gap: 20px;
   background-color: $primary-color;
-  min-width: $sidebar-width;
+  max-width: $sidebar-width;
   padding: 20px 0;
   height: 100vh;
   overflow-y: auto;
@@ -19,7 +21,7 @@
     }
     h1 {
       color: #ffff;
-      font-size: 1.2em;
+      font-size: 0.78em;
       font-weight: 500;
     }
   }
@@ -37,7 +39,6 @@
       @include FlexCenter();
       padding: 10px;
       color: $secondary-color;
-      font-size: 1.2em;
       border-radius: 15px 0 0 15px;
       transition: all 0.2s ease-in-out;
       svg {
@@ -46,7 +47,7 @@
         margin-right: 10px;
       }
       p {
-        font-size: 1em;
+        font-size: 0.712em;
         font-weight: 400;
       }
       p::first-letter {
