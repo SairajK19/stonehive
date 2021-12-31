@@ -2,6 +2,7 @@
 @import "./reset.scss";
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;500;600;700;800&display=swap");
 @import "./colors";
+@import "./variables";
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -40,4 +41,17 @@ body {
     padding: 0px;
     overflow-x: scroll;
   }
+}
+
+
+@media screen and (max-width: $tablet-width) {
+    .main_panel {
+      margin-left: $sidebar-tablet-width;
+    }
+}
+
+@media screen and (max-width: $mobile-large) {
+    .main_panel {
+      margin-left: 0px;
+    }
 }
