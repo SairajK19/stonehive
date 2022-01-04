@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { clientSidebarItems } from "../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
+import Popup from "./Popup/Popup";
+import Task from "./Tasks/Tasks";
+import Updates from "./Updates/Updates";
+import SiteImages from "./SiteImages/Siteimages";
 import { Doughnut } from "react-chartjs-2";
 
 import styles from "./client.module.scss";
@@ -40,9 +44,17 @@ export default function ClientDashboard() {
       setSidebarItems({ active: "dashboard", items: clientSidebarItems })
     );
   });
+  const [popupToggle, setPopupToggle] = useState(false);
+  const [popupComponent, setPopupComponent] = useState("updates");
   return (
-    <div className={`${styles.container} ${styles.responsive_font}`}>
-      <div className={styles.overview}>
+    <div className={`${styles.container} responsive_font`}>
+      <div
+        className={styles.overview}
+        onClick={() => {
+          setPopupComponent("task");
+          setPopupToggle(true);
+        }}
+      >
         <div className={styles.current_phase}>
           <img src={CurrentPhaseImg} alt="" />
         </div>
@@ -93,7 +105,14 @@ export default function ClientDashboard() {
           })}
         </div>
         <div className={styles.update_view_all}>
-          <button>View All</button>
+          <button
+            onClick={() => {
+              setPopupComponent("updates");
+              setPopupToggle(true);
+            }}
+          >
+            View All
+          </button>
         </div>
       </div>
       <div className={styles.budget_overview}>
@@ -110,7 +129,13 @@ export default function ClientDashboard() {
         <h2>Plans and Elevation</h2>
         <img src={PlanElevationImg} alt="plans and elevations" />
       </div>
-      <div className={styles.site_images}>
+      <div
+        className={styles.site_images}
+        onClick={() => {
+          setPopupComponent("siteimages");
+          setPopupToggle(true);
+        }}
+      >
         <h2>Site Images</h2>
         <div className={styles.site_images_main}>
           <div className={styles.main_thumbnail}>
@@ -127,6 +152,23 @@ export default function ClientDashboard() {
           </button>
         </div>
       </div>
+      <Popup
+        popupToggle={popupToggle}
+        setPopupToggle={(data) => setPopupToggle(data)}
+      >
+        {(() => {
+          switch (popupComponent) {
+            case "task":
+              return <Task fromPopup={true} />;
+            case "siteimages":
+              return <SiteImages fromPopup={true} />;
+            case "updates":
+              return <Updates />;
+            default:
+              break;
+          }
+        })()}
+      </Popup>
     </div>
   );
 }
