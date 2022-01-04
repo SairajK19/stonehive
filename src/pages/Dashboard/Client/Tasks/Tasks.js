@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { setSidebarItems } from "../../../../redux/reducers/shReducers";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
 import { useDispatch } from "react-redux";
-export default function Tasks() {
+export default function Tasks({ fromPopup}) {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setSidebarItems({ active: "task", items: clientSidebarItems }));
+    if (!fromPopup)
+      dispatch(setSidebarItems({ active: "task", items: clientSidebarItems }));
   });
-  return <div></div>;
+  return <div>task</div>;
 }
