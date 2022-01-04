@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 export default function Sidebar() {
   const items = useSelector((state) => state.stonehive.sidebarItems.items);
   return (
-    <div className={`${styles.container} ${styles.responsive_font}`}>
+    <div className={`${styles.container} responsive_font`}>
       <div className={styles.logo}>
         <img src={logo} alt="logo" />
         <h1>StoneHive</h1>

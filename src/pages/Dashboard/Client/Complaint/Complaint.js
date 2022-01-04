@@ -21,7 +21,7 @@ export default function Complaint() {
     { value: "Architect", label: "Architect" },
   ]);
   return (
-    <div className={`${styles.container} ${styles.responsive_font}`}>
+    <div className={`${styles.container} responsive_font`}>
       <div className={styles.complaint_svg}>
         <img src={complaint_svg} alt="" />
       </div>

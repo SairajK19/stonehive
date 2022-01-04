@@ -1,7 +1,6 @@
 @import "../../styles/colors";
 @import "../../styles/mixins";
 @import "../../styles/variables";
-@import "../../styles/utils";
 .container {
   position: sticky;
   top: 0;
@@ -40,6 +39,7 @@
   .user_profile_notifi {
     @include FlexCenter();
     .seperator {
+      font-size: 1rem;
       margin: 0 5px 0 10px;
       width: 1px;
       height: 25px;
