@@ -9,7 +9,7 @@ export default function Topbar() {
   );
 
   return (
-    <div className={`${styles.container} ${styles.responsive_font}`}>
+    <div className={`${styles.container} responsive_font`}>
       <div className={styles.headings}>
         <div className={styles.arrow_cont}>
           <Icon icon="eva:arrow-ios-back-fill" height="20" />
@@ -31,7 +31,7 @@ export default function Topbar() {
         <div className={styles.profile}>
           <img src={ProfileImg} alt="prifle" />
         </div>
-        <Icon icon="ls:dropdown" />
+        <Icon icon="ls:dropdown" width="20px"/>
       </div>
     </div>
   );

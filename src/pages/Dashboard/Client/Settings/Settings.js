@@ -17,7 +17,7 @@ export default function Settings() {
     );
   });
   return (
-    <div className={`${styles.container} ${styles.responsive_font}`}>
+    <div className={`${styles.container} responsive_font`}>
       <div className={styles.bg_image}>
         <img src={SettingsBgImg} alt="" />
       </div>

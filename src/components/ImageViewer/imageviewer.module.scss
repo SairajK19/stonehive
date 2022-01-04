@@ -1,0 +1,10 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+.container {
+  width: 100%;
+  max-height: 50%;
+  margin-top: 10px;
+  img{
+      max-height: 50%;
+  }
+}

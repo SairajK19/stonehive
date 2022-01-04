@@ -1,9 +1,9 @@
 @import-normalize;
 @import "./reset.scss";
+@import "./variables";
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;500;600;700;800&display=swap");
 @import "./colors";
-@import "./variables";
-
+@import "./utils";
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -22,8 +22,9 @@ body {
   overflow-x: hidden;
 }
 .main_panel {
+  position: relative;
   width: 100%;
-  margin-left: 255px;
+  margin-left: $sidebar-width;
   max-height: 100vh;
   padding: 15px;
   background-color: $primary-bg-color;
@@ -32,26 +33,23 @@ body {
 
 @media screen and (max-width: 840px) {
   .main_panel {
-    padding: 0px;
+    // padding: 0px;
   }
 }
 
 @media screen and (max-width: 1490px) {
   .main_panel {
-    padding: 0px;
-    overflow-x: scroll;
+    overflow-x: hidden;
   }
 }
 
-
 @media screen and (max-width: $tablet-width) {
-    .main_panel {
-      margin-left: $sidebar-tablet-width;
-    }
+  .main_panel {
+    margin-left: $sidebar-width-sm;
+  }
 }
-
 @media screen and (max-width: $mobile-large) {
-    .main_panel {
-      margin-left: 0px;
-    }
+  .main_panel {
+    margin-left: 0;
+  }
 }
