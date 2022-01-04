@@ -129,6 +129,7 @@
       width: 250px;
       border: 1px solid $primary-color;
       border-radius: 4px;
+      z-index: 999;
     }
 
     .details_update {
@@ -239,6 +240,12 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        width: fit-content;
+    }
 }
 
 @media screen and (max-width: $tablet-width) {

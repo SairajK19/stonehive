@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
 import Select from "react-select";
 import styles from "./styles/SuperUserDashboard.module.scss";
 import Popup from "../../../../../components/Popup/Popup";
@@ -21,6 +21,7 @@ export default function SuperUserDashboard() {
     dispatch(
       setSidebarItems({ active: "Dashboard", items: superuserSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }));
   }, []);
 
   const handlePopupToggle = (form) => {
