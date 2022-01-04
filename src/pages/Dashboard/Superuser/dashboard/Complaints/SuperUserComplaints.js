@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
 import styles from "./styles/SuperUserComplaints.module.scss";
 import Select from "react-select";
 import SendersImg from "../../../../../assets/images/SendersImg.png";
@@ -39,6 +39,7 @@ export default function SuperUserComplaints() {
     dispatch(
       setSidebarItems({ active: "Complaints", items: superuserSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }));
   }, []);
 
   return (

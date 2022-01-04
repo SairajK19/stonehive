@@ -21,6 +21,7 @@ export default function Deadlines() {
     dispatch(
       setSidebarItems({ active: "Projects", items: superuserHomeSidebarItemsMobile })
     );
+    dispatch(setTopBarVisibility({ visibility: false }));
   }, []);
 
   return (

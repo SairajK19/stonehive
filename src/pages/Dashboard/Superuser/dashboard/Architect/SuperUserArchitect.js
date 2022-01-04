@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import SearchBar from "../../../../../components/SearchBar/SearchBar";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
 import styles from "./styles/SuperUserArchitect.module.scss";
 import plan from "../../../../../assets/images/plan.png";
 import Popup from "../../../../../components/Popup/Popup";
@@ -24,6 +24,7 @@ export default function SuperUserArchitect() {
     dispatch(
       setSidebarItems({ active: "Architect", items: superuserSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }))
   }, []);
 
   const handleThreeDotMenu = (id) => {

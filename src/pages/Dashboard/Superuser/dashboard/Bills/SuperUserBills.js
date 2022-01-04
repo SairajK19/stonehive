@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../../redux/reducers/shReducers";
+import { setSidebarItems,setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
 import styles from "./styles/SuperUserBills.module.scss";
 
 export default function SuperUserBills() {
@@ -14,6 +14,7 @@ export default function SuperUserBills() {
     dispatch(
       setSidebarItems({ active: "Bills", items: superuserSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }));
   }, []);
 
   const handleOverlayClick = () => {
