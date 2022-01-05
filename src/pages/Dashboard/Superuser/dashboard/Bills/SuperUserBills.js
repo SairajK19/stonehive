@@ -29,6 +29,10 @@ export default function SuperUserBills() {
 
   return (
     <div className={styles.container}>
+        {/** 
+            This is created so that once a user clicks on a pop-up 
+             if the user clicks anywhere else the popup will be closed.
+        **/}
       {showOverlay ? (
         <span
           className={styles.container_overlay}
@@ -78,16 +82,24 @@ export default function SuperUserBills() {
                 <p>Sep 5 9:30</p>
               </div>
               <div className={styles.bill_button}>
-                <button id={styles.view}>
-                  <Icon icon="akar-icons:eye" />
-                  View
-                </button>
-                {bill.approved ? (
-                  <button id={styles.approved}>Approved</button>
-                ) : (
-                  <button id={styles.approve}>Approve</button>
-                )}
-                <button id={styles.reject}>Reject</button>
+                  <a id={styles.view}>
+                      {/* Here once we receive the bill object file, we need to create a local url using
+                        URL.createObjectURL(), it takes an argument that is the pdf object we get from the database.
+                        so the bill can be seen locally.
+
+                        Check
+                        https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+                        for more info
+                        */}
+                      <Icon icon="akar-icons:eye" />
+                      View
+                  </a>
+                  {bill.approved ? (
+                      <button id={styles.approved}>Approved</button>
+                  ) : (
+                      <button id={styles.approve}>Approve</button>
+                  )}
+                  <button id={styles.reject}>Reject</button>
               </div>
             </div>
           ))}

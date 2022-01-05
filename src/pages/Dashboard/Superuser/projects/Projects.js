@@ -113,6 +113,10 @@ export default function Projects() {
 
   return (
     <div className={styles.container}>
+        {/** 
+            This is created so that once a user clicks on a pop-up 
+             if the user clicks anywhere else the popup will be closed.
+        **/}
       {overlay ? (
         <span
           className={styles.overlay}
