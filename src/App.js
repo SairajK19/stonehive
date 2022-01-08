@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
-import Tasks from "./pages/Dashboard/Client/Tasks/Tasks";
+import Activities from "./pages/Dashboard/Client/Activities/Activities";
 import ClientComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
 import SiteImages from "./pages/Dashboard/Client/SiteImages/Siteimages";
 import ClientSettings from "./pages/Dashboard/Client/Settings/Settings";
@@ -75,7 +75,7 @@ function App() {
             />
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
-            <Route path="/client/task" element={<Tasks />} />
+            <Route path="/client/actvities" element={<Activities />} />
             <Route path="/client/site-images" element={<SiteImages />} />
             <Route path="/client/complaint" element={<ClientComplaint />} />
             <Route path="/client/settings" element={<ClientSettings />} />

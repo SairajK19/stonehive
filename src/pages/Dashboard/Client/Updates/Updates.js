@@ -5,7 +5,6 @@ export default function Updates() {
   const colors = ["#7DC2AD61", "#FF88364F", "#FECB4959"];
   return (
     <div className={styles.container}>
-      <p className="popup_title">Updates</p>
       <button className={styles.filter}>
         <Icon icon="icon-park:loading-one" height="15" color="#296DF1" />
         <p>This Month</p>
@@ -31,11 +30,12 @@ function UpdateCard({ color }) {
       style={
         !cardToggle ? { height: "fit-content", minHeight: "fit-content" } : null
       }
+      onClick={() => setCardToggle(!cardToggle)}
     >
       <div className={styles.card_title}>
         <Icon icon="akar-icons:circle" height="20" />
         <p>Design Completed </p>
-        <button onClick={() => setCardToggle(!cardToggle)}>
+        <button>
           <Icon
             icon={cardToggle ? "clarity:window-close-line" : "ep:arrow-down"}
             height="20"

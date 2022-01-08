@@ -1,4 +1,5 @@
 @import "../../../../styles/variables";
+
 .container {
   display: flex;
   justify-content: center;
@@ -9,6 +10,15 @@
   top: 0;
   left: -20px;
 }
+.popup_title {
+  width: fit-content;
+  font-size: 0.85em;
+  font-weight: 400;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
 .overlay {
   position: absolute;
   width: 100%;
@@ -24,17 +34,22 @@
   z-index: 99;
   border-radius: 10px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  .popup_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
   .close_btn {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 35px;
     width: 35px;
-    float: right;
     padding: 5px;
     border-radius: 100%;
     background-color: rgba(246, 246, 246, 1);
   }
-
 }
-

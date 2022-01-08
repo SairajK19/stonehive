@@ -6,7 +6,6 @@
   .filter {
     width: fit-content;
     align-self: flex-end;
-    margin-top: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -37,7 +36,7 @@
   height: 100%;
   min-height: 200px;
   max-height: 250px;
-
+  cursor: pointer;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
   .card_title {
     display: flex;

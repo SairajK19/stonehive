@@ -4,7 +4,8 @@
   overflow: hidden;
   .rectangles {
     position: absolute;
-    right: 0;
-    transform: scale(1.1);
+    right: -70px;
+    height: 100%;
+    // transform: scale(1.1);
   }
 }

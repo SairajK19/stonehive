@@ -112,7 +112,7 @@ function PassSection() {
           <label>Confirm Password</label>
           <input type="password" />
         </div>
-        <button type="submit">Update Profile</button>
+        <button type="submit">Change</button>
       </form>
     </div>
   );
