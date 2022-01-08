@@ -329,7 +329,7 @@ const Project = ({
     <div className={styles.project}>
       {/* Shows the title of the project */}
       <Link
-        to="/super-user"
+        to="/super-user/dashboard/project"
         style={{ position: "absolute", width: "100%", height: "100%" }}
       >
         <span

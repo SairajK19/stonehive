@@ -107,8 +107,7 @@ const ComplaintForm = ({ options }) => {
               options={options}
               className={styles.basic_multi_select}
               classNamePrefix="select"
-              //   onChange={publishHandleInputChange}
-              // styles={customStyles}
+              isSearchable={false}
             />
           </div>
           <div className={styles.input_block} id={styles.complaint_title}>

@@ -103,8 +103,7 @@ export default function SuperUserDashboard() {
                     options={options}
                     className={styles.basic_multi_select}
                     classNamePrefix="select"
-                    //   onChange={publishHandleInputChange}
-                    // styles={customStyles}
+                    isSearchable={false}
                 />
                 
                 {
@@ -321,8 +320,7 @@ const AddActivityForm = ({ handlePopupToggle }) => {
                         options={options}
                         className={styles.basic_multi_select}
                         classNamePrefix="select"
-                        //   onChange={publishHandleInputChange}
-                        // styles={customStyles}
+                        isSearchable={false}
                     />
                 </div>
             </form>
@@ -388,8 +386,7 @@ const EditActivityForm = ({ handlePopupToggle }) => {
                         options={options}
                         className={styles.basic_multi_select}
                         classNamePrefix="select"
-                        //   onChange={publishHandleInputChange}
-                        // styles={customStyles}
+                        isSearchable={false}
                     />
                 </div>
             </form>

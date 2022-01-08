@@ -118,13 +118,11 @@ export default function CreateProject() {
                 <div className={styles.input_field}>
                   <Select
                     defaultValue={[item.options[0]]}
-                    // isMulti
                     name="Categories"
                     options={item.options}
                     className={styles.basic_multi_select}
                     classNamePrefix="select"
-                    //   onChange={publishHandleInputChange}
-                    // styles={customStyles}
+                    isSearchable={false}
                   />
                 </div>
               </div>
