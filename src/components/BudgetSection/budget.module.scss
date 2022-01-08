@@ -1,0 +1,31 @@
+@import "../../styles/colors";
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr;
+  gap: 10px;
+}
+.budget_charts {
+  font-size: 1.2em;
+}
+
+.budget_graph {
+  padding: 15px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  grid-column: 1/3;
+  #title {
+    font-size: 0.6em;
+    font-weight: 500;
+  }
+  #budget_difference {
+    display: flex;
+    align-items: center;
+
+    font-size: 0.45em;
+    font-weight: 300;
+    color: $secondary-font-color;
+  }
+}
