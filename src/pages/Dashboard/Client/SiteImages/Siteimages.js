@@ -5,7 +5,6 @@ import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems"
 
 import styles from "./siteimages.module.scss";
 
-
 import Imageviewer from "../../../../components/ImageViewer/Imageviewer";
 export default function Siteimages({ fromPopup }) {
   const dispatch = useDispatch();
@@ -16,10 +15,5 @@ export default function Siteimages({ fromPopup }) {
       );
     }
   });
-  return (
-    <>
-      <p className="popup_title">Site Images</p>
-      <Imageviewer />
-    </>
-  );
+  return <Imageviewer />;
 }

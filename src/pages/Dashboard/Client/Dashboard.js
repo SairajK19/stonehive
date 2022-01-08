@@ -3,14 +3,14 @@ import { clientSidebarItems } from "../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+import BudgetChart from "../../../components/BudgetChart/BudgetChart";
 
 import Popup from "./Popup/Popup";
-import Task from "./Tasks/Tasks";
+import Activities from "./Activities/Activities";
 import Updates from "./Updates/Updates";
 import SiteImages from "./SiteImages/Siteimages";
-import { Doughnut } from "react-chartjs-2";
-
+import BudgetSection from "../../../components/BudgetSection/Budget";
 import styles from "./client.module.scss";
 
 import CurrentPhaseImg from "../../../assets/images/current_phase.png";
@@ -19,24 +19,7 @@ import PlanElevationImg from "../../../assets/images/plan_elevations.png";
 import SiteMainImg from "../../../assets/images/siteImg_1.png";
 import SiteSmallImg1 from "../../../assets/images/siteImg_2.png";
 import SiteSmallImg2 from "../../../assets/images/siteImg_3.png";
-ChartJS.register(ArcElement, Tooltip, Legend);
-export const data = {
-  datasets: [
-    {
-      data: [12, 19, 3],
 
-      backgroundColor: [
-        "rgba(93, 177, 152, 1)",
-        "rgba(250, 114, 84, 1)",
-        "rgba(255, 193, 34, 1)",
-      ],
-      borderRadius: "100px",
-      borderWidth: 5,
-      height: 0,
-      width: 0,
-    },
-  ],
-};
 export default function ClientDashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -45,13 +28,15 @@ export default function ClientDashboard() {
     );
   });
   const [popupToggle, setPopupToggle] = useState(false);
-  const [popupComponent, setPopupComponent] = useState("updates");
+  const [popupComponent, setPopupComponent] = useState("activities");
+  const [popupTitle, setPopupTitle] = useState("activities");
   return (
     <div className={`${styles.container} responsive_font`}>
       <div
         className={styles.overview}
         onClick={() => {
-          setPopupComponent("task");
+          setPopupTitle("Activities");
+          setPopupComponent("activities");
           setPopupToggle(true);
         }}
       >
@@ -84,7 +69,7 @@ export default function ClientDashboard() {
           <Icon icon="akar-icons:arrow-up-down" height="15" />
         </div>
         <div className={styles.update_list}>
-          {[1, 2, 3, 4, 5].map(() => {
+          {[1, 2, 3].map(() => {
             return (
               <div className={styles.update_list_item}>
                 <div
@@ -107,6 +92,7 @@ export default function ClientDashboard() {
         <div className={styles.update_view_all}>
           <button
             onClick={() => {
+              setPopupTitle("Updates");
               setPopupComponent("updates");
               setPopupToggle(true);
             }}
@@ -115,14 +101,17 @@ export default function ClientDashboard() {
           </button>
         </div>
       </div>
-      <div className={styles.budget_overview}>
+      <div
+        className={styles.budget_overview}
+        onClick={() => {
+          setPopupTitle("Total Budget Overview");
+          setPopupComponent("budget");
+          setPopupToggle(true);
+        }}
+      >
         <h2>Total Budget Overview</h2>
         <div className={styles.budget_chart}>
-          <Doughnut
-            data={data}
-            style={{ height: "50%", width: "50%", "max-height": "100%" }}
-          />{" "}
-          <div className="budget_summary"></div>
+          <BudgetChart />
         </div>
       </div>
       <div className={styles.plan_elevation}>
@@ -132,6 +121,7 @@ export default function ClientDashboard() {
       <div
         className={styles.site_images}
         onClick={() => {
+          setPopupTitle("Site Images");
           setPopupComponent("siteimages");
           setPopupToggle(true);
         }}
@@ -154,14 +144,18 @@ export default function ClientDashboard() {
       </div>
       <Popup
         popupToggle={popupToggle}
+        // popupToggle={true}
         setPopupToggle={(data) => setPopupToggle(data)}
+        popupTitle={popupTitle}
       >
         {(() => {
           switch (popupComponent) {
-            case "task":
-              return <Task fromPopup={true} />;
+            case "activities":
+              return <Activities fromPopup={true} />;
             case "siteimages":
               return <SiteImages fromPopup={true} />;
+            case "budget":
+              return <BudgetSection fromPopup={true} />;
             case "updates":
               return <Updates />;
             default:
