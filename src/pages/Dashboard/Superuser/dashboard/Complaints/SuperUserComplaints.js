@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
+import {
+  setSidebarItems,
+  setTopBarVisibility,
+} from "../../../../../redux/reducers/shReducers";
 import styles from "./styles/SuperUserComplaints.module.scss";
 import Select from "react-select";
 import SendersImg from "../../../../../assets/images/SendersImg.png";
+import complaint_img from "../../../../../assets/images/complaint_img.png";
 
 export default function SuperUserComplaints() {
   const dispatch = useDispatch();
@@ -17,6 +21,7 @@ export default function SuperUserComplaints() {
   const [inbox, setInbox] = useState("transparent");
   const [sent, setSent] = useState("transparent");
   const [currentNav, setCurrentNav] = useState("Complaint");
+  const [showMessageDetails, setShowMessageDetails] = useState();
 
   const handleNavigation = (nav) => {
     setCurrentNav(nav);
@@ -73,7 +78,11 @@ export default function SuperUserComplaints() {
       {currentNav === "Complaint" ? (
         <ComplaintForm options={options} />
       ) : currentNav === "Inbox" ? (
-        <Inbox />
+        showMessageDetails ? (
+          <ComplaintDetails setShowMessageDetails={setShowMessageDetails} />
+        ) : (
+          <Inbox setShowMessageDetails={setShowMessageDetails} />
+        )
       ) : currentNav === "Sent" ? (
         <Sent />
       ) : (
@@ -129,21 +138,21 @@ const ComplaintForm = ({ options }) => {
   );
 };
 
-const Inbox = () => {
+const Inbox = ({ setShowMessageDetails }) => {
   return (
     <div className={styles.content}>
       <h2>All Complaints</h2>
       <div className={styles.inbox_messages}>
         <div className={styles.list}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
-            <div className={styles.message_block}>
+              <div className={styles.message_block} onClick={() => setShowMessageDetails(true)}  >
               <div className={styles.sender_img}>
                 <img src={SendersImg} />
               </div>
               <div className={styles.message_details}>
                 <strong>Sairaj Kapdi</strong>
                 <div id={styles.unopened}></div>
-                <p id={styles.description} >Bad material used for foundation</p>
+                <p id={styles.description}>Bad material used for foundation</p>
                 <p>11 Aug 2021</p>
               </div>
             </div>
@@ -181,7 +190,7 @@ const Sent = () => {
                 >
                   Solved
                 </div>
-                <p id={styles.description} >Bad material used for foundation</p>
+                <p id={styles.description}>Bad material used for foundation</p>
                 <p>11 Aug 2021</p>
               </div>
             </div>
@@ -190,4 +199,53 @@ const Sent = () => {
       </div>
     </div>
   );
+};
+
+const ComplaintDetails = ({setShowMessageDetails}) => {
+    const [attachments, setAttachments] = useState([complaint_img, complaint_img, complaint_img]);
+    return ( 
+        <div className={styles.content}>
+            <div className={styles.title}>
+                <div className={styles.back_button} onClick={() => setShowMessageDetails(false)}  >
+                    <Icon icon="eva:arrow-ios-back-fill" height="20" />
+                </div>
+                <h2>Bad material used for foundation</h2>
+            </div>
+            <div className={styles.message_heading}>
+                <div className={styles.user_details}>
+                    <div className={styles.sender_img}>
+                        <img src={SendersImg} />
+                    </div>
+                    <div className={styles.details} >
+                        <strong>Sanket Marathe</strong>
+                        <p>Client</p>
+                        <p>sanketmarathe69@gmail.com</p>
+                    </div>
+                </div>
+                <p>11 Aug 2021 12:00 pm</p>
+            </div>
+            <div className={styles.message_content}>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sapien, ut feugiat sed risus condimentum malesuada. Ut eu sagittis ut mauris diam, nec hac aliquam. Nibh vestibulum eget dignissim ultrices velit nunc etiam. Cursus sed congue lacus diam et elementum commodo, dictumst. Arcu justo, eget enim habitasse. Est quam fringilla amet in malesuada curabitur. Amet, tempus scelerisque sed interdum ut. Lacus felis bibendum purus et. Aliquam cursus faucibus amet, tellus nisi, morbi semper et. Augue pulvinar massa ullamcorper urna. Volutpat id pharetra dolor, diam euismod vitae pharetra pellentesque.</p>
+
+                <div className={styles.attachments}>
+                    <div className={styles.heading}>
+                        <Icon icon="clarity:attachment-line" id={styles.hook} />
+                        <h2>Attachments</h2>
+                    </div>
+                   {attachments.length === 0 ? ( 
+                        <p>No attachments</p> ) : ( 
+                            <div className={styles.attachments_list}>
+                                {
+                                    attachments.map(image => (
+                                        <img src={image} />
+                                    ))
+                                }
+                            </div> 
+                        )
+                   }
+                </div>
+            </div>
+            <button id={styles.mark_as_done}> Mark as done </button>
+        </div>
+    );
 };
