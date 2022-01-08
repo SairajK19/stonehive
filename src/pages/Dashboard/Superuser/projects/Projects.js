@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   superuserHomeSidebarItems,
   superuserHomeSidebarItemsMobile,
@@ -19,7 +19,7 @@ export default function Projects() {
   const dispatch = useDispatch();
 
   // State variables
-  const [navigation, setNavigation] = useState([
+  const [navigation, _setNavigation] = useState([
     { item_name: "Ongoing", style: "ongoing", checked: true },
     { item_name: "Past", style: "past", checked: false },
     { item_name: "Archived", style: "archived", checked: false },
@@ -113,6 +113,10 @@ export default function Projects() {
 
   return (
     <div className={styles.container}>
+        {/** 
+            This is created so that once a user clicks on a pop-up 
+             if the user clicks anywhere else the popup will be closed.
+        **/}
       {overlay ? (
         <span
           className={styles.overlay}
@@ -318,7 +322,6 @@ const Project = ({
   project,
   projectNumber,
   handleThreeDotMenu,
-  handleInfoButton,
 }) => {
   const [moreInfoOn, setMoreInfo] = useState(false);
 
@@ -326,7 +329,7 @@ const Project = ({
     <div className={styles.project}>
       {/* Shows the title of the project */}
       <Link
-        to="/super-user"
+        to="/super-user/dashboard/project"
         style={{ position: "absolute", width: "100%", height: "100%" }}
       >
         <span
