@@ -162,7 +162,7 @@ export default function Inquiries() {
           </div>
         )}
       </div>
-      {!isMobile && !showInquiry ? <Inquiry /> : ""}
+        {!isMobile && !showInquiry ? <Inquiry /> : showInquiry ? <Inquiry /> : ""}
     </div>
   );
 }
