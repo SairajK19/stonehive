@@ -4,13 +4,24 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
-import Activities from "./pages/Dashboard/Client/Activities/Activities";
-import ClientComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
-import SiteImages from "./pages/Dashboard/Client/SiteImages/Siteimages";
-import ClientSettings from "./pages/Dashboard/Client/Settings/Settings";
-
 import { useSelector } from "react-redux";
 import Deadlines from "./pages/Dashboard/Superuser/projects/Deadlines";
+
+// Client Dashboard
+import ClientDashboard from "./pages/Dashboard/Client/Dashboard/ClientDashboard";
+import ClientDashActivities from "./pages/Dashboard/Client/Activities/Activities";
+import ClientDashComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
+import ClientDashSiteImages from "./pages/Dashboard/Client/SiteImages/Siteimages";
+import ClientDashSettings from "./pages/Dashboard/Client/Settings/Settings";
+import ClientDashBudget from "./pages/Dashboard/Client/Budget/Budget";
+import ClientDashPlanElevations from "./pages/Dashboard/Client/PlansElevation/PlanElevation";
+// Constractor Dashboard
+import ContractorDashboard from "./pages/Dashboard/Contractor/Dashboard/ContractorDash";
+import ContractorDashBills from "./pages/Dashboard/Contractor/Bills/Bills";
+import ContractorDashComplaint from "./pages/Dashboard/Contractor/Complaint/Complaint";
+import ContractorDashTasks from "./pages/Dashboard/Contractor/Tasks/Tasks";
+import ContractorDashBudget from "./pages/Dashboard/Contractor/Budget/Budget";
+import ContractorDashPlanElevations from "./pages/Dashboard/Contractor/PlanElevation/PlanElevation";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const SuperUser = lazy(() => import("./pages/Dashboard/Superuser/Dashboard"));
@@ -35,9 +46,7 @@ const SuperUserBills = lazy(() =>
 const SuperUserArchitect = lazy(() =>
   import("./pages/Dashboard/Superuser/dashboard/Architect/SuperUserArchitect")
 );
-const ClientDashboard = lazy(() =>
-  import("./pages/Dashboard/Client/Dashboard")
-);
+
 function App() {
   const topBarVisible = useSelector((state) => state.stonehive.topBarVisible);
 
@@ -73,16 +82,48 @@ function App() {
               path="super-user/dashboard/architect"
               element={<SuperUserArchitect />}
             />
+            {/* Client Dahsboard */}
             <Route path="/client" element={<ClientDashboard />} />
             <Route path="/client/dashboard" element={<ClientDashboard />} />
-            <Route path="/client/actvities" element={<Activities />} />
-            <Route path="/client/site-images" element={<SiteImages />} />
-            <Route path="/client/complaint" element={<ClientComplaint />} />
-            <Route path="/client/settings" element={<ClientSettings />} />
+            <Route
+              path="/client/actvities"
+              element={<ClientDashActivities />}
+            />
+            <Route
+              path="/client/site-images"
+              element={<ClientDashSiteImages />}
+            />
+            <Route path="/client/complaint" element={<ClientDashComplaint />} />
+            <Route path="/client/settings" element={<ClientDashSettings />} />
+            <Route path="/client/Budget" element={<ClientDashBudget />} />
+            <Route
+              path="/client/plan-elevation"
+              element={<ClientDashPlanElevations />}
+            />
+            {/* Constractor Dashboard */}
+            <Route
+              path="/contractor/dashboard"
+              element={<ContractorDashboard />}
+            />{" "}
+            <Route path="/contractor/bills" element={<ContractorDashBills />} />{" "}
+            <Route
+              path="/contractor/complaint"
+              element={<ContractorDashComplaint />}
+            />
+            <Route path="/contractor/tasks" element={<ContractorDashTasks />} />
+            <Route
+              path="/contractor/budget"
+              element={<ContractorDashBudget />}
+            />
+            <Route
+              path="/contractor/plan-elevation"
+              element={<ContractorDashPlanElevations />}
+            />
           </Routes>
         </Suspense>
       </div>
     </div>
   );
 }
+
 export default App;
