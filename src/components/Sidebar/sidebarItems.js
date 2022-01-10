@@ -16,7 +16,7 @@ export const clientSidebarItems = [
   },
   {
     name: "plan & elevation",
-    link: "/client/plan-elavation",
+    link: "/client/plan-elevation",
     icon: "ion:images",
   },
   {
@@ -86,22 +86,33 @@ export const superuserHomeSidebarItemsMobile = [
 export const contractorSidebarItems = [
   {
     name: "dashboard",
-    link: "/dashboard",
+    link: "/contractor/dashboard",
     icon: "bx:bxs-dashboard",
   },
   {
-    name: "activities",
-    link: "/activities",
+    name: "tasks",
+    link: "/contractor/tasks",
     icon: "fluent:timeline-20-filled",
   },
   {
     name: "budget",
-    link: "/budget",
+    link: "/contractor/budget",
     icon: "ic:baseline-analytics",
   },
+
   {
-    name: "budget",
-    link: "/budget1",
-    icon: "ic:baseline-analytics",
+    name: "plan Elevation",
+    link: "/contractor/plan-elevation",
+    icon: "ion:images",
+  },
+  {
+    name: "bills",
+    link: "/contractor/bills",
+    icon: "fluent:money-calculator-20-filled",
+  },
+  {
+    name: "complaint",
+    link: "/contractor/complaint",
+    icon: "fluent:person-support-20-filled",
   },
 ];

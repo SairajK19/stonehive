@@ -6,9 +6,8 @@
   top: 0;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
-  height: $topbar-height;
   background-color: $primary-bg-color;
+  margin-bottom: 10px;
   .headings {
     @include FlexCenter();
     .arrow_cont {
