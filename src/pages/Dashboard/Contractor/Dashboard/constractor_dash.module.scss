@@ -1,0 +1,15 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/variables";
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+.overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:15px;
+  grid-template-rows: 1fr 2fr;
+}
+.tasks_table{
+  grid-column: 1/4;
+}
