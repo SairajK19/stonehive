@@ -1,0 +1,47 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "../../styles/mixins";
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 18px;
+  svg {
+    font-size: 1.8em;
+  }
+  .top_buttons {
+    @include FlexCenter();
+    justify-content: space-between;
+
+    .zoom_btns button:nth-child(2) {
+      margin-left: 5px;
+    }
+  }
+  .images_slides {
+    flex: 2;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit:cover
+    }
+  }
+
+  .bottom_nav_buttons {
+    @include FlexCenter();
+    justify-content: space-between;
+    margin-top: 10px;
+    button {
+      @include FlexCenter();
+      justify-content: center;
+      height: 3em;
+      width: 3em;
+      background-color: black;
+      color: white;
+      padding: 5px;
+      border-radius: 100px;
+    }
+  }
+}

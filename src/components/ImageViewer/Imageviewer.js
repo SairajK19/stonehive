@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import { Icon } from "@iconify/react";
 
-import styles from "./imageviewer.module.scss";
+import styles from "./image_viewer.module.scss";
 
 import Site_Image from "../../.../../assets/images/siteImg_2.png";
 export default function Imageviewer() {
@@ -34,7 +34,7 @@ export default function Imageviewer() {
         </div>
       </div>
       <div className={styles.images_slides}>
-        <img src={Site_Image} alt="" />
+        {/* <img src={Site_Image} alt="" /> */}
       </div>
       {/* <ImageGallery
         items={Images}
