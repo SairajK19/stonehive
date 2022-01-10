@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import { Icon } from "@iconify/react";
 
-import styles from "./phaseselector.module.scss";
+import styles from "./phase_selector.module.scss";
 
 const SelectedPhaseContext = createContext(null);
 const usePhaseSelector = () => useContext(SelectedPhaseContext);
