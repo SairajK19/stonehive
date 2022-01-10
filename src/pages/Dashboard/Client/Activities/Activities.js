@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
+import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,7 +19,7 @@ import { Line } from "react-chartjs-2";
 import SVGCard from "../../../../components/SVGcards/SVGCard";
 import PhaseSelector from "../../../../components/PhaseSelector/PhaseSelector";
 import ActivityTaskTable from "../../../../components/ActivityTaskTable/ActivityTaskTable";
-
+import FinancialCards from "../../../../components/FinanclalCards/FinancialCards";
 import styles from "./activities.module.scss";
 ChartJS.register(
   CategoryScale,
@@ -54,9 +58,23 @@ export const data = {
     },
   ],
 };
-export default function Activities() {
+export default function Activities({ fromPopup }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!fromPopup) {
+      dispatch(
+        setSidebarItems({ active: "activities", items: clientSidebarItems })
+      );
+    }
+  });
   return (
-    <div className={styles.container}>
+    <div
+      className={
+        !fromPopup
+          ? `${styles.container} responsive_font p-20`
+          : `${styles.container} responsive_font`
+      }
+    >
       <div className={styles.activities_table}>
         <ActivityTaskTable />
       </div>
@@ -72,44 +90,7 @@ export default function Activities() {
           </p>
           <Line className={styles.chart} data={data} options={options} />
         </div>
-        <div className={styles.financials}>
-          <SVGCard bgcolor="#F44771" innerRect="rgba(255, 113, 147, 1)">
-            <div className={styles.financials_data}>
-              <h3>Total Budget</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>{" "}
-          <SVGCard bgcolor="#f66400" innerRect="#F9924C">
-            <div className={styles.financials_data}>
-              <h3>Total Expenditure</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>{" "}
-          <SVGCard bgcolor="#F44771" innerRect="rgba(255, 113, 147, 1)">
-            <div className={styles.financials_data}>
-              <h3>Current Phase Budget</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>{" "}
-          <SVGCard bgcolor="#f66400" innerRect="#F9924C">
-            <div className={styles.financials_data}>
-              <h3>Total Expenditure</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>{" "}
-          <SVGCard bgcolor="#FECB49" innerRect="#FFFFFF4D">
-            <div className={styles.financials_data}>
-              <h3>Phase Amt Paid</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>{" "}
-          <SVGCard bgcolor="#FECB49" innerRect="#FFFFFF4D">
-            <div className={styles.financials_data}>
-              <h3>Phase Amt Paid</h3>
-              <p>₹1,800,000</p>
-            </div>
-          </SVGCard>
-        </div>
+        <FinancialCards />
       </div>
     </div>
   );

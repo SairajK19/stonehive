@@ -6,6 +6,8 @@
   gap: 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  background-color: white;
+  border-radius: 18px;
 }
 
 .charts_financials {
@@ -24,30 +26,7 @@
       max-height: 70%;
     }
   }
-  .financials {
-    display: grid;
-    gap: 10px;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
-    grid-template-rows: repeat(auto-fit, minmax(50px, 80px));
-    .financials_data {
-      padding: 10px;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      color: #ffff;
-      h3 {
-        font-size: 0.5em;
-      }
-      p {
-        font-size: 0.7em;
-      }
-    }
-  }
+
 }
 
 #title {
