@@ -1,0 +1,20 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  background-color: #ffff;
+  border-radius: 18px;
+  > div:first-child {
+    grid-column: 1/4;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container{
+    grid-template-rows: 1.5fr 1fr;
+
+  }
+}
