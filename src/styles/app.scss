@@ -22,10 +22,14 @@ body {
   overflow-x: hidden;
 }
 .main_panel {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
-  margin-left: $sidebar-width;
+  height: 100vh;
+  min-height: 500px;
   max-height: 100vh;
+  margin-left: $sidebar-width;
   padding: 15px;
   background-color: $primary-bg-color;
   overflow: hidden;
@@ -39,7 +43,6 @@ body {
 
 @media screen and (max-width: 1490px) {
   .main_panel {
-    overflow-x: auto;
   }
 }
 
