@@ -56,7 +56,7 @@ export default function SuperUserDashboard() {
             <div className={styles.project_overview}>
                 <h2>Project Overview</h2>
                 <div className={styles.overviews}>
-                    <p>Work completiton: 69%</p>
+                    <p>Work Completion: 69%</p>
                     <p>Current Phase: Foundation</p>
                     <p>Budget Remaining: ₹6 Lakhs</p>
                 </div>
