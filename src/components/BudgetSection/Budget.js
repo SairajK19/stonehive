@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import BudgetChart from "../BudgetChart/BudgetChart";
+import BudgetChart from "../Dashboard/Budget/BudgetChart/BudgetChart";
 import {
   Chart as ChartJS,
   CategoryScale,

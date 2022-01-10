@@ -1,0 +1,32 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .budget_summary {
+    margin-left: 10px;
+    @include FlexCenter(column);
+    height: 90%;
+    align-items: flex-start;
+    justify-content: center;
+    .summary_item {
+      @include FlexCenter();
+      margin-bottom: 10px;
+      .details {
+        #amount {
+          font-size: 0.6em;
+          font-weight: 500;
+        }
+        #description {
+          font-size: 0.4em;
+          color: $secondary-font-color;
+        }
+      }
+    }
+  }
+}
