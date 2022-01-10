@@ -11,6 +11,8 @@ export default function Home() {
         </li>
         <li>
           <Link to="super-user">SuperUser</Link>
+        </li>    <li>
+          <Link to="contractor/dashboard">contractor</Link>
         </li>
       </ol>
     </div>

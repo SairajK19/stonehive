@@ -1,0 +1,25 @@
+@import "./colors";
+.btn_sm {
+}
+.btn_lg {
+  padding: 10px 15px;
+  width: fit-content;
+  background-color: $primary-color;
+  font-size: 0.62em;
+  font-weight: 200;
+  border-radius: 5px;
+  color: $secondary-color;
+}
+
+.btn_sm_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  height: fit-content;
+  width: fit-content;
+  background-color: white;
+  border-radius: 8px;
+  font-size: .8em;
+  color: #ffff;
+}
