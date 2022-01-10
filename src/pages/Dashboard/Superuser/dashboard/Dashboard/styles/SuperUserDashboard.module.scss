@@ -299,6 +299,7 @@
     height: calc(100vh - #{$topbar-height});
     .form_container {
       left: 18%;
+      right: 7%;
     }
 
     // .project_overview {
@@ -340,6 +341,7 @@
       left: 0px;
       max-width: 350px;
       width: 100vw;
+      right: 0%;
 
       #activity_name {
         grid-column: 1 !important;

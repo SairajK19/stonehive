@@ -262,6 +262,7 @@
     .create_project_form {
       .form_part1,
       .form_part2 {
+        padding-bottom: 50px;
         form {
           display: flex;
           flex-direction: column;
@@ -280,11 +281,23 @@
 
       .form_part2 {
         form {
-          .form_input_block {
-            label {
-              font-size: 0.9rem;
+            .phase_block {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 1fr auto;
+                .phase_budget {
+                    grid-column: 1/4;
+                }
+
+                .end_date {
+                    grid-column: 2/4;
+                }
+
+                .form_input_block {
+                    label {
+                        font-size: 0.9rem;
+                    }
+                }
             }
-          }
         }
       }
 

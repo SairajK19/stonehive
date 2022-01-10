@@ -22,8 +22,8 @@
 
 @media screen and (max-width: $tablet-width) {
   .popup {
-    left: 115px;
-    width: calc(100% - #{$sidebar-width-sm} - 25px);
+    left: 90px;
+    width: 100%;
   }
 }
 

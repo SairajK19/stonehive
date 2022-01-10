@@ -15,11 +15,12 @@ body {
   line-height: 1.3;
   color: #222;
   background-color: $primary-bg-color;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .App {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .main_panel {
   display: flex;
@@ -32,12 +33,12 @@ body {
   margin-left: $sidebar-width;
   padding: 15px;
   background-color: $primary-bg-color;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 840px) {
   .main_panel {
     // padding: 0px;
+    overflow-x: auto;
   }
 }
 

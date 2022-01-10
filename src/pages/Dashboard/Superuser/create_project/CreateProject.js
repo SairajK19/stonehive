@@ -155,19 +155,27 @@ export default function CreateProject() {
             {phases.map((phase, key) => (
               <div className={styles.phase_block}>
                 <h2 id={styles.phase_number}>Phase {key + 1}</h2>
-                {phase.map((item) => (
-                  <div className={styles.form_input_block} id={styles[item.id]}>
-                    <label>{item.label}</label>
-                    <div className={styles.input_field}>
-                      {item.country_code ? (
-                        <div className={styles.input_label}>+91</div>
-                      ) : (
-                        ""
-                      )}
-                      <input type={item.type} placeholder={item.placeholder} />
-                    </div>
-                  </div>
-                ))}
+                  {phase.map((item) => (
+                      item.type === "text" ?
+                          <div className={`${styles.form_input_block} ${styles.phase_budget}`} id={styles[item.id]}>
+                              <label>{item.label}</label>
+                              <div className={styles.input_field}>
+                                  <input type={item.type} placeholder={item.placeholder} />
+                              </div>
+                          </div> : item.id === "project_eDate" ?
+                              <div className={`${styles.form_input_block} ${styles.end_date}`} id={styles[item.id]}>
+                                  <label>{item.label}</label>
+                                  <div className={styles.input_field}>
+                                      <input type={item.type} placeholder={item.placeholder} />
+                                  </div>
+                              </div> : 
+                              <div className={styles.form_input_block} id={styles[item.id]}>
+                                  <label>{item.label}</label>
+                                  <div className={styles.input_field}>
+                                      <input type={item.type} placeholder={item.placeholder} />
+                                  </div>
+                              </div>
+                  ))}
               </div>
             ))}
           </form>
