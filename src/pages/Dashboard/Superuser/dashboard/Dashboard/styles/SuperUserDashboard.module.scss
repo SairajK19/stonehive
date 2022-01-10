@@ -2,7 +2,7 @@
 @import "../../../../../../styles/colors";
 
 .container {
-  height: calc(100vh - #{$topbar-height} - 35px);
+  height: 100%;
   background-color: white;
   border-radius: $dashboard-container-border-radius;
   padding: 20px;
