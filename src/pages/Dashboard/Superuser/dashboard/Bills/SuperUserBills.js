@@ -12,7 +12,7 @@ export default function SuperUserBills() {
   const [showFilter, setShowFilter] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [filter, setFilter] = useState("All Bills");
-  const [bills, setBills] = useState(null);
+  const [bills, setBills] = useState([]);
   useEffect(() => {
     dispatch(
       setSidebarItems({ active: "Bills", items: superuserSidebarItems })
@@ -115,7 +115,7 @@ export default function SuperUserBills() {
 
       <div className={styles.bills}>
         <div className={styles.list}>
-          {bills ? bills.map((bill) => (
+          {bills.length !== 0 ? bills.map((bill) => (
             <div className={styles.bill}>
               <div className={styles.bill_info}>
                 <h2>Bill 99</h2>
@@ -134,7 +134,7 @@ export default function SuperUserBills() {
                   <button id={styles.reject}>Reject</button>
               </div>
             </div>
-          )): <p>Loading bills...</p>}
+          )): <h5>No Bills</h5>}
         </div>
       </div>
     </div>
