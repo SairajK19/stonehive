@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 
@@ -66,6 +66,7 @@ export default function Activities({ fromPopup }) {
         setSidebarItems({ active: "activities", items: clientSidebarItems })
       );
     }
+    dispatch(setTopBarVisibility({ visibility: true }));
   });
   return (
     <div

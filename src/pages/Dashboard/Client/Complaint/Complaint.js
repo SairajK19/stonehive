@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../redux/reducers/shReducers";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
 
 import styles from "./complaint.module.scss";
@@ -14,6 +14,7 @@ export default function Complaint() {
     dispatch(
       setSidebarItems({ active: "complaint", items: clientSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }));
   });
   const [recipientOptions, setrecipientOptions] = useState([
     { value: "Stonehive", label: "Stonehive" },
