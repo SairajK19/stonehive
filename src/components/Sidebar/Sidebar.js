@@ -5,6 +5,7 @@ import hiveImg from "../../assets/svg/hive.svg";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
+
 export default function Sidebar() {
   const items = useSelector((state) => state.stonehive.sidebarItems.items);
   return (
@@ -29,14 +30,6 @@ export default function Sidebar() {
       </div>
       <div className={styles.hive_svg}>
         <img src={hiveImg} alt="" />
-      </div>
-      <div className={styles.item_setting}>
-        <NavLink to="client/settings">
-          <div className={styles.items_each}>
-            <Icon icon="eva:settings-fill" width="30px" />
-            <p>settings</p>
-          </div>
-        </NavLink>
       </div>
     </div>
   );

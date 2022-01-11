@@ -11,9 +11,6 @@ export default function Topbar() {
   return (
     <div className={`${styles.container} responsive_font`}>
       <div className={styles.headings}>
-        <div className={styles.arrow_cont}>
-          <Icon icon="eva:arrow-ios-back-fill" height="20" />
-        </div>
         <div className={styles.headings_col}>
           <h2>{active_item}</h2>
           <h5>
