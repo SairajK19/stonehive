@@ -7,7 +7,6 @@
   border-radius: $dashboard-container-border-radius;
   padding: 20px;
   display: grid;
-  max-height: calc(100vh - 100px);
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   grid-gap: 10px;
