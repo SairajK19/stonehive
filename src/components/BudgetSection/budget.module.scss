@@ -12,10 +12,18 @@
 }
 
 .budget_graph {
+  display: flex;
+  flex-direction: column;
   padding: 15px;
   background-color: #f6f6f6;
   border-radius: 10px;
   grid-column: 1/3;
+  .charts_head {
+    flex: auto;
+  }
+  .chart {
+    flex: auto;
+  }
   #title {
     font-size: 0.6em;
     font-weight: 500;

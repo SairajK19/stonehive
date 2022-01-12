@@ -11,7 +11,10 @@
     grid-column: 1/4;
   }
 }
-
+.task_table{
+  height: 100%;
+  overflow: hidden;
+}
 @media screen and (min-width: 1500px) {
   .container{
     grid-template-rows: 1.5fr 1fr;

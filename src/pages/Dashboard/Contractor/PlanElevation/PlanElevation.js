@@ -8,7 +8,7 @@ import ImageViewer from "../../../../components/ImageViewer/Imageviewer";
 //styles
 import styles from "./plan_elevation.module.scss";
 import "../../../../styles/dashboard.scss";
-export default function PlanElevation() {
+export default function PlanElevation({ fromPopup = false }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -19,7 +19,13 @@ export default function PlanElevation() {
     );
   });
   return (
-    <div className={`${styles.container} responsive_font`}>
+    <div
+      className={
+        !fromPopup
+          ? `${styles.container} responsive_font main_page p-20`
+          : `${styles.container} responsive_font main_page`
+      }
+    >
       <ImageViewer />
     </div>
   );

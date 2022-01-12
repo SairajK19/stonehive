@@ -51,4 +51,8 @@
     border-radius: 100%;
     background-color: rgba(246, 246, 246, 1);
   }
+  .popup_main {
+    height: 0;
+    flex-grow: 2;
+  }
 }

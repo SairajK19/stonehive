@@ -56,70 +56,81 @@ function App() {
       <div className="main_panel">
         <Suspense fallback={""}>
           {topBarVisible ? <Topbar /> : ""}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="super-user" element={<SuperUser />} />
-            <Route path="super-user/projects" element={<Projects />} />
-            <Route path="super-user/deadlines" element={<Deadlines />} />
-            <Route path="super-user/inquiries" element={<Inquiries />} />
-            <Route
-              path="super-user/create-project"
-              element={<CreateProject />}
-            />
-            <Route
-              path="super-user/dashboard/project"
-              element={<SuperUserDashboard />}
-            />
-            <Route
-              path="super-user/dashboard/complaints"
-              element={<SuperUserComplaints />}
-            />
-            <Route
-              path="super-user/dashboard/bills"
-              element={<SuperUserBills />}
-            />
-            <Route
-              path="super-user/dashboard/architect"
-              element={<SuperUserArchitect />}
-            />
-            {/* Client Dahsboard */}
-            <Route path="/client" element={<ClientDashboard />} />
-            <Route path="/client/dashboard" element={<ClientDashboard />} />
-            <Route
-              path="/client/actvities"
-              element={<ClientDashActivities />}
-            />
-            <Route
-              path="/client/site-images"
-              element={<ClientDashSiteImages />}
-            />
-            <Route path="/client/complaint" element={<ClientDashComplaint />} />
-            <Route path="/client/settings" element={<ClientDashSettings />} />
-            <Route path="/client/Budget" element={<ClientDashBudget />} />
-            <Route
-              path="/client/plan-elevation"
-              element={<ClientDashPlanElevations />}
-            />
-            {/* Constractor Dashboard */}
-            <Route
-              path="/contractor/dashboard"
-              element={<ContractorDashboard />}
-            />{" "}
-            <Route path="/contractor/bills" element={<ContractorDashBills />} />{" "}
-            <Route
-              path="/contractor/complaint"
-              element={<ContractorDashComplaint />}
-            />
-            <Route path="/contractor/tasks" element={<ContractorDashTasks />} />
-            <Route
-              path="/contractor/budget"
-              element={<ContractorDashBudget />}
-            />
-            <Route
-              path="/contractor/plan-elevation"
-              element={<ContractorDashPlanElevations />}
-            />
-          </Routes>
+          <div className="main_panel_components">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="super-user" element={<SuperUser />} />
+              <Route path="super-user/projects" element={<Projects />} />
+              <Route path="super-user/deadlines" element={<Deadlines />} />
+              <Route path="super-user/inquiries" element={<Inquiries />} />
+              <Route
+                path="super-user/create-project"
+                element={<CreateProject />}
+              />
+              <Route
+                path="super-user/dashboard/project"
+                element={<SuperUserDashboard />}
+              />
+              <Route
+                path="super-user/dashboard/complaints"
+                element={<SuperUserComplaints />}
+              />
+              <Route
+                path="super-user/dashboard/bills"
+                element={<SuperUserBills />}
+              />
+              <Route
+                path="super-user/dashboard/architect"
+                element={<SuperUserArchitect />}
+              />
+              {/* Client Dahsboard */}
+              <Route path="/client" element={<ClientDashboard />} />
+              <Route path="/client/dashboard" element={<ClientDashboard />} />
+              <Route
+                path="/client/actvities"
+                element={<ClientDashActivities />}
+              />
+              <Route
+                path="/client/site-images"
+                element={<ClientDashSiteImages />}
+              />
+              <Route
+                path="/client/complaint"
+                element={<ClientDashComplaint />}
+              />
+              <Route path="/client/settings" element={<ClientDashSettings />} />
+              <Route path="/client/Budget" element={<ClientDashBudget />} />
+              <Route
+                path="/client/plan-elevation"
+                element={<ClientDashPlanElevations />}
+              />
+              {/* Constractor Dashboard */}
+              <Route
+                path="/contractor/dashboard"
+                element={<ContractorDashboard />}
+              />{" "}
+              <Route
+                path="/contractor/bills"
+                element={<ContractorDashBills />}
+              />{" "}
+              <Route
+                path="/contractor/complaint"
+                element={<ContractorDashComplaint />}
+              />
+              <Route
+                path="/contractor/tasks"
+                element={<ContractorDashTasks />}
+              />
+              <Route
+                path="/contractor/budget"
+                element={<ContractorDashBudget />}
+              />
+              <Route
+                path="/contractor/plan-elevation"
+                element={<ContractorDashPlanElevations />}
+              />
+            </Routes>
+          </div>
         </Suspense>
       </div>
     </div>

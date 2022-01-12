@@ -1,9 +1,15 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .financials {
+  flex: 2;
   width: 100%;
   height: 100%;
   display: grid;
   gap: 10px;
-  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
   grid-template-rows: repeat(auto-fit, minmax(50px, 80px));
   .financials_data {

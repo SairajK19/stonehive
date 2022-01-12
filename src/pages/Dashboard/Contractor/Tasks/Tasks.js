@@ -25,7 +25,7 @@ export default function Tasks({ fromPopup = false }) {
           : `${styles.container} responsive_font`
       }
     >
-      <div className="task_table">
+      <div className={styles.task_table}>
         <ActivityTaskTable contractorDash={true} />
       </div>
       <div className="phases">

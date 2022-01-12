@@ -4,7 +4,7 @@ import styles from "./activity_task_table.module.scss";
 import { Icon } from "@iconify/react";
 
 export default function ActivityTaskTable({ contractorDash = false }) {
-  const tableheads = ["Activity", "Budget", "Cost", "Status", ""];
+  const tableheads = ["Activity", "Budget", "Cost", "Status"];
   return (
     <div className={styles.container}>
       <table>
@@ -12,9 +12,16 @@ export default function ActivityTaskTable({ contractorDash = false }) {
           {tableheads.map((data) => (
             <td>{data}</td>
           ))}
+          <td
+            style={
+              contractorDash
+                ? { visibility: "visible" }
+                : { visibility: "hidden" }
+            }
+          ></td>
         </thead>
         <tbody>
-          {[1, 2, 3].map(() => {
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => {
             return <TableItem contractorDash={contractorDash} />;
           })}
         </tbody>

@@ -16,6 +16,7 @@ import Updates from "../../../../components/Dashboard/Updates/Updates";
 import Activities from "../Activities/Activities";
 import SiteImages from "../SiteImages/Siteimages";
 import PlanElevation from "../PlansElevation/PlanElevation";
+
 //styles
 import styles from "./client_dashboard.module.scss";
 import "../../../../styles/dashboard.scss";
@@ -49,7 +50,15 @@ export default function ClientDashboard() {
         <OverviewPanel />
       </div>
 
-      <UpdatesOverviewPanel />
+      <div
+        onClick={() => {
+          setPopupTitle("Updates");
+          setPopupComponent("updates");
+          setPopupToggle(true);
+        }}
+      >
+        <UpdatesOverviewPanel />
+      </div>
 
       <div
         onClick={() => {

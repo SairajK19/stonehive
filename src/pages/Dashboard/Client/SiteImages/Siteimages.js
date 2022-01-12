@@ -15,5 +15,11 @@ export default function Siteimages({ fromPopup }) {
       );
     }
   });
-  return <Imageviewer />;
+  return <div className={
+    !fromPopup
+      ? `${styles.container} responsive_font main_page p-20`
+      : `${styles.container} responsive_font main_page`
+  }u>
+    <Imageviewer />
+  </div>
 }

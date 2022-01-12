@@ -10,7 +10,7 @@ import GanttChart from "../../../../components/Charts/GanttChart/GanttChart";
 import Updates from "../../../../components/Dashboard/Updates/Updates";
 import SVGCard from "../../../../components/SVGcards/SVGCard";
 import BudgetSection from "../../../../components/BudgetSection/Budget";
-
+import PlanElevation from "../PlanElevation/PlanElevation";
 import PopupLarge from "../../../../components/PopupLarge/PopupLarge";
 import styles from "./constractor_dash.module.scss";
 import "../../../../styles/dashboard.scss";
@@ -55,7 +55,14 @@ export default function ContractorDash() {
       >
         <GChart />
       </div>
-      <div className={styles.latest_drawings}>
+      <div
+        className={styles.plan_elevations}
+        onClick={() => {
+          setPopupTitle("Gantt Chart");
+          setPopupComponent("ganttchart");
+          setPopupToggle(true);
+        }}
+      >
         <PlanElevationPanel />
       </div>
       <div
@@ -84,6 +91,8 @@ export default function ContractorDash() {
               return <BudgetSection fromPopup={true} />;
             case "updates":
               return <Updates />;
+            case "planelevation":
+              return <PlanElevation />;
             default:
               break;
           }
@@ -115,7 +124,7 @@ function OverviewPanel() {
         </div>
       </SVGCard>
       <div className={styles.tasks_table}>
-        <ActivityTaskTable />
+        <ActivityTaskTable contractorDash={true} />
       </div>
     </div>
   );

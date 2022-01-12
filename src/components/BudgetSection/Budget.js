@@ -67,16 +67,21 @@ export default function Budget() {
         <PhaseSelector />
       </div>
       <div className={styles.budget_graph}>
-        <p id={styles.title}>Actual vs Estimated Budget</p>
-        <p id={styles.budget_difference}>
-          <Icon icon="bx:bxs-up-arrow" color="#82D616" height="20" />
-          4% more than planned budget
-        </p>
-        <Bar
-          options={options}
-          data={data}
-          style={{ maxHeight: "60%", maxWidth: "100%" }}
-        />
+        <div className={styles.charts_head}>
+          <p id={styles.title}>Actual vs Estimated Phase Budget</p>
+          <p id={styles.budget_difference}>
+            <Icon icon="bx:bxs-up-arrow" color="#82D616" height="20" />
+            4% more than planned budget
+          </p>
+        </div>
+        <div className={styles.chart}>
+          {" "}
+          <Bar
+            options={options}
+            data={data}
+            style={{ maxHeight: "100%", maxWidth: "100%" }}
+          />
+        </div>
       </div>
     </div>
   );

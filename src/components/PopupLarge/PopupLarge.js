@@ -34,8 +34,7 @@ export default function PopupLarge({
             <Icon icon="clarity:window-close-line" height="30" />
           </button>
         </div>
-
-        {children}
+        <div className={styles.popup_main}> {children}</div>
       </div>
     </div>
   );

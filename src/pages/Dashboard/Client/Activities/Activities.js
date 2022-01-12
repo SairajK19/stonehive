@@ -16,7 +16,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-import SVGCard from "../../../../components/SVGcards/SVGCard";
 import PhaseSelector from "../../../../components/PhaseSelector/PhaseSelector";
 import ActivityTaskTable from "../../../../components/ActivityTaskTable/ActivityTaskTable";
 import FinancialCards from "../../../../components/FinanclalCards/FinancialCards";
@@ -83,12 +82,17 @@ export default function Activities({ fromPopup }) {
       </div>
       <div className={styles.charts_financials}>
         <div className={styles.line_chart}>
-          <p id={styles.title}>Actual vs Estimated Phase Budget</p>
-          <p id={styles.budget_difference}>
-            <Icon icon="bx:bxs-up-arrow" color="#82D616" height="20" />
-            4% more than planned budget
-          </p>
-          <Line className={styles.chart} data={data} options={options} />
+          <div className={styles.charts_head}>
+            {" "}
+            <p id={styles.title}>Actual vs Estimated Phase Budget</p>
+            <p id={styles.budget_difference}>
+              <Icon icon="bx:bxs-up-arrow" color="#82D616" height="20" />
+              4% more than planned budget
+            </p>
+          </div>
+          <div className={styles.chart}>
+            <Line data={data} options={options}  style={{maxHeight:"100%"}} />
+          </div>
         </div>
         <FinancialCards />
       </div>

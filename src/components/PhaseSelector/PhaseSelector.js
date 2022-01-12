@@ -52,6 +52,7 @@ export default function PhaseSelector() {
   return (
     <>
       <SelectedPhaseContext.Provider value={selectedPhase}>
+        <p id="popup_panel_titles">Phases</p>
         <div className={styles.container}>
           {PhasesList.map((phase) => {
             return (

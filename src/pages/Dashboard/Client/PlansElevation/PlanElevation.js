@@ -19,7 +19,14 @@ export default function PlanElevation({ fromPopup = false }) {
     }
   });
   return (
-    <div className={`${styles.container} responsive_font`}>
+    <div
+      className={
+        !fromPopup
+          ? `${styles.container} responsive_font main_page p-20`
+          : `${styles.container} responsive_font main_page`
+      }
+    >
+      {" "}
       <Imageviewer />
     </div>
   );
