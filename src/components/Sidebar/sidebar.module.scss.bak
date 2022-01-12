@@ -5,12 +5,12 @@
   position: fixed;
   display: grid;
   align-items: center;
-  grid-template-rows: auto auto 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-rows: auto 1fr  auto;
+  grid-gap: 10px;
   background-color: $primary-color;
   max-width: $sidebar-width;
   min-width: $sidebar-width;
-  padding: 20px 0;
+  padding: 13px 0;
   height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -30,25 +30,26 @@
   .item_setting {
     margin: 10px 0 0 20px;
     height: fit-content;
+    align-self: flex-start;
 
     a[aria-current="page"] .items_each {
       color: $primary-color;
       background-color: $secondary-color;
     }
     .items_each {
-      margin: 0 0 10px 0;
+      margin: 0 0 0px 0;
       @include FlexCenter();
       padding: 10px;
       color: $secondary-color;
       border-radius: 15px 0 0 15px;
       transition: all 0.2s ease-in-out;
       svg {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         margin-right: 10px;
       }
       p {
-        font-size: 0.712em;
+        font-size: 0.512em;
         font-weight: 400;
       }
       p::first-letter {
@@ -63,15 +64,21 @@
     }
   }
 
+  .hive_svg {
+      position: absolute;
+      bottom: 25px;
+      z-index: -1;
+  }
+
   .hive_svg img {
     margin: 10px 0;
     width: 220px;
+    opacity: 0.6;
   }
 }
 
 @media screen and (max-height: 800px) {
     .container {
-        grid-gap: 10px;
         .logo {
             img {
                 width: 80px;
@@ -80,21 +87,6 @@
         .hive_svg {
             img {
                 width: 170px;
-            }
-        }
-
-        .items, {
-            .items_each {
-                padding: 7px;
-                margin-bottom: 0px;
-
-                p {
-                    font-size: 0.5em;
-                }
-
-                svg {
-                    font-size: 15px;
-                }
             }
         }
     }
@@ -117,6 +109,7 @@
     }
     .items,
     .item_setting {
+      align-self: center;
       margin: 0;
       .items_each {
         width: fit-content;

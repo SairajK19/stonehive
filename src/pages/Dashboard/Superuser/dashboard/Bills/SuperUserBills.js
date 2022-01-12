@@ -12,16 +12,7 @@ export default function SuperUserBills() {
   const [showFilter, setShowFilter] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [filter, setFilter] = useState("All Bills");
-  const [bills, setBills] = useState([
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30", approved: true },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-          ]);
+  const [bills, setBills] = useState([]);
   useEffect(() => {
     dispatch(
       setSidebarItems({ active: "Bills", items: superuserSidebarItems })
@@ -45,12 +36,27 @@ export default function SuperUserBills() {
     oReq.onload = () => {
         const file = new Blob([oReq.response], { type: 'application/pdf' });
         const url = createLocalUrl(file);
-
+        console.log(url)
         // Add the url to bills array.
+        
+        var bills = [
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30", approved: true },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        ]
+
         bills.map((bill) => {
             bill["bill_url"] = url;
         })
+
+        setBills(bills);
     }
+
     oReq.send();
 
     /*
@@ -109,7 +115,7 @@ export default function SuperUserBills() {
 
       <div className={styles.bills}>
         <div className={styles.list}>
-          {bills.map((bill) => (
+          {bills.length !== 0 ? bills.map((bill) => (
             <div className={styles.bill}>
               <div className={styles.bill_info}>
                 <h2>Bill 99</h2>
@@ -128,7 +134,7 @@ export default function SuperUserBills() {
                   <button id={styles.reject}>Reject</button>
               </div>
             </div>
-          ))}
+          )): <h5>No Bills</h5>}
         </div>
       </div>
     </div>

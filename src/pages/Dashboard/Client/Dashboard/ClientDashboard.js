@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 
@@ -34,6 +34,7 @@ export default function ClientDashboard() {
     dispatch(
       setSidebarItems({ active: "dashboard", items: clientSidebarItems })
     );
+    dispatch(setTopBarVisibility({ visibility: true }));
   });
   const [popupToggle, setPopupToggle] = useState(false);
   const [popupComponent, setPopupComponent] = useState("activities");

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { setSidebarItems, setTopBarVisibility } from "../../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 //components
 import Imageviewer from "../../../../components/ImageViewer/Imageviewer";
@@ -17,6 +17,7 @@ export default function PlanElevation({ fromPopup = false }) {
         setSidebarItems({ active: "plan-elevation", items: clientSidebarItems })
       );
     }
+    dispatch(setTopBarVisibility({ visibility: true }));
   });
   return (
     <div

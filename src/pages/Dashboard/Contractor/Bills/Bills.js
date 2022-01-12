@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./bills.module.scss";
 import { useDispatch } from "react-redux";
 import { contractorSidebarItems } from "../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../../redux/reducers/shReducers";
+import { createLocalUrl } from "../../../../helpers/helpers";
 
 import { Icon } from "@iconify/react";
 
 import BillsHeaderSvg from "../../../../assets/svg/bills_header.svg";
+import testBill from "../../../../assets/testBill.pdf";
 export default function Bills() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,6 +35,55 @@ function NoBills() {
   );
 }
 function BillMain() {
+    
+  const [bills, setBills] = useState([]);
+
+  useEffect(() => {
+    /* 
+     * Code from line 39 to 54 is temperory,
+     * since we don't get the file as a blob
+     * after importing it I have written this code
+     * to get the blob of the pdf using the path.
+     */
+    const oReq = new XMLHttpRequest();
+
+    oReq.open("GET", testBill, true);
+
+    oReq.responseType = "blob";
+
+    oReq.onload = () => {
+        const file = new Blob([oReq.response], { type: 'application/pdf' });
+        const url = createLocalUrl(file);
+        console.log(url)
+        // Add the url to bills array.
+        
+        var bills = [
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30", approved: true },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        ]
+
+        bills.map((bill) => {
+            bill["bill_url"] = url;
+        })
+
+        setBills(bills);
+    }
+
+    oReq.send();
+
+    /*
+     * In reality it will just be 
+     * const url = createLocalUrl(file);
+     * as file will be stored as blob in the database
+     */
+  }, [])
+
   return (
     <div className={styles.bills_main}>
       <div className={styles.bills_header}>
@@ -56,29 +107,31 @@ function BillMain() {
             <Icon icon="dashicons:arrow-down-alt2" height="20" /> recents
           </button>
         </div>
-        <div className={styles.bills_list}>
-          {[1, 2, 3, 5, 6, 7, 8].map(() => (
-            <BillCard />
-          ))}
+          <div className={styles.bills_list} style={{ textAlign: "center" }}  >
+          {bills.length !== 0 ? bills.map((bill) => (
+            <BillCard bill={bill}  />
+          )) : <h5>No bills</h5>}
         </div>
       </div>
     </div>
   );
 }
-function BillCard() {
+function BillCard({bill}) {
   return (
     <div className={styles.bills_item}>
       <div className={styles.bill_info}>
-        <p id={styles.bill_title}>Bill 1</p>
-        <p id={styles.bill_date}>Sep 5 09:30</p>
+        <p id={styles.bill_title}>{bill.bill_label}</p>
+        <p id={styles.bill_date}>{bill.date_time}</p>
       </div>
       <div className={styles.bill_item_btns}>
-        <button
+        <a
           className={styles.btn_sm_icon}
           style={{ backgroundColor: "rgba(0, 0, 0, 1)" }}
+          href={bill.bill_url}
+          target="_blank"
         >
           <Icon icon="carbon:view" />
-        </button>
+        </a>
         <button
           className={styles.btn_sm_icon}
           style={{ backgroundColor: "rgba(89, 97, 249, 1)" }}

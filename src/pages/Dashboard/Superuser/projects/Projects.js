@@ -45,11 +45,11 @@ export default function Projects() {
     );
 
     window.matchMedia("(min-width: 1490px)").addEventListener("change", () => {
-      setSidebar({ visibility: true, right: "0px" });
+        setSidebar({ visibility: true, right: "0px", display: "grid" });
     });
 
     window.matchMedia("(min-width: 900px)").addEventListener("change", () => {
-      setSidebar({ visibility: true, right: "0px" });
+        setSidebar({ visibility: true, right: "0px" });
       dispatch(
         setSidebarItems({
           active: "Projects",
@@ -103,10 +103,21 @@ export default function Projects() {
     }
   };
 
+  function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   const handleSidebarToggle = () => {
+      const deadline = document.getElementById("deadlines");
     if (sidebar.visibility) {
       setSidebar({ visibility: false, right: "-400px" });
+        sleep(500).then(() => {
+            deadline.style.display = "none";
+        })
     } else if (!sidebar.visibility) {
+        sleep(50).then(() => {
+            deadline.style.display = "grid";
+        })
       setSidebar({ visibility: true, right: "0px" });
     }
   };
@@ -242,6 +253,69 @@ export default function Projects() {
               total_budget: ["Total Budget", "₹29,000,000"],
               budget_spent: ["Budget Spent", "₹19,000,000"],
             },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
+            {
+              projectName: "Project 3",
+              start_date: ["Start Date", "32/10/2021"],
+              expected_date: ["Expected Date", "09/04/2022"],
+              total_budget: ["Total Budget", "₹29,000,000"],
+              budget_spent: ["Budget Spent", "₹19,000,000"],
+            },
           ].map((project, projectNumber) => (
             <Project
               project={project}
@@ -257,7 +331,7 @@ export default function Projects() {
       <div
         className={styles.deadlines}
         id="deadlines"
-        style={{ right: sidebar.right }}
+          style={{ right: sidebar.right, display: sidebar.display }}
       >
         {/* Active Project Count */}
         <div className={styles.active_project_count}>
