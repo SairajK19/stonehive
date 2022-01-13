@@ -9,7 +9,7 @@
     background-color: $primary-bg-color;
     margin-bottom: 10px;
     padding: 0px 20px;
-    z-index: 1000;
+    z-index: 400;
 
     .container_overlay {
         height: 95%;
@@ -67,6 +67,7 @@
         }
 
         .dropdown_container {
+            position: relative;
             .dropdown_icon {
                 position: relative;
                 .icon {
@@ -74,6 +75,20 @@
                     transform: rotate(180deg);
                     cursor: pointer;
                 }
+            }
+
+            input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 100;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            input:checked ~ .dropdown {
+                transform: scale(1);
+                opacity: 1;
             }
 
             .dropdown {
@@ -90,6 +105,10 @@
                 border-radius: $input-tag-border-radius;
                 padding: 10px 0px;
                 font-size: 1rem;
+                transition: 100ms cubic-bezier(.24,.22,.015,1.56);
+                transition-timing-function: ease-out;
+                transform: scale(0);
+                opacity: 0;
 
                 .name {
                     padding: 0px 15px;
@@ -119,7 +138,6 @@
                         justify-content: start;
                         font-size: 1.2rem;
                         cursor: pointer;
-                        transition: 200ms;
                         padding: 10px;
 
                         a {
@@ -137,6 +155,7 @@
 
                     .item:hover {
                         background-color: $input-tag-color;
+                        transition: 200ms;
                     }
                 }
             }
