@@ -11,14 +11,14 @@ export default function Topbar() {
     const [showDropdown, setShowDropdown] = useState(true);
     const [showOverlay, setShowOverlay] = useState(false);
 
-    const handleOverlayClick = (component) => {
+    const handleDropdownClick = (component) => {
         const icon = document.getElementById("icon");
         const checkbox = document.getElementsByName("dropdown_checkbox")[0];
 
         (icon.style.transform === "rotate(0deg)") ? 
             icon.style.transform = "rotate(180deg)" : icon.style.transform = "rotate(0deg)";
 
-        if (component === "overlay") { checkbox.checked = false; console.log(checkbox.checked) }
+        if (component === "overlay") { checkbox.checked = false; }
         setShowDropdown(!showDropdown);
         setShowOverlay(!showOverlay);
     }
@@ -27,7 +27,7 @@ export default function Topbar() {
             {showOverlay ? (
                 <span
                     className={styles.container_overlay}
-                    onClick={() => handleOverlayClick("overlay")}
+                    onClick={() => handleDropdownClick("overlay")}
                 ></span>
             ) : (
                 ""
@@ -51,8 +51,8 @@ export default function Topbar() {
                     <img src={ProfileImg} alt="prifle" />
                 </div>
                 <label className={styles.dropdown_container}>
-                    <input type="checkbox" id={styles.dropdown_checkbox} name="dropdown_checkbox" onClick={handleOverlayClick} />
-                    <div className={styles.dropdown_icon} onClick={handleOverlayClick} >
+                    <input type="checkbox" id={styles.dropdown_checkbox} name="dropdown_checkbox" onClick={handleDropdownClick} />
+                    <div className={styles.dropdown_icon} onClick={handleDropdownClick} >
                         <Icon icon="ls:dropdown" width="20px" id="icon" className={styles.icon} />
                     </div>
                     <div className={styles.dropdown} id={styles.dropdown} >
