@@ -1,9 +1,14 @@
-import { Icon } from "@iconify/react";
+/** Library imports **/
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
+
+/** Custom functions **/
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems,setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
 import { createLocalUrl } from "../../../../../helpers/helpers";
+
+/** Styles and assets **/
 import styles from "./styles/SuperUserBills.module.scss";
 import testBill from "../../../../../assets/testBill.pdf";
 

@@ -1,13 +1,18 @@
+/** Library imports **/
 import React, { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
+import Select from "react-select";
+import { Icon } from "@iconify/react";
+
+/** Custom functions **/
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
 import {
   setSidebarItems,
   setTopBarVisibility,
 } from "../../../../../redux/reducers/shReducers";
+
+/** Styles and Assets **/
 import styles from "./styles/SuperUserComplaints.module.scss";
-import Select from "react-select";
 import SendersImg from "../../../../../assets/images/SendersImg.png";
 import complaint_img from "../../../../../assets/images/complaint_img.png";
 
