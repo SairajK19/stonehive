@@ -9,20 +9,27 @@ export default function Topbar() {
     (state) => state.stonehive.sidebarItems.active
   );
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
-  useEffect(() => {
-    const checkbox = document.getElementById("dropdown_icon");
-
-    checkbox.addEventListener("change", () => {
+    const handleOverlayClick = () => {
         const icon = document.getElementById("icon");
 
         (icon.style.transform === "rotate(0deg)") ? 
             icon.style.transform = "rotate(180deg)" : icon.style.transform = "rotate(0deg)" 
-    })
-  }, [])
-
+        
+        setShowDropdown(!showDropdown);
+        setShowOverlay(!showOverlay);
+    }
   return (
     <div className={`${styles.container} responsive_font`}>
+      {showOverlay ? (
+        <span
+          className={styles.container_overlay}
+          onClick={handleOverlayClick}
+        ></span>
+      ) : (
+        ""
+      )}
       <div className={styles.headings}>
         <div className={styles.headings_col}>
           <h2>{active_item}</h2>
@@ -42,8 +49,7 @@ export default function Topbar() {
           <img src={ProfileImg} alt="prifle" />
         </div>
           <div className={styles.dropdown_container}>
-              <div className={styles.dropdown_icon} >
-                  <input type="checkbox" id="dropdown_icon" onClick={() => setShowDropdown(!showDropdown)} />
+              <div className={styles.dropdown_icon} onClick={handleOverlayClick} >
                   <Icon icon="ls:dropdown" width="20px" id="icon" className={styles.icon} />
               </div>
               {
