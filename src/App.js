@@ -46,6 +46,7 @@ const SuperUserBills = lazy(() =>
 const SuperUserArchitect = lazy(() =>
   import("./pages/Dashboard/Superuser/dashboard/Architect/SuperUserArchitect")
 );
+const ProjectCreated = lazy(() => import("./pages/Dashboard/Superuser/create_project/ProjectCreated"));
 
 function App() {
   const topBarVisible = useSelector((state) => state.stonehive.topBarVisible);
@@ -82,6 +83,10 @@ function App() {
               <Route
                 path="super-user/dashboard/architect"
                 element={<SuperUserArchitect />}
+              />
+              <Route
+                path="super-user/project-created"
+                element={<ProjectCreated />}
               />
               {/* Client Dahsboard */}
               <Route path="/client" element={<ClientDashboard />} />
