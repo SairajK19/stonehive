@@ -50,8 +50,11 @@ export default function Topbar() {
                 <div className={styles.profile}>
                     <img src={ProfileImg} alt="prifle" />
                 </div>
-                <label className={styles.dropdown_container}>
-                    <input type="checkbox" id={styles.dropdown_checkbox} name="dropdown_checkbox" onClick={handleDropdownClick} />
+                <div className={styles.dropdown_container}>
+                    <input type="checkbox" id={styles.dropdown_checkbox} 
+                           name="dropdown_checkbox"
+                           onClick={handleDropdownClick}
+                    />
                     <div className={styles.dropdown_icon} onClick={handleDropdownClick} >
                         <Icon icon="ls:dropdown" width="20px" id="icon" className={styles.icon} />
                     </div>
@@ -71,7 +74,7 @@ export default function Topbar() {
                             </div>
                         </div>
                     </div>
-                </label>
+                </div>
             </div>
         </div>
     );
