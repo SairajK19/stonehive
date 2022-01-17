@@ -58,24 +58,30 @@ export default function Topbar() {
                     <div className={styles.dropdown_icon} onClick={handleDropdownClick} >
                         <Icon icon="ls:dropdown" width="20px" id="icon" className={styles.icon} />
                     </div>
-                    <div className={styles.dropdown} id={styles.dropdown} >
-                        <div className={styles.name}>
-                            <p>Signed in as</p>
-                            <p>Sairaj Kapdi</p>
-                        </div>
-                        <div className={styles.navs}>
-                            <div className={styles.item}>
-                                <Icon icon="ci:settings-filled" />
-                                <Link to="/client/settings" >Settings</Link>
-                            </div>
-                            <div className={styles.item}>
-                                <Icon icon="ri:logout-circle-r-fill" />
-                                <Link to="/client/settings" >Logout</Link>
-                            </div>
-                        </div>
-                    </div>
+                    <ProfileDropDown showOverlay={showOverlay} handleDropdownClick={handleDropdownClick} />
                 </div>
             </div>
         </div>
     );
+}
+
+const ProfileDropDown = ({showOverlay,handleDropdownClick}) => {
+    return (
+        <div className={styles.dropdown} id={styles.dropdown} >
+            <div className={styles.name}>
+                <p>Signed in as</p>
+                <p>Sairaj Kapdi</p>
+            </div>
+            <div className={styles.navs}>
+                <div className={styles.item}>
+                    <Icon icon="ci:settings-filled" />
+                    <Link to="/client/settings" >Settings</Link>
+                </div>
+                <div className={styles.item}>
+                    <Icon icon="ri:logout-circle-r-fill" />
+                    <Link to="/client/settings" >Logout</Link>
+                </div>
+            </div>
+        </div>
+    )
 }
