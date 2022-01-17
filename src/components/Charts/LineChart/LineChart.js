@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 ChartJS.register(
@@ -17,7 +18,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 export const options = {
   responsive: true,
@@ -36,12 +38,14 @@ export const data = {
     {
       label: "Actual",
       data: [1, 2, 3],
+      fill: true,
       borderColor: "rgba(255, 0, 77, 1)",
       backgroundColor: "rgba(255, 0, 77, .2)",
     },
     {
       label: "Estimated",
       data: [100, 150, 300],
+      fill: true,
       borderColor: "rgba(254, 61, 0, 1)",
       backgroundColor: "rgba(254, 61, 0, .2)",
     },
