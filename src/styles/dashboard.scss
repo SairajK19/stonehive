@@ -43,7 +43,7 @@
   background-color: $secondary-color;
   border-radius: $dashboard-container-border-radius;
   padding: 20px;
-
+  overflow: hidden;
   #panel_title {
     font-size: 0.7em;
     font-weight: 500;
@@ -55,12 +55,18 @@
   flex-direction: column;
 }
 
-.main_page{
+.main_page {
   background-color: white;
   border-radius: 18px;
 }
 
-#popup_panel_titles{
-  font-size: .8em;
+#popup_panel_titles {
+  font-size: 0.8em;
   margin-bottom: 5px;
+}
+
+@media screen and(max-height:$md-screen) {
+  .dash_grid_layout {
+    gap: 10px;
+  }
 }

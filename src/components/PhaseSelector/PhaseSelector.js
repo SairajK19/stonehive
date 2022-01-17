@@ -50,10 +50,10 @@ export default function PhaseSelector() {
     },
   ];
   return (
-    <>
-      <SelectedPhaseContext.Provider value={selectedPhase}>
+    <div className={styles.container}>
+    <SelectedPhaseContext.Provider value={selectedPhase}>
         <p id="popup_panel_titles">Phases</p>
-        <div className={styles.container}>
+        <div className={styles.grid_container}>
           {PhasesList.map((phase) => {
             return (
               <button
@@ -71,7 +71,7 @@ export default function PhaseSelector() {
           })}
         </div>
       </SelectedPhaseContext.Provider>
-    </>
+    </div>
   );
 }
 export { SelectedPhaseContext };

@@ -70,36 +70,41 @@
 }
 
 @media screen and (max-height: 800px) {
-    .container {
-        grid-gap: 10px;
-        .logo {
-            img {
-                width: 80px;
-            }
-        }
-        .hive_svg {
-            img {
-                width: 170px;
-            }
-        }
-
-        .items, {
-            .items_each {
-                padding: 7px;
-                margin-bottom: 0px;
-
-                p {
-                    font-size: 0.5em;
-                }
-
-                svg {
-                    font-size: 15px;
-                }
-            }
-        }
+  .container {
+    grid-gap: 10px;
+    .logo {
+      img {
+        width: 80px;
+      }
     }
-}
+    .hive_svg {
+      img {
+        width: 170px;
+      }
+    }
 
+    .items {
+      .items_each {
+        padding: 7px;
+        margin-bottom: 0px;
+
+        p {
+          font-size: 0.5em;
+        }
+
+        svg {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $lg-screen) {
+  .container {
+    min-width: $sidebar-sm-laptop;
+    max-width: $sidebar-sm-laptop;
+  }
+}
 @media screen and (max-width: $tablet-width) {
   .container {
     @include FlexCenter(column);
@@ -134,7 +139,7 @@
     }
   }
 }
-@media screen and (max-width: $mobile-large) {
+@media screen and (max-width: $sm-screen) {
   .container {
     position: fixed;
     max-width: 100%;

@@ -39,25 +39,26 @@ body {
   height: 0;
   flex-grow: 2;
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: $lg-screen) {
   .main_panel {
-    // padding: 0px;
-    overflow-x: auto;
+    margin-left: $sidebar-sm-laptop;
   }
 }
-
-@media screen and (max-width: 1490px) {
-  .main_panel {
-  }
-}
-
-@media screen and (max-width: $tablet-width) {
+// @media screen and (max-width: $md-screen) {
+//   .main_panel {
+//     // padding: 0px;
+//     overflow-x: auto;
+//   }
+// }
+@media screen and (max-width: $md-screen) {
   .main_panel {
     margin-left: $sidebar-width-sm;
   }
 }
-@media screen and (max-width: $mobile-large) {
+@media screen and (max-width: $sm-screen) {
   .main_panel {
+    height: 100%;
+    margin-bottom: 20px;
     margin-left: 0;
   }
 }
