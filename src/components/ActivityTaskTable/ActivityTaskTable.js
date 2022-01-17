@@ -15,8 +15,8 @@ export default function ActivityTaskTable({ contractorDash = false }) {
           <td
             style={
               contractorDash
-                ? { visibility: "visible" }
-                : { visibility: "hidden" }
+              ? { display: "table-cell" }
+              : { display: "none" }
             }
           ></td>
         </thead>
@@ -64,8 +64,8 @@ function TableItem({ contractorDash }) {
         <td
           style={
             contractorDash
-              ? { visibility: "visible" }
-              : { visibility: "hidden" }
+              ? { display: "table-cell" }
+              : { display: "none" }
           }
         >
           <button onClick={() => setOptionToggle(!optionToggle)}>

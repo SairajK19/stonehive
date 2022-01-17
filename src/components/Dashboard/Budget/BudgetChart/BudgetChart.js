@@ -29,7 +29,7 @@ export default function BudgetChart() {
       <Doughnut
         className="chart"
         data={data}
-        style={{ height: "50%", maxWidth: "50%", maxHeight: "100%" }}
+        style={{ height: "100%", maxWidth: "50%", maxHeight: "100%" }}
       />
       <div className={styles.budget_summary}>
         <div className={styles.summary_item}>
