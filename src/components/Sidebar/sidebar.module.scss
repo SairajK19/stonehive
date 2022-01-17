@@ -14,7 +14,7 @@
   height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
-  z-index: 1000;
+  z-index: 3000;
   .logo {
     @include FlexCenter(column);
     img {

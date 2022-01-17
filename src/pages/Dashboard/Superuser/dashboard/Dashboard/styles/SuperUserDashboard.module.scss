@@ -367,3 +367,11 @@
     }
   }
 }
+
+@media screen and (max-width: $lg-screen) {
+    .container {
+        .form_container {
+            right: 50px;
+        }
+    }
+}

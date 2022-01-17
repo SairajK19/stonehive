@@ -20,6 +20,12 @@
   }
 }
 
+@media screen and (max-width: $lg-screen) {
+    .popup {
+        left: $sidebar-sm-laptop;
+    } 
+}
+
 @media screen and (max-width: $tablet-width) {
   .popup {
     left: 90px;
