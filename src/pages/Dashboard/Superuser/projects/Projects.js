@@ -1,6 +1,10 @@
+/** Library imports **/
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
+
+/** Custom functions **/
 import {
   superuserHomeSidebarItems,
   superuserHomeSidebarItemsMobile,
@@ -9,8 +13,9 @@ import {
   setSidebarItems,
   setTopBarVisibility,
 } from "../../../../redux/reducers/shReducers";
+
+/** Styles and Assets **/
 import styles from "./styles/projects.module.scss";
-import { Icon } from "@iconify/react";
 import card_design from "../../../../assets/svg/card_design.svg";
 import SearchBar from "../../../../components/SearchBar/SearchBar";
 
@@ -392,6 +397,7 @@ export default function Projects() {
   );
 }
 
+/** Individual project component **/
 const Project = ({
   project,
   projectNumber,

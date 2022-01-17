@@ -1,12 +1,17 @@
-import { Icon } from "@iconify/react";
+/** Library imports **/
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
+
+/** Custom functions **/
 import SearchBar from "../../../../../components/SearchBar/SearchBar";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
+import Popup from "../../../../../components/Popup/Popup";
+
+/** Styles and Assets  **/
 import styles from "./styles/SuperUserArchitect.module.scss";
 import plan from "../../../../../assets/images/plan.png";
-import Popup from "../../../../../components/Popup/Popup";
 
 export default function SuperUserArchitect() {
   // State variables

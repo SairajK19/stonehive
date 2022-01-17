@@ -1,17 +1,22 @@
+/** Library imports **/
 import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
+import Select from "react-select";
+
+/** Custom functions **/
 import {
   setSidebarItems,
   setTopBarVisibility,
 } from "../../../../redux/reducers/shReducers";
-import styles from "./styles/CreateProject.module.scss";
-import Select from "react-select";
 import {
   superuserHomeSidebarItems,
   superuserHomeSidebarItemsMobile,
 } from "../../../../components/Sidebar/sidebarItems";
 import { createProjectFormInputs, phases } from "../../../../helpers/constants";
+
+/** Styles **/
+import styles from "./styles/CreateProject.module.scss";
 
 export default function CreateProject() {
   const [workerOptions, setworkerOptions] = useState([

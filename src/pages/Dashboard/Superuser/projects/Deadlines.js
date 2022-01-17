@@ -1,13 +1,18 @@
+/** Library imports **/
 import React, { useState, useEffect } from "react";
-import card_design from "../../../../assets/svg/card_design.svg";
-import styles from "./styles/projects.module.scss";
 import { Icon } from "@iconify/react";
+
+/** Custom functions **/
 import { superuserHomeSidebarItems, superuserHomeSidebarItemsMobile } from "../../../../components/Sidebar/sidebarItems";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setSidebarItems,
   setTopBarVisibility,
 } from "../../../../redux/reducers/shReducers";
+
+/** Styles, Assets  **/
+import card_design from "../../../../assets/svg/card_design.svg";
+import styles from "./styles/projects.module.scss";
 
 export default function Deadlines() {
   const [deadline, setDeadlineFilter] = useState("Approaching Deadlines");

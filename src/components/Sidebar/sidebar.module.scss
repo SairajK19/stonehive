@@ -103,7 +103,6 @@
 @media screen and (max-width: $tablet-width) {
   .container {
     @include FlexCenter(column);
-    justify-content: space-between;
     min-width: $sidebar-width-sm;
     max-width: $sidebar-width-sm;
     .logo {

@@ -1,11 +1,16 @@
+/** Library imports **/
 import React, { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
+import Select from "react-select";
+import { Icon } from "@iconify/react";
+
+/** Custom functions **/
+import Popup from "../../../../../components/Popup/Popup";
 import { superuserSidebarItems } from "../../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems, setTopBarVisibility } from "../../../../../redux/reducers/shReducers";
-import Select from "react-select";
+
+/** Styles **/
 import styles from "./styles/SuperUserDashboard.module.scss";
-import Popup from "../../../../../components/Popup/Popup";
 
 export default function SuperUserDashboard() {
     const dispatch = useDispatch();
