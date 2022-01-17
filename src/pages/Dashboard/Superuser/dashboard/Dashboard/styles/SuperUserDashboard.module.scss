@@ -197,6 +197,7 @@
       .activity_table {
         margin-top: 10px;
         overflow: auto;
+        padding-bottom: 60px;
 
         table {
           width: 100%;
@@ -328,6 +329,14 @@
   }
 }
 
+@media screen and (max-width: $lg-screen) {
+    .container {
+        .form_container {
+            right: 50px;
+        }
+    }
+}
+
 @media screen and (max-width: $mobile-large) {
   .container {
     width: fit-content;
@@ -335,10 +344,10 @@
     padding-bottom: 20px;
 
     .form_container {
-      left: 0px;
-      max-width: 350px;
-      width: 100vw;
-      right: 0%;
+        left: 0px;
+        max-width: 350px;
+        width: 100vw;
+        right: 0%;
 
       #activity_name {
         grid-column: 1 !important;
@@ -368,10 +377,3 @@
   }
 }
 
-@media screen and (max-width: $lg-screen) {
-    .container {
-        .form_container {
-            right: 50px;
-        }
-    }
-}

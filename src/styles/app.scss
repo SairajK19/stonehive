@@ -36,9 +36,8 @@ body {
   background-color: $primary-bg-color;
 }
 .main_panel_components {
-  height: 100vh;
-  padding-bottom: 50px;
-  flex-grow: 2;
+    height: 0;
+    flex-grow: 2;
 }
 @media screen and (max-width: $lg-screen) {
   .main_panel {
@@ -61,5 +60,10 @@ body {
     height: 100%;
     margin-bottom: 20px;
     margin-left: 0;
+  }
+
+  .main_panel_components {
+      height: 100vh;
+      padding-bottom: 50px;
   }
 }
