@@ -10,6 +10,13 @@
   svg {
     font-size: 1.8em;
   }
+
+  .image {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100%;
+  }
+
   .top_buttons {
     @include FlexCenter();
     justify-content: space-between;

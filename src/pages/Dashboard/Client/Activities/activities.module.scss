@@ -37,6 +37,10 @@
     }
     .chart {
       flex: auto;
+
+      canvas {
+        width: auto !important;
+      }
     }
   }
 }
