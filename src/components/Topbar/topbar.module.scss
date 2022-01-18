@@ -70,6 +70,9 @@
             position: relative;
             .dropdown_icon {
                 position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 .icon {
                     transition: 100ms;
                     transform: rotate(180deg);
@@ -98,7 +101,7 @@
                 background-color: white;
                 margin-top: 10px;
                 position: absolute;
-                right: 20px;
+                right: 5px;
                 width: 200px;
                 height: fit-content;
                 z-index: 4100;
@@ -109,9 +112,11 @@
                 transition-timing-function: ease-out;
                 transform: scale(0);
                 opacity: 0;
+                overflow: auto;
 
                 .name {
                     padding: 0px 15px;
+                    padding-top: 10px;
                     padding-bottom: 10px;
                     text-align: start;
                     font-size: 1.2rem;
@@ -156,6 +161,93 @@
                     .item:hover {
                         background-color: $input-tag-color;
                         transition: 200ms;
+                    }
+                }
+                padding-top: 0px;
+                .heading {
+                    padding: 0px 10px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    text-align: start;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: sticky;
+                    top: 0px;
+                    background-color: white;
+                    p {
+                        color: $primary-color;   
+                        font-weight: 500;
+                        font-size: 1.6rem;
+                    }
+
+                    .clear_button {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+
+                        p {
+                            font-size: 1rem;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .notifi_list {
+                    .notification {
+                        display: grid;
+                        grid-template-columns: auto auto 1fr;
+                        padding: 10px 0px;
+                        cursor: pointer;
+                        transition: 200ms ease;
+
+                        #notification_state {
+                            width: 5px;
+                            height: 100%;
+                            background-color: #05D653;
+                            margin-right: 10px;
+                        }
+
+                        .icon {
+                            width: 50px;
+                            height: 50px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            margin-right: 10px;
+                            background-color: rgba(255, 136, 54, 0.24);
+                            
+                            svg {
+                                font-size: 25px;
+                                color: #FF8836;
+                            }
+                        }
+
+                        .notification_text {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            align-items: center;
+                            text-align: start;
+
+                            #text {
+                                grid-column: 1/4;
+                                font-size: 1.2rem;
+                            }
+
+                            #date {
+                                font-size: 0.8rem;
+                            }
+
+                            #time {
+                                font-size: 0.7rem;
+                                text-align: end;
+                                padding-right: 10px
+                            }
+                        }
+                    }
+
+                    .notification:hover {
+                        background-color: $primary-bg-color;
                     }
                 }
             }
