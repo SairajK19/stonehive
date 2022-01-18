@@ -32,14 +32,38 @@
         font-size: 0.55em;
         font-weight: 400;
         border-bottom: 1px solid #d2d2d2;
-        #status {
+
+        .status {
           width: fit-content;
           text-align: center;
           padding: 5px 10px;
           border-radius: 5px;
+      }
+
+      #completed {
           color: rgba(125, 194, 173, 1);
           background-color: rgba(32, 148, 113, 0.1);
-        }
+      }
+
+      #pending {
+          color: #414263;
+          background-color: rgba(87, 89, 116, 0.2);;
+      }
+
+      #ongoing {
+          color: #5961F9;
+          background-color: rgba(89, 97, 249, 0.2);;
+      }
+
+      #haulted {
+          color: #FA7254;
+          background-color: rgba(250, 114, 84, 0.2);;
+      }
+
+      #delayed {
+          color: #FA7254;;
+          background-color: rgba(250, 115, 85, 0.35);;
+      }
       }
     }
   }
@@ -60,7 +84,6 @@
 }
 
 .status_menus {
-  // width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

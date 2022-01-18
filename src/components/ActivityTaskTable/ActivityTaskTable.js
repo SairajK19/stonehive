@@ -76,17 +76,20 @@ function TableItem({ contractorDash }) {
           </button>
         </td>
       </tr>
-      <tr style={optionToggle ? { display: "block" } : { display: "none" }}>
-        {/* <td></td>
-        <td></td>
-        <td></td> */}
-        <td className={styles.status_menus}>
-          {" "}
-          <p id={styles.status}>Completed</p>
-          <p id={styles.status}>Completed</p>
-          <p id={styles.status}>Completed</p>
-        </td>
-      </tr>
+        {
+            (optionToggle) ? 
+                <tr>
+                    <td colSpan={5}>
+                        <div className={styles.status_menus}  >
+                            <p className={styles.status} id={styles.completed}>Completed</p>
+                            <p className={styles.status} id={styles.pending}>Pending</p>
+                            <p className={styles.status} id={styles.ongoing}>Ongoing</p>
+                            <p className={styles.status} id={styles.haulted}>Haulted</p>
+                            <p className={styles.status} id={styles.delayed}>Delayed</p>
+                        </div>
+                    </td>
+                </tr> : ""
+        }
     </>
   );
 }
