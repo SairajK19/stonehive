@@ -84,16 +84,22 @@
 @media screen and(max-width:$sm-screen) {
   .container {
     height: fit-content;
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
+    display: block;
+    overflow: auto;
+    height: 100%;
+  }
+  .phases {
+      height: fit-content;
+      margin-top: 20px;
   }
   .activities_table {
     max-height: 250px;
   }
   .charts_financials {
-
     grid-column: 1/1;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    height: fit-content;
+    margin-top: 20px;
   }
 }

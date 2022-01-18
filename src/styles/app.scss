@@ -34,7 +34,6 @@ body {
   margin-left: $sidebar-width;
   padding: 15px;
   background-color: $primary-bg-color;
-  overflow: hidden;
 }
 .main_panel_components {
     height: 0;
@@ -63,8 +62,8 @@ body {
     margin-left: 0;
   }
   .main_panel_components {
-    overflow-y: auto;
-    margin-bottom: $sidebar-height-sm;
+      overflow-x: auto;
+      margin-bottom: $sidebar-height-sm;
 
   }
 }

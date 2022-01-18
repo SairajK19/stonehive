@@ -47,9 +47,19 @@
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .phases {
+        height: fit-content;
+        margin-top: 20px;
+    }
     .budget_graph {
       grid-column: 1/2;
+      height: fit-content;
+      margin-top: 20px;
     }
   }
 }
