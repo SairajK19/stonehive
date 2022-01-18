@@ -18,7 +18,6 @@ export default function Budget() {
   return (
     <div className={styles.container}>
       <div className={styles.budget_charts}>
-        {SelectedPhase}
         <BudgetChart />
       </div>
       <div className={styles.phases}>

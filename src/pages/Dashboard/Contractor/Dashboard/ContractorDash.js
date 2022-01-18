@@ -58,8 +58,8 @@ export default function ContractorDash() {
       <div
         className={styles.plan_elevations}
         onClick={() => {
-          setPopupTitle("Gantt Chart");
-          setPopupComponent("ganttchart");
+          setPopupTitle("Plans and Elevations");
+          setPopupComponent("planelevation");
           setPopupToggle(true);
         }}
       >

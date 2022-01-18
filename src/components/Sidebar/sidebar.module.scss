@@ -143,9 +143,9 @@
   .container {
     position: fixed;
     max-width: 100%;
+    height: $sidebar-height-sm;
     z-index: 25;
     bottom: 0;
-    height: fit-content;
     width: 100%;
     padding: 10px 20px;
     @include FlexCenter(row);

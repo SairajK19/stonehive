@@ -35,11 +35,10 @@ function NoBills() {
   );
 }
 function BillMain() {
-    
   const [bills, setBills] = useState([]);
 
   useEffect(() => {
-    /* 
+    /*
      * Code from line 39 to 54 is temperory,
      * since we don't get the file as a blob
      * after importing it I have written this code
@@ -52,50 +51,54 @@ function BillMain() {
     oReq.responseType = "blob";
 
     oReq.onload = () => {
-        const file = new Blob([oReq.response], { type: 'application/pdf' });
-        const url = createLocalUrl(file);
-        console.log(url)
-        // Add the url to bills array.
-        
-        var bills = [
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30", approved: true },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-            { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
-        ]
+      const file = new Blob([oReq.response], { type: "application/pdf" });
+      const url = createLocalUrl(file);
+      console.log(url);
+      // Add the url to bills array.
 
-        bills.map((bill) => {
-            bill["bill_url"] = url;
-        })
+      var bills = [
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30", approved: true },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+        { bill_label: "Bill 99", date_time: "Sep 05 9:30" },
+      ];
 
-        setBills(bills);
-    }
+      bills.map((bill) => {
+        bill["bill_url"] = url;
+      });
+
+      setBills(bills);
+    };
 
     oReq.send();
 
     /*
-     * In reality it will just be 
+     * In reality it will just be
      * const url = createLocalUrl(file);
      * as file will be stored as blob in the database
      */
-  }, [])
+  }, []);
 
   return (
     <div className={styles.bills_main}>
       <div className={styles.bills_header}>
-        <div className={styles.header_image}>
-          <img src={BillsHeaderSvg} alt="" />
+        <div className={styles.bills_header_left}>
+          {" "}
+          <div className={styles.header_image}>
+            <img src={BillsHeaderSvg} alt="" />
+          </div>
+          <div className={styles.header_info}>
+            <p id={styles.title}>Upload Bills</p>
+            <p id={styles.desc}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
         </div>
-        <div className={styles.header_info}>
-          <p id={styles.title}>Upload Bills</p>
-          <p id={styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
+
         <div className={styles.upload_btn}>
           <button className={styles.btn_lg}>upload</button>
         </div>
@@ -107,16 +110,18 @@ function BillMain() {
             <Icon icon="dashicons:arrow-down-alt2" height="20" /> recents
           </button>
         </div>
-          <div className={styles.bills_list} style={{ textAlign: "center" }}  >
-          {bills.length !== 0 ? bills.map((bill) => (
-            <BillCard bill={bill}  />
-          )) : <h5>No bills</h5>}
+        <div className={styles.bills_list} style={{ textAlign: "center" }}>
+          {bills.length !== 0 ? (
+            bills.map((bill) => <BillCard bill={bill} />)
+          ) : (
+            <h5>No bills</h5>
+          )}
         </div>
       </div>
     </div>
   );
 }
-function BillCard({bill}) {
+function BillCard({ bill }) {
   return (
     <div className={styles.bills_item}>
       <div className={styles.bill_info}>

@@ -75,8 +75,25 @@
   }
 }
 
-@media screen and(max-height:$md-screen) {
+@media screen and(max-width:$md-screen) {
   .container {
     grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+@media screen and(max-width:$sm-screen) {
+  .container {
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .activities_table {
+    max-height: 250px;
+  }
+  .charts_financials {
+
+    grid-column: 1/1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }

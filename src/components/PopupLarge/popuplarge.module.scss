@@ -1,4 +1,4 @@
-
+@import "/src/styles/variables";
 .container {
   display: flex;
   justify-content: center;
@@ -36,6 +36,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  transform: translate(10px, 10px);
   .popup_head {
     display: flex;
     justify-content: space-between;
@@ -55,5 +56,14 @@
   .popup_main {
     height: 0;
     flex-grow: 2;
+  }
+}
+
+@media screen and (max-width: $sm-screen) {
+  .main_container {
+    margin-bottom: $sidebar-height-sm;
+  }
+  .popup_main {
+    overflow-y: auto;
   }
 }

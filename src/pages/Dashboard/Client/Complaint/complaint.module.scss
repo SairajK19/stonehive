@@ -100,3 +100,12 @@
     }
   }
 }
+
+@media screen and (max-width: $sm-screen) {
+  .container {
+    .form_container {
+      width: 100%;
+      margin: 20px;
+    }
+  }
+}

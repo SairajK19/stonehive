@@ -34,8 +34,6 @@
   }
 }
 
-
-
 .site_images_main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,6 +69,16 @@
     transition: all ease 0.3s;
     &:hover {
       transform: translateX(10px);
+    }
+  }
+}
+
+@media screen and (max-width: $sm-screen) {
+  .overview {
+    gap: 10px;
+    .current_phase {
+      grid-column: 1/4;
+      grid-row: 1/3;
     }
   }
 }
