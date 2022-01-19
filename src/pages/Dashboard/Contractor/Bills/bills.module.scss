@@ -124,6 +124,7 @@
 
 @media screen and (max-width: $sm-screen) {
   .bills_header_left {
+    display:none;
     flex-direction: column;
     text-align: center;
   }

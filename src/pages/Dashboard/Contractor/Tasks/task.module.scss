@@ -1,3 +1,4 @@
+@import "/src//styles/variables";
 .container {
   height: 100%;
   width: 100%;
@@ -11,13 +12,30 @@
     grid-column: 1/4;
   }
 }
-.task_table{
-  height: 100%;
+.task_table {
   overflow: hidden;
 }
-@media screen and (min-width: 1500px) {
-  .container{
-    grid-template-rows: 1.5fr 1fr;
 
+@media screen and (min-width: 1500px) {
+  .container {
+    grid-template-rows: 1.5fr 1fr;
+  }
+}
+
+@media screen and (max-width: $sm-screen) {
+  .container {
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+
+    > div:first-child {
+      grid-column: 1;
+    }
+  }
+  .task_table {
+    height: 300px;
+  }
+  .financials{
+    height: 200px;
   }
 }

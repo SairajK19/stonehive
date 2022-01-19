@@ -31,7 +31,7 @@ export default function Tasks({ fromPopup = false }) {
       <div className="phases">
         <PhaseSelector />
       </div>
-      <div className="">
+      <div className={styles.financials}>
         <FinancialCards />
       </div>
     </div>

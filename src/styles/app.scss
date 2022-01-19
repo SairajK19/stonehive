@@ -37,8 +37,8 @@ body {
   overflow: hidden;
 }
 .main_panel_components {
-    height: 0;
-    flex-grow: 2;
+  height: 0;
+  flex-grow: 2;
 }
 @media screen and (max-width: $lg-screen) {
   .main_panel {
@@ -64,7 +64,6 @@ body {
   }
   .main_panel_components {
     overflow-y: auto;
-    margin-bottom: $sidebar-height-sm;
-
+    margin-bottom: calc(#{$sidebar-height-sm} - 10px);
   }
 }

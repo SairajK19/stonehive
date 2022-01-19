@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
 import { contractorSidebarItems } from "../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../../redux/reducers/shReducers";
 import UpdatesOverviewPanel from "../../../../components/Dashboard/UpdatesOverviewPanel/UpdatesOverviewPanel";
@@ -37,7 +38,6 @@ export default function ContractorDash() {
         <OverviewPanel />
       </div>
       <div
-        className={styles.updates}
         onClick={() => {
           setPopupTitle("Updates");
           setPopupComponent("updates");
@@ -75,6 +75,16 @@ export default function ContractorDash() {
       >
         <BudgetOverviewPanel />
       </div>
+      <button
+        onClick={() => {
+          setPopupTitle("Updates");
+          setPopupComponent("updates");
+          setPopupToggle(true);
+        }}
+        id="update_button"
+      >
+        <Icon icon="ic:outline-tips-and-updates" height="20" />
+      </button>
       <PopupLarge
         popupToggle={popupToggle}
         // popupToggle={true}

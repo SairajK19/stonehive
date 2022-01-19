@@ -38,7 +38,9 @@
 }
 @media screen and (max-width: $md-screen) {
   .financials {
+    overflow: auto;
+    // gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
-    grid-template-rows: repeat(auto-fit, minmax(50px, 0px));
+    grid-template-rows: repeat(auto-fit, minmax(70px, 0px));
   }
 }

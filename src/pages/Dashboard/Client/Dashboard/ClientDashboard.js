@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
-import { setSidebarItems, setTopBarVisibility } from "../../../../redux/reducers/shReducers";
+import {
+  setSidebarItems,
+  setTopBarVisibility,
+} from "../../../../redux/reducers/shReducers";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 
@@ -90,6 +93,16 @@ export default function ClientDashboard() {
       >
         <SiteImagesPanel />
       </div>
+      <button
+         onClick={() => {
+          setPopupTitle("Updates");
+          setPopupComponent("updates");
+          setPopupToggle(true);
+        }}
+        id="update_button"
+      >
+        <Icon icon="ic:outline-tips-and-updates" height="20" />
+      </button>
       <PopupLarge
         popupToggle={popupToggle}
         setPopupToggle={(data) => setPopupToggle(data)}
