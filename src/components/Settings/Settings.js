@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSidebarItems } from "../../../../redux/reducers/shReducers";
-import { clientSidebarItems } from "../../../../components/Sidebar/sidebarItems";
+import { setSidebarItems } from "../../redux/reducers/shReducers";
+import { clientSidebarItems } from "../Sidebar/sidebarItems";
 import { Icon } from "@iconify/react";
 
 import styles from "./settings.module.scss";
 
-import SettingsBgImg from "../../../../assets/images/settings_bg.png";
-import ProfileImg from "../../../../assets/images/profile.png";
+import SettingsBgImg from "../../assets/images/settings_bg.png";
+import ProfileImg from "../../assets/images/profile.png";
 export default function Settings() {
   const [activeSidebar, setActiveSidebar] = useState(0);
   const dispatch = useDispatch();
@@ -28,13 +28,13 @@ export default function Settings() {
             className={!activeSidebar ? styles.active : null}
           >
             <Icon icon="carbon:user-settings" height="20" />
-            Personal Info
+            <p> Personal Info</p>
           </button>
           <button
             onClick={() => setActiveSidebar(1)}
             className={activeSidebar ? styles.active : null}
           >
-            <Icon icon="carbon:password" height="20" /> Password
+            <Icon icon="carbon:password" height="20" /> <p>Password</p>
           </button>
         </div>
         <div className={styles.settings_main}>

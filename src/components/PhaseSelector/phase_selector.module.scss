@@ -37,10 +37,12 @@
 }
 @media screen and (min-width: 1750px) {
   .container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
-    .phase_item {
-      #phase_title {
-        font-size: 0.65em;
+    .grid_container {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+      .phase_item {
+        #phase_title {
+          font-size: 0.65em;
+        }
       }
     }
   }

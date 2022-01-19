@@ -12,7 +12,7 @@ import ClientDashboard from "./pages/Dashboard/Client/Dashboard/ClientDashboard"
 import ClientDashActivities from "./pages/Dashboard/Client/Activities/Activities";
 import ClientDashComplaint from "./pages/Dashboard/Client/Complaint/Complaint";
 import ClientDashSiteImages from "./pages/Dashboard/Client/SiteImages/Siteimages";
-import ClientDashSettings from "./pages/Dashboard/Client/Settings/Settings";
+import Settings from "./components/Settings/Settings";
 import ClientDashBudget from "./pages/Dashboard/Client/Budget/Budget";
 import ClientDashPlanElevations from "./pages/Dashboard/Client/PlansElevation/PlanElevation";
 // Constractor Dashboard
@@ -46,7 +46,9 @@ const SuperUserBills = lazy(() =>
 const SuperUserArchitect = lazy(() =>
   import("./pages/Dashboard/Superuser/dashboard/Architect/SuperUserArchitect")
 );
-const ProjectCreated = lazy(() => import("./pages/Dashboard/Superuser/create_project/ProjectCreated"));
+const ProjectCreated = lazy(() =>
+  import("./pages/Dashboard/Superuser/create_project/ProjectCreated")
+);
 
 function App() {
   const topBarVisible = useSelector((state) => state.stonehive.topBarVisible);
@@ -103,7 +105,7 @@ function App() {
                 path="/client/complaint"
                 element={<ClientDashComplaint />}
               />
-              <Route path="/client/settings" element={<ClientDashSettings />} />
+              <Route path="/settings" element={<Settings />} />
               <Route path="/client/Budget" element={<ClientDashBudget />} />
               <Route
                 path="/client/plan-elevation"
