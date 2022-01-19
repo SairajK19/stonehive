@@ -23,7 +23,13 @@ export default function PopupLarge({
         className={styles.overlay}
         onClick={() => setPopupToggle(false)}
       ></div>
-      <div className={styles.main_container}>
+      <div
+        className={
+          popupToggle
+            ? `${styles.main_container} ${styles.popup_animation}`
+            : `${styles.main_container} `
+        }
+      >
         <div className={styles.popup_head}>
           {" "}
           <p className={styles.popup_title}>{popupTitle}</p>
