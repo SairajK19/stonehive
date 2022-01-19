@@ -5,8 +5,35 @@ import { Icon } from "@iconify/react";
 
 export default function ActivityTaskTable({ contractorDash = false }) {
   const tableheads = ["Activity", "Budget", "Cost", "Status"];
+  const tableData = [
+    {
+      activity: "Design",
+      budget: "1,00,000",
+      cost: "50,000",
+      status: "completed",
+    },
+    {
+      activity: "Design",
+      budget: "1,00,000",
+      cost: "50,000",
+      status: "delayed",
+    },
+    {
+      activity: "Design",
+      budget: "1,00,000",
+      cost: "50,000",
+      status: "completed",
+    },
+    {
+      activity: "Design",
+      budget: "1,00,000",
+      cost: "50,000",
+      status: "completed",
+    },
+  ];
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={(e) => e.stopPropagation()}>
       <table>
         <thead>
           {tableheads.map((data) => (
@@ -14,15 +41,13 @@ export default function ActivityTaskTable({ contractorDash = false }) {
           ))}
           <td
             style={
-              contractorDash
-              ? { display: "table-cell" }
-              : { display: "none" }
+              contractorDash ? { display: "table-cell" } : { display: "none" }
             }
           ></td>
         </thead>
         <tbody>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => {
-            return <TableItem contractorDash={contractorDash} />;
+          {tableData.map((data) => {
+            return <TableItem contractorDash={contractorDash} data={data} />;
           })}
         </tbody>
       </table>
@@ -30,7 +55,7 @@ export default function ActivityTaskTable({ contractorDash = false }) {
   );
 }
 
-function TableItem({ contractorDash }) {
+function TableItem({ contractorDash, data }) {
   const colors = [
     "rgba(229, 60, 109, 1)",
     "rgba(254, 203, 73, 1)",
@@ -41,7 +66,13 @@ function TableItem({ contractorDash }) {
   const [optionToggle, setOptionToggle] = useState(false);
   return (
     <>
-      <tr>
+      <tr
+        style={
+          data.status === "delayed"
+            ? { backgroundColor: "rgba(250, 114, 84, 0.12)" }
+            : null
+        }
+      >
         <td>
           <div className={styles.activity_name}>
             <div
@@ -53,18 +84,18 @@ function TableItem({ contractorDash }) {
             >
               <Icon icon="clarity:design-line" color="#ffff" />
             </div>
-            <p id={styles.name}>Design</p>
+            <p id={styles.name}>{data.activity}</p>
           </div>
         </td>
-        <td>₹1,00,000</td>
-        <td>₹50,000</td>
+        <td>₹{data.budget}</td>
+        <td>₹{data.cost}</td>
         <td>
-          <p id={styles.status}>Completed</p>
+          <ActivityStatus status={data.status} />
         </td>
         <td
           style={
             contractorDash
-              ? { display: "table-cell" }
+              ? { display: "table-cell", textAlign: "center" }
               : { display: "none" }
           }
         >
@@ -76,20 +107,57 @@ function TableItem({ contractorDash }) {
           </button>
         </td>
       </tr>
-        {
-            (optionToggle) ? 
-                <tr>
-                    <td colSpan={5}>
-                        <div className={styles.status_menus}  >
-                            <p className={styles.status} id={styles.completed}>Completed</p>
-                            <p className={styles.status} id={styles.pending}>Pending</p>
-                            <p className={styles.status} id={styles.ongoing}>Ongoing</p>
-                            <p className={styles.status} id={styles.haulted}>Haulted</p>
-                            <p className={styles.status} id={styles.delayed}>Delayed</p>
-                        </div>
-                    </td>
-                </tr> : ""
-        }
+      {optionToggle ? (
+        <tr>
+          <td colSpan={4}>
+            <div className={styles.status_menus}>
+              {["completed", "pending", "ongoing", "haulted", "delayed"].map(
+                (status) => {
+                  return <ActivityStatus status={status} />;
+                }
+              )}
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      ) : (
+        ""
+      )}
     </>
+  );
+}
+function ActivityStatus({ status }) {
+  const statusColors = {
+    completed: {
+      color: "rgba(125, 194, 173, 1)",
+      bgcolor: "rgba(125, 194, 173, .1)",
+    },
+    pending: {
+      color: "rgba(87, 89, 116, 1)",
+      bgcolor: "rgba(87, 89, 116, 0.1)",
+    },
+    ongoing: {
+      color: "rgba(89, 97, 249, 1)",
+      bgcolor: "rgba(89, 97, 249, 0.1)",
+    },
+    haulted: {
+      color: "rgba(250, 114, 84, 1)",
+      bgcolor: "rgba(250, 114, 84, 0.1)",
+    },
+    delayed: {
+      color: "rgba(250, 115, 85, 1)",
+      bgcolor: "rgba(250, 115, 85, 0.1)",
+    },
+  };
+  return (
+    <p
+      className={styles.status}
+      style={{
+        color: statusColors[status].color,
+        backgroundColor: statusColors[status].bgcolor,
+      }}
+    >
+      {status}
+    </p>
   );
 }
