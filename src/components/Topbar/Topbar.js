@@ -8,26 +8,51 @@ export default function Topbar() {
     const active_item = useSelector(
         (state) => state.stonehive.sidebarItems.active
     );
-    const [showDropdown, setShowDropdown] = useState(true);
     const [showOverlay, setShowOverlay] = useState(false);
 
     const handleDropdownClick = (component) => {
         const icon = document.getElementById("icon");
         const checkbox = document.getElementsByName("dropdown_checkbox")[0];
+        const notifiCheckbox = document.getElementsByName("notifi_dropdown_checkbox")[0];
 
         (icon.style.transform === "rotate(0deg)") ? 
             icon.style.transform = "rotate(180deg)" : icon.style.transform = "rotate(0deg)";
 
-        if (component === "overlay") { checkbox.checked = false; }
-        setShowDropdown(!showDropdown);
-        setShowOverlay(!showOverlay);
+        notifiCheckbox.checked = false;
+        setShowOverlay(true);
+    }
+
+    const handleNotifiDropdownCLick = (component) => {
+        const checkbox = document.getElementsByName("notifi_dropdown_checkbox")[0];
+        const profileCheckbox = document.getElementsByName("dropdown_checkbox")[0];
+
+        profileCheckbox.checked = false;
+        setShowOverlay(true);
+    }
+
+    const handleOverlayClick =(component) => {
+        const profileCheckbox = document.getElementsByName("dropdown_checkbox")[0];
+        const notifCheckbox = document.getElementsByName("notifi_dropdown_checkbox")[0];
+
+        if (profileCheckbox.checked === true) {
+            const icon = document.getElementById("icon");
+
+            (icon.style.transform === "rotate(0deg)") ?
+                icon.style.transform = "rotate(180deg)" : icon.style.transform = "rotate(0deg)";
+
+            profileCheckbox.checked = false;
+        } else {
+            notifCheckbox.checked = false;
+        }
+
+        setShowOverlay(false);
     }
     return (
         <div className={`${styles.container} responsive_font`}>
             {showOverlay ? (
                 <span
                     className={styles.container_overlay}
-                    onClick={() => handleDropdownClick("overlay")}
+                    onClick={handleOverlayClick}
                 ></span>
             ) : (
                 ""
@@ -45,10 +70,19 @@ export default function Topbar() {
                 </div>
             </div>
             <div className={styles.user_profile_notifi}>
-                <Icon icon="ic:baseline-circle-notifications" width="30px" />
+                <div className={styles.dropdown_container}>
+                    <input type="checkbox" id={styles.dropdown_checkbox}
+                           name="notifi_dropdown_checkbox"
+                           onClick={handleNotifiDropdownCLick}
+                    />
+                    <div className={styles.dropdown_icon} onClick={handleNotifiDropdownCLick}>
+                        <Icon icon="ic:baseline-circle-notifications" width="30px" />
+                    </div>
+                    <NotificationDropDown />
+                </div>
                 <div className={styles.seperator}></div>
                 <div className={styles.profile}>
-                    <img src={ProfileImg} alt="prifle" />
+                    <img src={ProfileImg} alt="profile" />
                 </div>
                 <div className={styles.dropdown_container}>
                     <input type="checkbox" id={styles.dropdown_checkbox} 
@@ -81,6 +115,43 @@ const ProfileDropDown = ({showOverlay,handleDropdownClick}) => {
                     <Icon icon="ri:logout-circle-r-fill" />
                     <Link to="/client/settings" >Logout</Link>
                 </div>
+            </div>
+        </div>
+    )
+}
+
+const NotificationDropDown = () => {
+    return (
+        <div className={styles.dropdown} style={{width: "300px", maxHeight: "500px"}}  >
+            <div className={styles.heading}>
+                <p>Notifications</p>
+                <div className={styles.clear_button}>
+                    <p>Clear all</p>
+                    <Icon icon="ant-design:clear-outlined" />
+                </div>
+            </div>
+            <div className={styles.notifi_list}>
+                {
+                    [1,2,3].map((_,id) => (
+                        <Notification id={id} />
+                    ))
+                }
+            </div>
+        </div>
+    );
+}
+
+const Notification = ({id}) => {
+    return (
+        <div className={styles.notification} id={id}  >
+            <div id={styles.notification_state}  ></div>
+            <div className={styles.icon}>
+                <Icon icon="clarity:design-line" />
+            </div>
+            <div className={styles.notification_text}>
+                <p id={styles.text}  >Design Completed</p>
+                <p id={styles.date} >20 Jun 2021</p>
+                <p id={styles.time} >2 mins ago</p>
             </div>
         </div>
     )

@@ -12,6 +12,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   grid-gap: 10px;
+  overflow: hidden;
 
   .container_overlay {
     height: 95%;
