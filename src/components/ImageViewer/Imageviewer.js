@@ -26,6 +26,10 @@ export default function Imageviewer() {
   };
   return (
     <div className={styles.container}>
+      <div className={styles.image_title}>
+        <p id={styles.title}>Front View</p>
+        <p id={styles.timestamp}>Uploaded on 21-10-2021</p>
+      </div>
       <TransformWrapper initialScale={1}>
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <div className={styles.image}>
