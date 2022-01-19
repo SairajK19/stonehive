@@ -10,14 +10,16 @@ export default function Updates() {
         <p>This Month</p>
         <Icon icon="akar-icons:arrow-up-down" height="10" />
       </button>
-      <div className={styles.updates_section_grid}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => {
-          return (
-            <UpdateCard
-              color={colors[Math.floor(Math.random() * colors.length)]}
-            />
-          );
-        })}
+      <div className={styles.updates_list_container}>
+        <div className={styles.updates_section_grid}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => {
+            return (
+              <UpdateCard
+                color={colors[Math.floor(Math.random() * colors.length)]}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
