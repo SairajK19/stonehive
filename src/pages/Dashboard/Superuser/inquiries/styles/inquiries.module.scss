@@ -318,7 +318,8 @@
 
 @media screen and (max-width: $mobile-large) {
   .container {
-    .inquiries_list {
+      overflow: hidden;
+      .inquiries_list {
       width: 100%;
       .list {
         padding-bottom: 80px;
@@ -327,6 +328,7 @@
     .inquiry {
       width: 100%;
       padding-bottom: 80px;
+      padding-bottom: 15px;
 
       .title {
         grid-template-columns: auto 1fr auto;
