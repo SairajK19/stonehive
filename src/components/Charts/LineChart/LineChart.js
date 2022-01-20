@@ -52,7 +52,7 @@ export const data = {
   ],
 };
 export default function LineChart() {
-  return <Line data={data} options={options} style={{ maxHeight: "100%" }} />;
+    return <Line data={data} options={options} style={{ maxHeight: "98%", maxWidth: "100%" }} />;
 }
 
 // function LineChart() {
