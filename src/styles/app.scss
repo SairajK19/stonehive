@@ -63,7 +63,7 @@ body {
   }
   .main_panel_components {
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
     margin-bottom: calc(#{$sidebar-height-sm} - 10px);
   }
 }

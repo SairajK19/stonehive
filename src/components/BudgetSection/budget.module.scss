@@ -47,13 +47,13 @@
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    height: 100%;
+    height: fit-content;
     display: flex;
     overflow: auto;
     flex-direction: column;
     justify-content: space-evenly;
     .phases {
-        height: fit-content;
+        height: 200px;
         margin-top: 20px;
     }
     .budget_graph {
