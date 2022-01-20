@@ -7,7 +7,7 @@ export default function Home() {
       <h1>Home</h1>
       <ol>
         <li>
-          <Link to="client">Client</Link>
+          <Link to="client/dashboard">Client</Link>
         </li>
         <li>
           <Link to="super-user">SuperUser</Link>
