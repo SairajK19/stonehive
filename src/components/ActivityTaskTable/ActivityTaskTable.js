@@ -107,22 +107,24 @@ function TableItem({ contractorDash, data }) {
           </button>
         </td>
       </tr>
-      {optionToggle ? (
-        <tr>
-          <td colSpan={4}>
-            <div className={styles.status_menus}>
-              {["completed", "pending", "ongoing", "haulted", "delayed"].map(
-                (status) => {
-                  return <ActivityStatus status={status} />;
-                }
-              )}
-            </div>
-          </td>
-          <td></td>
-        </tr>
-      ) : (
-        ""
-      )}
+      <tr style={optionToggle ? { display: "table-row" } : { display: "none" }}>
+        <td colSpan={4}>
+          <div
+            className={
+              optionToggle
+                ? `${styles.flip_in} ${styles.status_menus}`
+                : `${styles.flip_out} ${styles.status_menus}`
+            }
+          >
+            {["completed", "pending", "ongoing", "haulted", "delayed"].map(
+              (status) => {
+                return <ActivityStatus status={status} />;
+              }
+            )}
+          </div>
+        </td>
+        <td></td>
+      </tr>
     </>
   );
 }

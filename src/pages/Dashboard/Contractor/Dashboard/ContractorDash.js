@@ -102,7 +102,7 @@ export default function ContractorDash() {
             case "updates":
               return <Updates />;
             case "planelevation":
-              return <PlanElevation />;
+              return <PlanElevation fromPopup={true} />;
             default:
               break;
           }

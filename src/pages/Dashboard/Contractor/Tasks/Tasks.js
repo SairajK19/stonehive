@@ -28,7 +28,7 @@ export default function Tasks({ fromPopup = false }) {
       <div className={styles.task_table}>
         <ActivityTaskTable contractorDash={true} />
       </div>
-      <div className="phases">
+      <div className={styles.phases}>
         <PhaseSelector />
       </div>
       <div className={styles.financials}>

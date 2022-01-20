@@ -7,7 +7,6 @@
   table {
     width: 100%;
     border-spacing: 0;
-
     thead {
       background: #ffff;
       position: sticky;
@@ -46,11 +45,11 @@
         text-align: center;
         padding: 5px 10px;
         border-radius: 5px;
-        &::first-letter{
-          text-transform: capitalize
+        &::first-letter {
+          text-transform: capitalize;
         }
       }
-      
+
       #completed {
         color: rgba(125, 194, 173, 1);
         background-color: rgba(32, 148, 113, 0.1);
@@ -90,5 +89,28 @@
     background-color: blue;
     border-radius: 5px;
     margin-right: 5px;
+  }
+}
+
+.flip_in {
+  animation: FlipInAnimate 0.1s ease-in;
+}
+.flip_out {
+  animation: FlipOutAnimate 0.1s ease-in;
+}
+@keyframes FlipInAnimate {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes FlipOutAnimate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(90deg);
   }
 }
