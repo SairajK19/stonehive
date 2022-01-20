@@ -36,6 +36,9 @@ function NoBills() {
 }
 function BillMain() {
   const [bills, setBills] = useState([]);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [filter, setFilter] = useState("All Bills");
+  const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     /*
@@ -83,8 +86,31 @@ function BillMain() {
      */
   }, []);
 
+  const handleOverlayClick = () => {
+    setShowFilter(!showFilter);
+    setShowOverlay(!showOverlay);
+  };
+
+  const handleDropdownClick = () => {
+    setShowFilter(!showFilter);
+    setShowOverlay(!showOverlay);
+  };
+
   return (
     <div className={styles.bills_main}>
+        {/** 
+            This is created so that once a user clicks on a dropdown and 
+             if the user clicks anywhere else the dropdown will be closed.
+          **/}
+        {showOverlay ? (
+            <span
+                className={styles.container_overlay}
+                onClick={handleOverlayClick}
+            ></span>
+        ) : (
+            ""
+        )}
+
       <div className={styles.bills_header}>
         <div className={styles.bills_header_left}>
           {" "}
@@ -105,10 +131,26 @@ function BillMain() {
       </div>
       <div className={styles.bills}>
         <div className={styles.bills_head}>
-          <p id={styles.head}>All Bills</p>
-          <button>
-            <Icon icon="dashicons:arrow-down-alt2" height="20" /> recents
-          </button>
+        <p id={styles.head}>All Bills</p>
+          <div className={styles.filter_wrapper}>
+              <div className={styles.current_filter} onClick={handleDropdownClick}>
+                  <Icon icon="ls:dropdown" />
+                  <p>{filter}</p>
+              </div>
+              {showFilter ? (
+                  <div
+                      className={styles.filter_options}
+                      onClick={handleDropdownClick}
+                  >
+                      <p onClick={() => setFilter("All Bills")}>All Bills</p>
+                      <p onClick={() => setFilter("Old Bills")}>Old Bills</p>
+                      <p onClick={() => setFilter("Approved")}>Approved</p>
+                  </div>
+              ) : (
+                  ""
+              )}
+        </div>
+
         </div>
         <div className={styles.bills_list} style={{ textAlign: "center" }}>
           {bills.length !== 0 ? (
