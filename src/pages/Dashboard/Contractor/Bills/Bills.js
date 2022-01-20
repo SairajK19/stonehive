@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { contractorSidebarItems } from "../../../../components/Sidebar/sidebarItems";
 import { setSidebarItems } from "../../../../redux/reducers/shReducers";
 import { createLocalUrl } from "../../../../helpers/helpers";
+import Popup from "../../../../components/Popup/Popup";
+import { Upload } from "../../Superuser/dashboard/Architect/SuperUserArchitect";
 
 import { Icon } from "@iconify/react";
 
@@ -39,6 +41,7 @@ function BillMain() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [filter, setFilter] = useState("All Bills");
   const [showFilter, setShowFilter] = useState(false);
+  const [popupOn, setPopupOn] = useState(false);
 
   useEffect(() => {
     /*
@@ -96,6 +99,20 @@ function BillMain() {
     setShowOverlay(!showOverlay);
   };
 
+  const handlePopupToggle = () => {
+    const popup = document.getElementById("popup");
+    setPopupOn(!popupOn);
+
+    if (!popupOn) {
+      popup.style.opacity = "1";
+      popup.style.visibility = "visible";
+    } else {
+      popup.style.opacity = "0";
+      popup.style.visibility = "hidden";
+    }
+  };
+
+
   return (
     <div className={styles.bills_main}>
         {/** 
@@ -110,7 +127,23 @@ function BillMain() {
         ) : (
             ""
         )}
-
+        {/*
+        {
+            popupOn ? 
+                <Popup
+                    Component={Upload}
+                    handlePopupToggle={handlePopupToggle}
+                    popupName={"PlanView"}
+                    popupOn={popupOn}
+                /> : ""
+        }*/}
+        <Popup
+            Component={Upload}
+            handlePopupToggle={handlePopupToggle}
+            popupName={"PlanView"}
+            popupOn={popupOn}
+            formType={"Bill"}
+        />
       <div className={styles.bills_header}>
         <div className={styles.bills_header_left}>
           {" "}
@@ -126,7 +159,7 @@ function BillMain() {
         </div>
 
         <div className={styles.upload_btn}>
-          <button className={styles.btn_lg}>upload</button>
+          <button className={styles.btn_lg} onClick={handlePopupToggle}  >upload</button>
         </div>
       </div>
       <div className={styles.bills}>

@@ -220,7 +220,7 @@ const PlanView = ({ handlePopupToggle, popupOn }) => {
   );
 };
 
-const Upload = ({ handlePopupToggle, popupOn }) => {
+export const Upload = ({ handlePopupToggle, popupOn, formType }) => {
   return (
     <div className={
         popupOn
@@ -237,10 +237,22 @@ const Upload = ({ handlePopupToggle, popupOn }) => {
         </span>
       </div>
 
-      <div className={styles.form}>
+      <div className={
+            formType === "Bill"
+                ? `${styles.form} ${styles.form_bill} `
+                : `${styles.form}`
+          }>
         <div className={styles.img_upload}>
-          <p id={styles.upload_img}>Upload Image</p>
-          <p id={styles.tip}>supports .png .jpg .jpeg</p>
+          {
+              formType === "Bill"
+                ? <p id={styles.upload_img}>Upload Bill</p>
+                : <p id={styles.upload_img}>Upload Image</p>
+          }
+          {
+            formType === "Bill"
+                ? <p id={styles.tip}>supports .pdf only</p> 
+                : <p id={styles.tip}>supports .png .jpg .jpeg</p>
+          }
           <input type="file" name="upload" id="upload-img" hidden required />
           <label for="upload-img" id={styles.choose_file}>
             Choose File
@@ -250,15 +262,19 @@ const Upload = ({ handlePopupToggle, popupOn }) => {
           <div className={styles.input_block}>
             <label>Title</label>
             <div className={styles.input_field}>
-              <input type="text" placeholder="Ground Plan" />
+              <input type="text" placeholder="Give some title/name" />
             </div>
           </div>
-          <div className={styles.input_block}>
-            <label>Comments</label>
-            <div className={styles.input_field}>
-              <textarea></textarea>
-            </div>
-          </div>
+            {
+                formType !== "Bill"
+                    ? 
+                        <div className={styles.input_block}>
+                            <label>Comments</label>
+                            <div className={styles.input_field}>
+                                <textarea></textarea>
+                            </div>
+                        </div> : ""
+            }
           <button>Upload</button>
         </div>
       </div>
