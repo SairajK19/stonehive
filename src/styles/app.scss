@@ -57,13 +57,12 @@ body {
 }
 @media screen and (max-width: $sm-screen) {
   .main_panel {
-    height: 100vh;
     margin-bottom: 20px;
     margin-left: 0;
   }
   .main_panel_components {
     overflow-x: auto;
-    overflow-y: auto;
+    overflow-y: hidden;
     margin-bottom: calc(#{$sidebar-height-sm} - 10px);
   }
 }

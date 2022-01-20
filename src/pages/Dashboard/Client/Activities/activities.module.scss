@@ -84,7 +84,7 @@
 
 @media screen and(max-width:$sm-screen) {
   .container {
-    height: fit-content;
+    height:100%;
     display: block;
     overflow: auto;
     // height: 100%;
