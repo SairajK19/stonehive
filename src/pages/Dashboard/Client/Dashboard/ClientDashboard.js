@@ -35,7 +35,7 @@ export default function ClientDashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
-      setSidebarItems({ active: "dashboard", items: clientSidebarItems })
+      setSidebarItems({ active: "Dashboard", items: clientSidebarItems })
     );
     dispatch(setTopBarVisibility({ visibility: true }));
   });

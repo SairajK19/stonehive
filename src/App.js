@@ -91,7 +91,6 @@ function App() {
                 element={<ProjectCreated />}
               />
               {/* Client Dahsboard */}
-              <Route path="/client" element={<ClientDashboard />} />
               <Route path="/client/dashboard" element={<ClientDashboard />} />
               <Route
                 path="/client/actvities"
