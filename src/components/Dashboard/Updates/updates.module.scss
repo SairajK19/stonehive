@@ -6,17 +6,22 @@
   height: 100%;
 
   .updates_list_container {
+    display: flex;
+    flex-direction: column;
     height: 0;
     flex: 2;
-    overflow: auto;
+    // overflow: auto;
     .update_filter {
-      margin-top: 10px;
+      margin: 10px 0;
       @include FlexCenter();
       justify-content: flex-end;
     }
   }
+  .updates_section_grid_container {
+    flex: 2;
+    overflow-y: auto;
+  }
   .updates_section_grid {
-    // overflow-y: auto;
     height: fit-content;
     margin-top: 15px;
     display: grid;
