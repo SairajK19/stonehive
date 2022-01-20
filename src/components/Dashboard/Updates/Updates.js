@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import styles from "./updates.module.scss";
 import { Icon } from "@iconify/react";
+import { UpdatesFilter } from "../UpdatesOverviewPanel/UpdatesOverviewPanel";
 export default function Updates() {
   const colors = ["#7DC2AD61", "#FF88364F", "#FECB4959"];
   return (
     <div className={styles.container}>
-      <button className={styles.filter}>
-        <Icon icon="icon-park:loading-one" height="15" color="#296DF1" />
-        <p>This Month</p>
-        <Icon icon="akar-icons:arrow-up-down" height="10" />
-      </button>
       <div className={styles.updates_list_container}>
+        <div className={styles.update_filter}>
+          <UpdatesFilter />
+        </div>{" "}
         <div className={styles.updates_section_grid}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => {
             return (
@@ -24,6 +23,7 @@ export default function Updates() {
     </div>
   );
 }
+
 function UpdateCard({ color }) {
   const [cardToggle, setCardToggle] = useState(false);
   return (
