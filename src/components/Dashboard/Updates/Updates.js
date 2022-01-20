@@ -9,15 +9,17 @@ export default function Updates() {
       <div className={styles.updates_list_container}>
         <div className={styles.update_filter}>
           <UpdatesFilter />
-        </div>{" "}
-        <div className={styles.updates_section_grid}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => {
-            return (
-              <UpdateCard
-                color={colors[Math.floor(Math.random() * colors.length)]}
-              />
-            );
-          })}
+        </div>
+        <div className={styles.updates_section_grid_container}>
+          <div className={styles.updates_section_grid}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => {
+              return (
+                <UpdateCard
+                  color={colors[Math.floor(Math.random() * colors.length)]}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
