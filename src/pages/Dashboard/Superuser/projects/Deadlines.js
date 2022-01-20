@@ -90,8 +90,7 @@ export default function Deadlines() {
             }}  
             >
             {[
-              1, 2, 321, 32, 1432, 4, 324, 3, 24, 32, 4, 32, 432, 432, 4, 324,
-              32, 4,
+              1,2,3,4
             ].map(() => (
               <div className={styles.deadlined_project}>
                 <h3>Project 1</h3>
