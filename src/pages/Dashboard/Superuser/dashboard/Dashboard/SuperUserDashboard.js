@@ -50,11 +50,13 @@ export default function SuperUserDashboard() {
                 <Popup
                     Component={AddActivityForm}
                     handlePopupToggle={handlePopupToggle}
+                    popupOn={popupOn}
                 />
             ) : (
                 <Popup
                     Component={EditActivityForm}
                     handlePopupToggle={handlePopupToggle}
+                    popupOn={popupOn}
                 />
             )}
             {/* Project Overview */}
@@ -304,21 +306,25 @@ export default function SuperUserDashboard() {
                             ))}
                         </table>
                     </div>
-                </div> : <InfoUpdateForm />
+                </div> : <InfoUpdateForm popupOn={popupOn} />
                 }
             </div>
         </div>
     );
 }
 
-const AddActivityForm = ({ handlePopupToggle }) => {
+const AddActivityForm = ({ handlePopupToggle, popupOn }) => {
     const [options, _setOptions] = useState([
         { value: "Ongoing", label: "Ongoing" },
         { value: "Completed", label: "Completed" },
     ]);
 
     return (
-        <div className={styles.form_container}>
+        <div className={
+            popupOn
+                ? `${styles.form_container} ${styles.popup_animation}`
+                : `${styles.form_container}`
+            }>
             <div className={styles.title}>
                 <h2>Add Activity</h2>
                 <span className={styles.close} onClick={() => handlePopupToggle("Add")}>
@@ -374,14 +380,18 @@ const AddActivityForm = ({ handlePopupToggle }) => {
     );
 };
 
-const EditActivityForm = ({ handlePopupToggle }) => {
+const EditActivityForm = ({ handlePopupToggle, popupOn }) => {
     const [options, _setOptions] = useState([
         { value: "Ongoing", label: "Ongoing" },
         { value: "Completed", label: "Completed" },
     ]);
 
     return (
-        <div className={styles.form_container}>
+        <div className={
+            popupOn
+                ? `${styles.form_container} ${styles.popup_animation}`
+                : `${styles.form_container}`
+            }>
             <div className={styles.title}>
                 <h2>Edit Activity</h2>
                 <span
@@ -440,7 +450,7 @@ const EditActivityForm = ({ handlePopupToggle }) => {
     );
 };
 
-const InfoUpdateForm = () => {
+const InfoUpdateForm = ({ popupOn }) => {
     return (
         <div className={styles.info_update_form}>
             <form>

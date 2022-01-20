@@ -245,7 +245,20 @@
       }
     }
   }
-    
+
+  @keyframes PopUpAnimate {
+      0% {
+          transform: scale(1.2);
+      }
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  .popup_animation {
+      animation: PopUpAnimate 0.2s;;
+  }
+  
   .info_update_form {
     max-width: 600px;
     form {

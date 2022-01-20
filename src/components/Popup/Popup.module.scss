@@ -20,6 +20,19 @@
   }
 }
 
+.popup_animation {
+    animation: PopUpAnimate 0.2s;;
+}
+
+@keyframes PopUpAnimate {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media screen and (max-width: $lg-screen) {
     .popup {
         left: $sidebar-sm-laptop;

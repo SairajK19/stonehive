@@ -87,12 +87,14 @@ export default function SuperUserArchitect() {
           Component={PlanView}
           handlePopupToggle={handlePopupToggle}
           popupName={"PlanView"}
+          popupOn={popupOn}
         />
       ) : currentPopup === "Upload" ? (
         <Popup
           Component={Upload}
           handlePopupToggle={handlePopupToggle}
           popupName={"Upload"}
+          popupOn={popupOn}
         />
       ) : (
         ""
@@ -179,9 +181,13 @@ const Plan = ({ planNumber, handleThreeDotMenu, handlePopupToggle }) => {
   );
 };
 
-const PlanView = ({ handlePopupToggle }) => {
+const PlanView = ({ handlePopupToggle, popupOn }) => {
   return (
-    <div className={styles.popup_container}>
+    <div className={
+        popupOn
+            ? `${styles.popup_container} ${styles.popup_animation}`
+            : `${styles.popup_container}`
+        }>
       <div className={styles.title}>
         <h2>Ground Floor Plan</h2>
         <span
@@ -214,9 +220,13 @@ const PlanView = ({ handlePopupToggle }) => {
   );
 };
 
-const Upload = ({ handlePopupToggle }) => {
+const Upload = ({ handlePopupToggle, popupOn }) => {
   return (
-    <div className={styles.popup_container}>
+    <div className={
+        popupOn
+            ? `${styles.popup_container} ${styles.popup_animation}`
+            : `${styles.popup_container}`
+        }>
       <div className={styles.title}>
         <h2>Upload Plan</h2>
         <span

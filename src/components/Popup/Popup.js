@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Popup.module.scss";
 
-export default function Popup({ Component, handlePopupToggle, popupName }) {
+export default function Popup({ Component, handlePopupToggle, popupName, popupOn }) {
   return (
     <span className={styles.popup} id="popup">
       <span
@@ -9,7 +9,7 @@ export default function Popup({ Component, handlePopupToggle, popupName }) {
         onClick={() => handlePopupToggle(popupName)}
       ></span>
 
-      <Component handlePopupToggle={handlePopupToggle} />
+        <Component handlePopupToggle={handlePopupToggle} popupOn={popupOn}/>
     </span>
   );
 }
