@@ -369,14 +369,15 @@
       form {
         grid-template-columns: 1fr !important;
 
+        }
+      }
         .activity_table {
+            margin-bottom: $sidebar-height-sm;
           table {
             td {
               border: none;
             }
           }
-        }
-      }
     }
 
     .project_overview {
