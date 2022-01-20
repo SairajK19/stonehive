@@ -122,7 +122,7 @@ export default function Topbar() {
 
 const ProfileDropDown = ({ showOverlay, handleDropdownClick }) => {
   return (
-    <div className={styles.dropdown} id={styles.dropdown}>
+    <div className={`${styles.dropdown} ${styles.dropdown_setting}`} id={styles.dropdown}>
       <div className={styles.name}>
         <p>Signed in as</p>
         <p>Sairaj Kapdi</p>

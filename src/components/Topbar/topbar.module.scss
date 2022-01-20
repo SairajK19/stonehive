@@ -93,6 +93,10 @@
                 opacity: 1;
             }
 
+            .dropdown_setting {
+                right: 5px !important;
+            }
+
             .dropdown {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -100,7 +104,9 @@
                 background-color: white;
                 margin-top: 10px;
                 position: absolute;
-                right: 5px;
+                right: -60px;
+                top: 30px;
+                margin-left: 40px;
                 width: 200px;
                 height: fit-content;
                 z-index: 4100;
