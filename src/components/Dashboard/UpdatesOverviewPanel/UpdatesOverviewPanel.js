@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./updates_overview_panel.module.scss";
 export default function UpdatesOverviewPanel() {
@@ -53,12 +53,25 @@ export function UpdatesFilter() {
   const [dropdowntoggle, setDropdowntoggle] = useState(false);
   const filterList = ["This Month", "This Week", "This Year", "All Time"];
   const [currentFilter, setCurrentFilter] = useState(filterList[0]);
+  const FilterRef = useRef(null);
   function handleFilter(e) {
     setDropdowntoggle(!dropdowntoggle);
     e.stopPropagation();
   }
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (FilterRef.current && !FilterRef.current.contains(event.target)) {
+        setDropdowntoggle(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [FilterRef]);
+
   return (
-    <span className={styles.filter} onClick={handleFilter}>
+    <span className={styles.filter} onClick={handleFilter} ref={FilterRef}>
       <button className={styles.current_filter}>
         <p>{currentFilter}</p>
         <Icon icon="akar-icons:arrow-up-down" height="10" />
@@ -71,7 +84,11 @@ export function UpdatesFilter() {
         <ul>
           {filterList.map((filter) => {
             return (
-              <li onClick={() => {setCurrentFilter(filter)}}>
+              <li
+                onClick={() => {
+                  setCurrentFilter(filter);
+                }}
+              >
                 <p
                   style={
                     currentFilter === filter
