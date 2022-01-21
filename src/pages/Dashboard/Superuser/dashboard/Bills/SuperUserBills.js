@@ -1,5 +1,5 @@
 /** Library imports **/
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 
@@ -15,9 +15,9 @@ import testBill from "../../../../../assets/testBill.pdf";
 export default function SuperUserBills() {
   const dispatch = useDispatch();
   const [showFilter, setShowFilter] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
   const [filter, setFilter] = useState("All Bills");
   const [bills, setBills] = useState([]);
+  const billFilterRef = useRef(null);
   useEffect(() => {
     dispatch(
       setSidebarItems({ active: "Bills", items: superuserSidebarItems })
@@ -26,6 +26,15 @@ export default function SuperUserBills() {
   }, []);
 
   useEffect(() => {
+
+      const handleClickOutisde = (event) => {
+        if (billFilterRef.current && !billFilterRef.current.contains(event.target)) {
+            setShowFilter(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutisde);
+
     /* 
      * Code from line 39 to 54 is temperory,
      * since we don't get the file as a blob
@@ -71,34 +80,16 @@ export default function SuperUserBills() {
      */
   },[])
 
-  const handleOverlayClick = () => {
-    setShowFilter(!showFilter);
-    setShowOverlay(!showOverlay);
-  };
-
   const handleDropdownClick = () => {
     setShowFilter(!showFilter);
-    setShowOverlay(!showOverlay);
   };
 
   return (
     <div className={styles.container}>
-        {/** 
-            This is created so that once a user clicks on a pop-up 
-             if the user clicks anywhere else the popup will be closed.
-        **/}
-      {showOverlay ? (
-        <span
-          className={styles.container_overlay}
-          onClick={handleOverlayClick}
-        ></span>
-      ) : (
-        ""
-      )}
       <div className={styles.title}>
         <h1>All Bills</h1>
 
-        <div className={styles.filter_wrapper}>
+        <div className={styles.filter_wrapper} ref={billFilterRef}>
           <div className={styles.current_filter} onClick={handleDropdownClick}>
             <Icon icon="ls:dropdown" />
             <p>{filter}</p>

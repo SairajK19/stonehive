@@ -6,12 +6,14 @@
   // height: calc(100vh - #{$topbar-height});
   display: flex;
 
+  /*
   .overlay {
     position: absolute;
     width: calc(100% - 300px);
     height: calc(100% - 20px);
     cursor: pointer;
   }
+  */
 
   .list {
     display: grid;

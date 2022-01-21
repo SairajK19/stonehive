@@ -1,5 +1,5 @@
 /** Library imports **/
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
@@ -32,7 +32,7 @@ export default function Projects() {
   ]);
   const [filterDropdown, setDropdown] = useState(false);
   const [filter, setFilter] = useState("Ongoing");
-  const [overlay, setOverlay] = useState(false);
+  const moreMenuRef = useRef(null);
   const [currentMenu3Dot, setCurrentMenu3Dot] = useState("");
   const [deadline, setDeadlineFilter] = useState("Approaching Deadlines");
   const [sidebar, setSidebar] = useState({
@@ -80,6 +80,18 @@ export default function Projects() {
         })
       );
     });
+
+    const handleClickOutside = (event) => {
+        if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
+            const dropdowns = document.getElementsByName("dropdown");
+
+            Array.from(dropdowns).map(dropdown => {
+                dropdown.style.display = "none";
+            })
+        }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Three dot menu handler
@@ -97,13 +109,10 @@ export default function Projects() {
       setCurrentMenu3Dot(id);
       if (menu.style.display === "") {
         menu.style.display = "grid";
-        setOverlay(true);
       } else if (menu.style.display === "grid") {
         menu.style.display = "none";
-        setOverlay(false);
       } else if (menu.style.display === "none") {
         menu.style.display = "grid";
-        setOverlay(true);
       }
     }
   };
@@ -129,18 +138,6 @@ export default function Projects() {
 
   return (
     <div className={styles.container}>
-        {/** 
-            This is created so that once a user clicks on a pop-up 
-             if the user clicks anywhere else the popup will be closed.
-        **/}
-      {overlay ? (
-        <span
-          className={styles.overlay}
-          onClick={() => handleThreeDotMenu(currentMenu3Dot)}
-        ></span>
-      ) : (
-        ""
-      )}
       {/* Project list */}
       <div className={styles.list}>
         {/* Project list search panel */}
@@ -326,7 +323,7 @@ export default function Projects() {
               project={project}
               projectNumber={projectNumber}
               handleThreeDotMenu={handleThreeDotMenu}
-              // handleInfoButton={handleInfoButton}
+              moreMenuRef={moreMenuRef}
             />
           ))}
         </div>
@@ -402,6 +399,7 @@ const Project = ({
   project,
   projectNumber,
   handleThreeDotMenu,
+  moreMenuRef
 }) => {
   const [moreInfoOn, setMoreInfo] = useState(false);
 
@@ -489,6 +487,8 @@ const Project = ({
           className={styles.floating_button_menu}
           id={projectNumber}
           name="three-dot-menu"
+          name="dropdown"
+          ref={moreMenuRef}
         >
           <button onClick={() => alert("edit")}>Edit</button>
           <button>Delete</button>

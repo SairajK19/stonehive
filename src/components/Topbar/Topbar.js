@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./topbar.module.scss";
 import { Icon } from "@iconify/react";
 import ProfileImg from "../../assets/images/profile.png";
@@ -8,7 +8,30 @@ export default function Topbar() {
   const active_item = useSelector(
     (state) => state.stonehive.sidebarItems.active
   );
-  const [showOverlay, setShowOverlay] = useState(false);
+
+  const notificationRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+        if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+            const notifiCheckbox = document.getElementsByName(
+                "notifi_dropdown_checkbox"
+            )[0];
+            const profileCheckbox = document.getElementsByName("dropdown_checkbox")[0];
+            const icon = document.getElementById("icon");
+
+            if (profileCheckbox.checked) {
+                icon.style.transform === "rotate(0deg)"
+                    ? (icon.style.transform = "rotate(180deg)")
+                    : (icon.style.transform = "rotate(0deg)");
+                profileCheckbox.checked = false;
+            }
+
+            notifiCheckbox.checked = false;
+        }
+    }
+      document.addEventListener("mousedown", handleClickOutside);
+  },[])
 
   const handleDropdownClick = (component) => {
     const icon = document.getElementById("icon");
@@ -22,7 +45,6 @@ export default function Topbar() {
       : (icon.style.transform = "rotate(0deg)");
 
     notifiCheckbox.checked = false;
-    setShowOverlay(true);
   };
 
   const handleNotifiDropdownCLick = (component) => {
@@ -30,39 +52,10 @@ export default function Topbar() {
     const profileCheckbox = document.getElementsByName("dropdown_checkbox")[0];
 
     profileCheckbox.checked = false;
-    setShowOverlay(true);
   };
 
-  const handleOverlayClick = (component) => {
-    const profileCheckbox = document.getElementsByName("dropdown_checkbox")[0];
-    const notifCheckbox = document.getElementsByName(
-      "notifi_dropdown_checkbox"
-    )[0];
-
-    if (profileCheckbox.checked === true) {
-      const icon = document.getElementById("icon");
-
-      icon.style.transform === "rotate(0deg)"
-        ? (icon.style.transform = "rotate(180deg)")
-        : (icon.style.transform = "rotate(0deg)");
-
-      profileCheckbox.checked = false;
-    } else {
-      notifCheckbox.checked = false;
-    }
-
-    setShowOverlay(false);
-  };
   return (
     <div className={`${styles.container} responsive_font`}>
-      {showOverlay ? (
-        <span
-          className={styles.container_overlay}
-          onClick={handleOverlayClick}
-        ></span>
-      ) : (
-        ""
-      )}
       <div className={styles.headings}>
         <div className={styles.headings_col}>
           <h2>{active_item}</h2>
@@ -89,7 +82,7 @@ export default function Topbar() {
           >
             <Icon icon="ic:baseline-circle-notifications" width="30px" />
           </div>
-          <NotificationDropDown />
+          <NotificationDropDown notificationRef={notificationRef}  />
         </div>
         <div className={styles.seperator}></div>
         <div className={styles.profile}>
@@ -111,7 +104,6 @@ export default function Topbar() {
             />
           </div>
           <ProfileDropDown
-            showOverlay={showOverlay}
             handleDropdownClick={handleDropdownClick}
           />
         </div>
@@ -120,7 +112,7 @@ export default function Topbar() {
   );
 }
 
-const ProfileDropDown = ({ showOverlay, handleDropdownClick }) => {
+const ProfileDropDown = ({ handleDropdownClick }) => {
   return (
     <div className={`${styles.dropdown} ${styles.dropdown_setting}`} id={styles.dropdown}>
       <div className={styles.name}>
@@ -141,11 +133,12 @@ const ProfileDropDown = ({ showOverlay, handleDropdownClick }) => {
   );
 };
 
-const NotificationDropDown = () => {
+const NotificationDropDown = ({notificationRef}) => {
   return (
     <div
       className={styles.dropdown}
       style={{ width: "300px", maxHeight: "500px" }}
+      ref={notificationRef}
     >
       <div className={styles.heading}>
         <p>Notifications</p>

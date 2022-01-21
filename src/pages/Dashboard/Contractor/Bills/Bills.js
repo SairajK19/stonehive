@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./bills.module.scss";
 import { useDispatch } from "react-redux";
 import { contractorSidebarItems } from "../../../../components/Sidebar/sidebarItems";
@@ -38,12 +38,21 @@ function NoBills() {
 }
 function BillMain() {
   const [bills, setBills] = useState([]);
-  const [showOverlay, setShowOverlay] = useState(false);
   const [filter, setFilter] = useState("All Bills");
   const [showFilter, setShowFilter] = useState(false);
   const [popupOn, setPopupOn] = useState(false);
+  const filterDropdownRef = useRef(null);
 
   useEffect(() => {
+
+     const handleClickOutside = (event) => {
+        if (filterDropdownRef.current && !filterDropdownRef.current.contains(event.target)) {
+            setShowFilter(false);
+        }
+     }
+
+     document.addEventListener("mousedown", handleClickOutside);
+
     /*
      * Code from line 39 to 54 is temperory,
      * since we don't get the file as a blob
@@ -89,14 +98,8 @@ function BillMain() {
      */
   }, []);
 
-  const handleOverlayClick = () => {
-    setShowFilter(!showFilter);
-    setShowOverlay(!showOverlay);
-  };
-
   const handleDropdownClick = () => {
     setShowFilter(!showFilter);
-    setShowOverlay(!showOverlay);
   };
 
   const handlePopupToggle = () => {
@@ -115,28 +118,6 @@ function BillMain() {
 
   return (
     <div className={styles.bills_main}>
-        {/** 
-            This is created so that once a user clicks on a dropdown and 
-             if the user clicks anywhere else the dropdown will be closed.
-          **/}
-        {showOverlay ? (
-            <span
-                className={styles.container_overlay}
-                onClick={handleOverlayClick}
-            ></span>
-        ) : (
-            ""
-        )}
-        {/*
-        {
-            popupOn ? 
-                <Popup
-                    Component={Upload}
-                    handlePopupToggle={handlePopupToggle}
-                    popupName={"PlanView"}
-                    popupOn={popupOn}
-                /> : ""
-        }*/}
         <Popup
             Component={Upload}
             handlePopupToggle={handlePopupToggle}
@@ -165,7 +146,7 @@ function BillMain() {
       <div className={styles.bills}>
         <div className={styles.bills_head}>
         <p id={styles.head}>All Bills</p>
-          <div className={styles.filter_wrapper}>
+          <div className={styles.filter_wrapper} ref={filterDropdownRef}  >
               <div className={styles.current_filter} onClick={handleDropdownClick}>
                   <Icon icon="ls:dropdown" />
                   <p>{filter}</p>

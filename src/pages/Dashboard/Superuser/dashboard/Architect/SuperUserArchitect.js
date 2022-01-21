@@ -12,6 +12,7 @@ import Popup from "../../../../../components/Popup/Popup";
 /** Styles and Assets  **/
 import styles from "./styles/SuperUserArchitect.module.scss";
 import plan from "../../../../../assets/images/plan.png";
+import {useRef} from "react";
 
 export default function SuperUserArchitect() {
   // State variables
@@ -19,17 +20,29 @@ export default function SuperUserArchitect() {
     { item_name: "All", style: "all", checked: true },
     { item_name: "Archived", style: "archived", checked: false },
   ]);
-  const [overlay, setOverlay] = useState(false);
-  const [currentThreeDotMenu, setCurrentThreeDotMenu] = useState(false);
+  const [currentThreeDotMenu, setCurrentThreeDotMenu] = useState("sairaj");
   const [currentPopup, setCurrentPopup] = useState("PlanView");
   const [popupOn, setPopup] = useState(false);
   const dispatch = useDispatch();
+  const menuDropdownRef = useRef(null);
 
   useEffect(() => {
     dispatch(
       setSidebarItems({ active: "Architect", items: superuserSidebarItems })
     );
     dispatch(setTopBarVisibility({ visibility: true }))
+
+    const handleClickOutside = (event) => {
+        if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target)) {
+            const dropdowns = document.getElementsByName("dropdown");
+
+            Array.from(dropdowns).map(dropdown => {
+                dropdown.style.display = "none";
+            })
+        }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleThreeDotMenu = (id) => {
@@ -46,13 +59,10 @@ export default function SuperUserArchitect() {
       setCurrentThreeDotMenu(id);
       if (menu.style.display === "") {
         menu.style.display = "grid";
-        setOverlay(true);
       } else if (menu.style.display === "grid") {
         menu.style.display = "none";
-        setOverlay(false);
       } else if (menu.style.display === "none") {
         menu.style.display = "grid";
-        setOverlay(true);
       }
     }
   };
@@ -73,15 +83,6 @@ export default function SuperUserArchitect() {
 
   return (
     <div className={styles.container}>
-      {overlay ? (
-        <span
-          className={styles.overlay}
-          onClick={() => handleThreeDotMenu(currentThreeDotMenu)}
-        ></span>
-      ) : (
-        ""
-      )}
-
       {currentPopup === "PlanView" ? (
         <Popup
           Component={PlanView}
@@ -143,6 +144,7 @@ export default function SuperUserArchitect() {
               planNumber={index}
               handleThreeDotMenu={handleThreeDotMenu}
               handlePopupToggle={handlePopupToggle}
+              menuDropdownRef={menuDropdownRef}
             />
           ))}
         </div>
@@ -151,7 +153,7 @@ export default function SuperUserArchitect() {
   );
 }
 
-const Plan = ({ planNumber, handleThreeDotMenu, handlePopupToggle }) => {
+const Plan = ({ planNumber, handleThreeDotMenu, handlePopupToggle, menuDropdownRef }) => {
   return (
     <div className={styles.plan}>
       <div
@@ -165,12 +167,13 @@ const Plan = ({ planNumber, handleThreeDotMenu, handlePopupToggle }) => {
         <div
           className={styles.more}
           onClick={() => handleThreeDotMenu(`${planNumber}dropdown`)}
+          ref={menuDropdownRef}
         >
           <Icon
             icon="akar-icons:more-horizontal"
             style={{ fontSize: "25px" }}
           />
-          <div className={styles.dropdown} id={`${planNumber}dropdown`}>
+          <div className={styles.dropdown} id={`${planNumber}dropdown`} name="dropdown"  >
             <p onClick={() => alert("deleted")}>Delete</p>
             <p onClick={() => alert("Archived")}>Archive</p>
           </div>

@@ -11,6 +11,7 @@
     // padding: 0px 20px;
     z-index: 1000;
 
+    /*
     .container_overlay {
         height: 95%;
         width: 96%;
@@ -18,6 +19,7 @@
         cursor: pointer;
         z-index: -1;
     }
+    */
 
     .headings {
         @include FlexCenter();
