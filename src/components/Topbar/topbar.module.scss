@@ -9,7 +9,7 @@
     background-color: $primary-bg-color;
     margin-bottom: 10px;
     // padding: 0px 20px;
-    z-index: 1000;
+    z-index: 80;
 
     /*
     .container_overlay {
@@ -111,7 +111,7 @@
                 margin-left: 40px;
                 width: 200px;
                 height: fit-content;
-                z-index: 4100;
+                z-index: 70;
                 border-radius: $input-tag-border-radius;
                 padding: 10px 0px;
                 font-size: 1rem;
